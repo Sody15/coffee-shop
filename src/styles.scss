@@ -1,1 +1,24 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'scss/breakpoints';
+@import 'scss/vars';
+
+@font-face {
+  font-family: 'Inter';
+  src: url('assets/fonts/Inter.woff2');
+  font-weight: 400;
+  font-style: regular;
+  font-display: swap;
+}
+
+body {
+  font-family: $font-family;
+  font-size: 16px;
+  line-height: 1.5rem;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  @include respond-to('md') {
+  }
+}
+
+.btn {
+}
