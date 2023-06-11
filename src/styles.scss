@@ -1,5 +1,5 @@
-@use 'breakpoints' as bps;
 @use 'variables' as vars;
+@use 'mixins' as mixins;
 
 @font-face {
   font-family: 'Inter';
@@ -21,8 +21,6 @@ body {
   font-weight: 400;
   margin: 0;
   padding: 0;
-  // @include bps.respond-to('md') {
-  // }
 }
 
 h1 {

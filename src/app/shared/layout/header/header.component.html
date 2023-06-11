@@ -1,14 +1,16 @@
-<header class="header">
-  <span>Logo</span>
-  <nav>
-    <ul class="header__list">
-      <li routerLink="/">who we are?</li>
-      <li>cafes</li>
-      <li routerLink="shop">shop</li>
-      <li>coffee catering</li>
-      <li>contact</li>
-      <li>cart</li>
-      <li>account</li>
-    </ul>
-  </nav>
+<header class="header" [ngClass]="{ 'header--not-transparent': !isTransparent }">
+  <div class="header__wrapper">
+    <span>Logo</span>
+    <nav>
+      <ul class="header__list">
+        <li routerLink="/">who we are?</li>
+        <li>cafes</li>
+        <li routerLink="shop">shop</li>
+        <li>coffee catering</li>
+        <li>contact</li>
+        <li>cart</li>
+        <li>account</li>
+      </ul>
+    </nav>
+  </div>
 </header>

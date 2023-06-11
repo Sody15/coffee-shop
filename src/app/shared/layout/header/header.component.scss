@@ -1,18 +1,28 @@
 .header {
+  transition: color, background-color, cubic-bezier(0.4, 0, 0.2, 1) 300ms;
+  position: relative;
+  background-color: transparent;
   width: 100%;
   z-index: 50;
   position: fixed;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 80rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
   font-weight: 600;
   color: white;
   font-size: 1.2rem;
-  left: 50%;
-  transform: translateX(-50%);
+  &__wrapper {
+    position: relative;
+    padding: 2.4rem 0;
+    max-width: 80rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  &--not-transparent {
+    background-color: white;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    color: black;
+  }
   &__list {
     display: flex;
     list-style: none;
