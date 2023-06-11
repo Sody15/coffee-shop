@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'coff-shop',
+  selector: 'cof-shop',
   templateUrl: './shop.component.html',
   styleUrls: ['./shop.component.scss'],
 })

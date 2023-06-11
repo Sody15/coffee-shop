@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'coff-button',
+  selector: 'cof-button',
   templateUrl: './button.component.html',
   styleUrls: ['./button.component.scss'],
 })
