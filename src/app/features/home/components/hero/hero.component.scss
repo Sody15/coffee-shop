@@ -1,8 +1,10 @@
 .hero {
+  position: relative;
   img {
     width: 100%;
     height: 100vh;
     object-fit: cover;
+    z-index: -10;
   }
   &__overlay {
     position: absolute;
@@ -11,7 +13,6 @@
     width: 100%;
     height: 100%;
     background-color: black;
-    z-index: 30;
     opacity: 50%;
   }
   &__inner-content {
@@ -20,8 +21,22 @@
     left: 50%;
     transform: translate(-50%, -50%);
     margin: auto;
-    z-index: 50;
     display: flex;
     gap: 1rem;
+  }
+  &__bottom-content {
+    color: white;
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.25rem;
+    gap: 0.5rem;
+    ng-icon {
+      font-size: 2rem;
+    }
   }
 }

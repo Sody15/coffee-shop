@@ -1,0 +1,36 @@
+@use 'variables' as vars;
+
+.two-col {
+  &--img-right .two-col__img {
+    order: 2;
+  }
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  &__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  &__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 5rem 7rem;
+    &__sub-header {
+      text-transform: uppercase;
+      color: vars.$secondary-color;
+    }
+    &__header {
+      text-transform: uppercase;
+    }
+    &__seperator {
+      width: 2rem;
+      height: 0.4rem;
+      background-color: vars.$secondary-color;
+      margin: 1rem 0;
+    }
+    &__main {
+      color: #94a3b8;
+    }
+  }
+}

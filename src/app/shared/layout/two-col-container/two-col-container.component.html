@@ -1,0 +1,16 @@
+<div class="two-col" [ngClass]="{ 'two-col--img-right': imgPosition === 'right' }">
+  <div class="two-col__img">
+    <img src="{{ imgSrc }}" />
+  </div>
+  <div class="two-col__text">
+    <div class="two-col__text__header">
+      <h3 class="two-col__text__sub-header">{{ subHeader }}</h3>
+      <h2 class="two-col__text__main-header">{{ header }}</h2>
+      <div class="two-col__text__seperator"></div>
+    </div>
+    <div class="two-col__text__main">
+      <ng-content></ng-content>
+    </div>
+    <cof-button type="secondary">{{ btnText }}</cof-button>
+  </div>
+</div>

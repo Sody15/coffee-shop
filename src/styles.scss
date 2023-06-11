@@ -1,5 +1,5 @@
-@import 'scss/breakpoints';
-@import 'scss/vars';
+@use 'breakpoints' as bps;
+@use 'variables' as vars;
 
 @font-face {
   font-family: 'Inter';
@@ -9,13 +9,38 @@
   font-display: swap;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
-  font-family: $font-family;
+  font-family: vars.$font-family;
   font-size: 16px;
   line-height: 1.5rem;
   font-weight: 400;
   margin: 0;
   padding: 0;
-  @include respond-to('md') {
-  }
+  // @include bps.respond-to('md') {
+  // }
+}
+
+h1 {
+  padding: 0.6rem 0 0.6rem 0;
+  font-size: 3rem;
+}
+
+h2 {
+  padding: 0.6rem 0 0.6rem 0;
+  font-size: 2rem;
+}
+
+h3 {
+  padding: 0.3rem 0 0.3rem 0;
+  font-size: 1rem;
+}
+
+p {
+  padding: 0.3rem 0 0.3rem 0;
+  font-size: 1rem;
 }
