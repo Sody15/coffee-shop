@@ -1,6 +1,6 @@
 <div class="two-col" [ngClass]="{ 'two-col--img-right': imgPosition === 'right' }">
   <div class="two-col__img">
-    <img src="{{ imgSrc }}" />
+    <img [src]="imgSrc" />
   </div>
   <div class="two-col__text">
     <div class="two-col__text__header">
