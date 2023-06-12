@@ -1,1 +1,6 @@
-<p>shop works!</p>
+<section class="shop">
+  <cof-header-seperator></cof-header-seperator>
+  <div class="products">
+    <cof-coffee-bag *ngFor="let product of products" [product]="product"></cof-coffee-bag>
+  </div>
+</section>
