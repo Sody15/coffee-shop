@@ -6,12 +6,12 @@ import { RouterModule } from '@angular/router';
 import { ButtonComponent } from './components/button/button.component';
 
 import { NgIconsModule } from '@ng-icons/core';
-import { heroArrowRight } from '@ng-icons/heroicons/outline';
+import { heroArrowRight, heroBars3 } from '@ng-icons/heroicons/outline';
 import { TwoColContainerComponent } from './layout/two-col-container/two-col-container.component';
 
 @NgModule({
   declarations: [FooterComponent, HeaderComponent, ButtonComponent, TwoColContainerComponent],
-  imports: [CommonModule, RouterModule, NgOptimizedImage, NgIconsModule.withIcons({ heroArrowRight })],
+  imports: [CommonModule, RouterModule, NgOptimizedImage, NgIconsModule.withIcons({ heroArrowRight, heroBars3 })],
   exports: [FooterComponent, HeaderComponent, ButtonComponent, TwoColContainerComponent],
 })
 export class SharedModule {}

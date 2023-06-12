@@ -7,10 +7,15 @@ import { Component, HostListener } from '@angular/core';
 })
 export class HeaderComponent {
   isTransparent = true;
+  isMenuOpen = false;
 
   @HostListener('window:scroll', ['$event'])
   onWindowScroll() {
     const scrollPosition = window.pageYOffset;
     this.isTransparent = scrollPosition < 100;
+  }
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
   }
 }

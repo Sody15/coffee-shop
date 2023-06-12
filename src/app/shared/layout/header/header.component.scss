@@ -1,3 +1,5 @@
+@use 'mixins' as mixins;
+
 .header {
   transition: color, background-color, cubic-bezier(0.4, 0, 0.2, 1) 300ms;
   position: relative;
@@ -7,10 +9,10 @@
   position: fixed;
   font-weight: 600;
   color: white;
-  font-size: 1.2rem;
+  font-size: 1rem;
   &__wrapper {
     position: relative;
-    padding: 2.4rem 0;
+    padding: 2.4rem 1rem;
     max-width: 80rem;
     display: flex;
     justify-content: space-between;
@@ -23,18 +25,43 @@
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
     color: black;
   }
-  &__list {
-    display: flex;
-    list-style: none;
-    text-transform: uppercase;
-    gap: 1rem;
-    cursor: pointer;
-    li {
-      border-right: 2px solid white;
-      padding-right: 1rem;
-      &:hover {
-        color: yellow;
+  &__menu-btn {
+  }
+  &__menu {
+    &__list {
+      display: flex;
+      list-style: none;
+      text-transform: uppercase;
+      gap: 1rem;
+      cursor: pointer;
+      li {
+        border-right: 2px solid white;
+        padding-right: 1rem;
+        &:hover {
+          color: yellow;
+        }
       }
     }
+    &--mb-open {
+      display: block;
+    }
+    &--mb-closed {
+      display: none;
+    }
+  }
+  @include mixins.respond-to('md') {
+    font-size: 1rem;
+    &__menu-btn {
+      display: none;
+    }
+    &__menu {
+      display: block;
+      &__list {
+        gap: 0.5rem;
+      }
+    }
+  }
+  @include mixins.respond-to('lg') {
+    font-size: 1.2rem;
   }
 }
