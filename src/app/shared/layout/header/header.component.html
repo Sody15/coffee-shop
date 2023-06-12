@@ -1,22 +1,24 @@
 <header class="header" [ngClass]="{ 'header--not-transparent': !isTransparent }">
   <div class="header__wrapper">
-    <span>Logo</span>
-    <button class="header__menu-btn" (click)="toggleMenu()">
-      <ng-icon name="heroBars3"></ng-icon>
-    </button>
-    <nav
-      class="header__menu"
-      [ngClass]="{ 'header__menu--mb-open': isMenuOpen, 'header__menu--mb-closed': !isMenuOpen }"
-    >
-      <ul class="header__menu__list">
-        <li routerLink="/">who we are?</li>
-        <li>cafes</li>
-        <li routerLink="shop">shop</li>
-        <li>coffee catering</li>
-        <li>contact</li>
-        <li>cart</li>
-        <li>account</li>
-      </ul>
-    </nav>
+    <div class="header__wrapper__logo"></div>
+    <div class="header__wrapper__menu">
+      <button class="header__wrapper__menu__btn" (click)="toggleMenu()">
+        <ng-icon name="heroBars3"></ng-icon>
+      </button>
+      <nav
+        class="header__menu"
+        [ngClass]="{ 'header__menu--mb-open': isMenuOpen, 'header__menu--mb-closed': !isMenuOpen }"
+      >
+        <ul class="header__menu__list">
+          <li routerLink="/">who we are?</li>
+          <li>cafes</li>
+          <li routerLink="shop">shop</li>
+          <li>coffee catering</li>
+          <li>contact</li>
+          <li>cart</li>
+          <li>account</li>
+        </ul>
+      </nav>
+    </div>
   </div>
 </header>

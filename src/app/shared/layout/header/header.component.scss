@@ -1,4 +1,5 @@
 @use 'mixins' as mixins;
+@use 'variables' as vars;
 
 .header {
   transition: color, background-color, cubic-bezier(0.4, 0, 0.2, 1) 300ms;
@@ -19,26 +20,53 @@
     align-items: center;
     left: 50%;
     transform: translateX(-50%);
+    border-bottom: 1px solid white;
+    &__logo {
+      background: url('~src/assets/images/brand-white.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      width: 274px;
+      height: 33px;
+    }
+    &__menu {
+      position: relative;
+      &__btn {
+        color: white;
+        font-size: 2rem;
+      }
+    }
   }
   &--not-transparent {
     background-color: white;
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
     color: black;
-  }
-  &__menu-btn {
+    & .header__wrapper__logo {
+      background: url('~src/assets/images/brand-black.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      width: 274px;
+      height: 33px;
+    }
   }
   &__menu {
+    position: fixed;
+    top: 7rem;
+    left: 0;
+    color: black;
+    padding: 5rem 2rem;
+    width: 100%;
+    background-color: white;
     &__list {
       display: flex;
+      flex-direction: column;
       list-style: none;
       text-transform: uppercase;
       gap: 1rem;
       cursor: pointer;
       li {
-        border-right: 2px solid white;
         padding-right: 1rem;
         &:hover {
-          color: yellow;
+          color: vars.$secondary-color;
         }
       }
     }
@@ -51,14 +79,30 @@
   }
   @include mixins.respond-to('md') {
     font-size: 1rem;
-    &__menu-btn {
-      display: none;
+    &__menu {
+      position: initial;
+    }
+    &__wrapper {
+      &__menu {
+        &__btn {
+          display: none;
+        }
+      }
     }
     &__menu {
       display: block;
       &__list {
         gap: 0.5rem;
+        flex-direction: row;
+        li {
+          border-right: 2px solid white;
+        }
       }
+    }
+    &__menu {
+      background-color: transparent;
+      color: white;
+      padding: 0;
     }
   }
   @include mixins.respond-to('lg') {

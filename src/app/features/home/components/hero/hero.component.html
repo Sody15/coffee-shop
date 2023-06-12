@@ -1,13 +1,21 @@
 <div class="hero">
   <div class="hero__overlay"></div>
   <div class="hero-content">
-    <img ngSrc="assets/images/pexels-helena-lopes-887723.jpg" width="1920" height="1280" priority />
-    <div class="hero__inner-content">
-      <cof-button>Discover Boreal</cof-button>
-      <cof-button>Visit our webshop</cof-button>
+    <img
+      class="hero-content__hero-img"
+      ngSrc="assets/images/pexels-helena-lopes-887723.jpg"
+      width="1920"
+      height="1280"
+      priority
+    />
+    <div class="hero-content__inner">
+      <img class="hero-content__inner__logo" ngSrc="assets/images/logo.png" width="480" height="480" priority />
+      <div class="hero-content__inner__buttons">
+        <cof-button>Discover Boreal</cof-button>
+        <cof-button>Visit our webshop</cof-button>
+      </div>
     </div>
-    <div class="hero__bottom-content">
-      <span>Scroll</span>
+    <div class="hero-content__bottom">
       <ng-icon name="heroArrowDownCircle"></ng-icon>
     </div>
   </div>

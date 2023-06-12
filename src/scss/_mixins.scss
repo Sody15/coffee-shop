@@ -5,3 +5,9 @@
     @content;
   }
 }
+
+@mixin respond-to-height($breakpoint) {
+  @media (max-height: map-get(vars.$breakpoints, $breakpoint)) {
+    @content;
+  }
+}
