@@ -39,7 +39,9 @@
   &--not-transparent {
     background-color: white;
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-    color: black;
+    .header__menu {
+      color: black;
+    }
     & .header__wrapper__logo {
       background: url('~src/assets/images/brand-black.svg');
       background-size: contain;
