@@ -1,14 +1,17 @@
-<section class="shop">
+<section class="shop" *ngIf="filter$ | async">
   <cof-header-seperator></cof-header-seperator>
 
   <div class="shop__container">
     <div class="shop__container-header">
       <h3>Our dear coffee loving customer, perhaps you would be</h3>
       <h2>Interested in some of our amazing coffees?</h2>
+      <div class="shop__container-header-filter">
+        <cof-product-filter (onSelect)="onFilterChange($event)"></cof-product-filter>
+      </div>
     </div>
     <div class="shop__container-products">
       <cof-product
-        *ngFor="let product of products"
+        *ngFor="let product of filteredProducts"
         [product]="product"
         (onAdd)="addProductToCart($event)"
       ></cof-product>

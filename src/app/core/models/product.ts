@@ -6,4 +6,4 @@ export interface Product {
   type: ProductType;
 }
 
-export type ProductType = 'bag' | 'card';
+export type ProductType = 'coffee' | 'card';

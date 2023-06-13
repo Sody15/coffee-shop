@@ -5,8 +5,12 @@
   &__container {
     background-color: white;
     &-header {
-      padding: 10rem 1rem;
+      padding: 8rem 1rem;
       text-align: center;
+      &-filter {
+        display: flex;
+        justify-content: center;
+      }
     }
     &-products {
       display: flex;
