@@ -5,13 +5,13 @@
   &__container {
     background-color: white;
     &-header {
-      padding: 5rem 1rem;
+      padding: 10rem 1rem;
       text-align: center;
     }
     &-products {
       display: flex;
       flex-direction: column;
-      gap: 2rem;
+      gap: 4rem;
       padding: 0 2rem 2rem 2rem;
       max-width: 105rem;
       margin: auto;
