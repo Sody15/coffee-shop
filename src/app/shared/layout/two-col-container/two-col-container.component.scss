@@ -2,7 +2,7 @@
 @use 'mixins' as mixins;
 
 .two-col {
-  max-width: vars.$max-section-width;
+  max-width: vars.$max-width--wider;
   margin: auto;
   display: flex;
   flex-direction: column;

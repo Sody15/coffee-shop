@@ -18,7 +18,7 @@
   &__wrapper {
     position: relative;
     padding: 2.4rem 1rem;
-    max-width: 80rem;
+    max-width: vars.$max-width--wide;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -78,8 +78,8 @@
       flex-direction: column;
       list-style: none;
       text-transform: uppercase;
-      gap: 1rem;
       cursor: pointer;
+      font-size: 1rem;
       li {
         padding-right: 0.8rem;
         &:hover {
@@ -94,7 +94,7 @@
       display: none;
     }
   }
-  @include mixins.respond-to('md') {
+  @include mixins.respond-to('lg') {
     &--not-transparent {
       .header__menu__list {
         li:not(:last-child) {
