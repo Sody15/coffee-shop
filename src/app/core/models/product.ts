@@ -3,4 +3,7 @@ export interface Product {
   name: string;
   price: number;
   imgSrc: string;
+  type: ProductType;
 }
+
+export type ProductType = 'bag' | 'card';

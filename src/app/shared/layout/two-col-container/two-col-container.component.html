@@ -3,14 +3,14 @@
     <img [src]="imgSrc" />
   </div>
   <div class="two-col__text">
-    <div class="two-col__text__header">
-      <h3 class="two-col__text__sub-header">{{ subHeader }}</h3>
-      <h2 class="two-col__text__main-header">{{ header }}</h2>
-      <div class="two-col__text__seperator"></div>
+    <div class="two-col__text-header">
+      <h3>{{ subHeader }}</h3>
+      <h2>{{ header }}</h2>
+      <div class="two-col__text-separator"></div>
     </div>
-    <div class="two-col__text__main">
+    <div class="two-col__text-main">
       <ng-content></ng-content>
     </div>
-    <cof-button type="secondary">{{ btnText }}</cof-button>
+    <cof-button type="secondary" class="two-col__button">{{ btnText }}</cof-button>
   </div>
 </div>

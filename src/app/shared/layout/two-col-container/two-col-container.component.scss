@@ -19,20 +19,13 @@
     flex-direction: column;
     justify-content: space-between;
     padding: 2rem 3rem;
-    &__sub-header {
-      text-transform: uppercase;
-      color: vars.$secondary-color;
-    }
-    &__header {
-      text-transform: uppercase;
-    }
-    &__seperator {
+    &-separator {
       width: 2rem;
       height: 0.4rem;
-      background-color: vars.$secondary-color;
+      background-color: vars.$primary-color;
       margin: 1rem 0;
     }
-    &__main {
+    &-main {
       color: #94a3b8;
     }
   }

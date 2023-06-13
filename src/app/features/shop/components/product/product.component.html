@@ -1,0 +1,6 @@
+<div class="product">
+  <img [src]="'assets/images/' + product.imgSrc" alt="Coffee Bag Image" />
+  <div class="product-name">{{ product.name }}</div>
+  <div class="product-price">{{ product.price | currency }}</div>
+  <!-- <button class="product-btn" (click)="onAdd.emit(product)">Add</button> -->
+</div>

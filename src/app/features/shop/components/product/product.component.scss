@@ -1,0 +1,35 @@
+@use 'variables' as vars;
+
+.product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  border-radius: 0.4rem;
+
+  img {
+    max-width: 100%;
+    height: auto;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    border-radius: 15px;
+  }
+
+  &-name {
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+
+  &-price {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: vars.$primary-color;
+  }
+
+  &-btn {
+    background-color: vars.$primary-color;
+    padding: 0.5rem 1rem;
+    color: white;
+  }
+}

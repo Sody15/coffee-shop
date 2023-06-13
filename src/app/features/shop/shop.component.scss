@@ -1,13 +1,25 @@
 @use 'variables' as vars;
+@use 'mixins' as mixins;
 
 .shop {
-  &__products {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    padding: 2rem;
-    gap: 1rem;
-    max-width: 105rem;
-    margin: auto;
+  &__container {
     background-color: white;
+    &-header {
+      padding: 5rem 1rem;
+      text-align: center;
+    }
+    &-products {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      padding: 0 2rem 2rem 2rem;
+      max-width: 105rem;
+      margin: auto;
+      background-color: white;
+      @include mixins.respond-to('lg') {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+    }
   }
 }

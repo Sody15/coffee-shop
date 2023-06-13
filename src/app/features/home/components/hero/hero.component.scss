@@ -38,6 +38,34 @@
       row-gap: 5rem;
     }
     &-logo {
+      @include mixins.respond-to-height('md') {
+        width: 320px;
+        height: 320px;
+        &-outer {
+          &-1 {
+            top: -1.55rem !important;
+            left: -1.55rem !important;
+          }
+          &-2 {
+            top: -3.5rem !important;
+            left: -3.5rem !important;
+          }
+        }
+      }
+      @include mixins.respond-to-height('lg') {
+        width: 480px;
+        height: 480px;
+        &-outer {
+          &-1 {
+            top: -2.2rem !important;
+            left: -2.2rem !important;
+          }
+          &-2 {
+            top: -5.1rem !important;
+            left: -5.1rem !important;
+          }
+        }
+      }
       &-container {
         position: relative;
         .hero__content-logo-outer-1 {
@@ -73,40 +101,6 @@
       ng-icon {
         animation: bounceDown 1.5s ease-out infinite;
         font-size: 3rem;
-      }
-    }
-  }
-
-  @include mixins.respond-to-height('md') {
-    &__content-logo {
-      width: 320px;
-      height: 320px;
-      &-outer {
-        &-1 {
-          top: -1.55rem !important;
-          left: -1.55rem !important;
-        }
-        &-2 {
-          top: -3.5rem !important;
-          left: -3.5rem !important;
-        }
-      }
-    }
-  }
-
-  @include mixins.respond-to-height('lg') {
-    &__content-logo {
-      width: 480px;
-      height: 480px;
-      &-outer {
-        &-1 {
-          top: -2.2rem !important;
-          left: -2.2rem !important;
-        }
-        &-2 {
-          top: -5.1rem !important;
-          left: -5.1rem !important;
-        }
       }
     }
   }
