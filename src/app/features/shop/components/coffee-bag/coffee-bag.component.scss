@@ -1,15 +1,16 @@
 @use 'variables' as vars;
 
 .product {
-  width: 10rem;
-  height: 15rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  background-color: white;
+  align-items: center;
+  gap: 1rem;
   padding: 1rem;
   border-radius: 0.4rem;
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  img {
+    width: 25rem;
+  }
+
   &__btn {
     background-color: vars.$secondary-color;
     padding: 0.5rem 1rem;

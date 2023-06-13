@@ -1,12 +1,12 @@
 @use 'variables' as vars;
 
 .shop {
-  .products {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
+  &__products {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     padding: 2rem;
-    max-width: vars.$max-section-width;
+    gap: 1rem;
+    max-width: 105rem;
     margin: auto;
     background-color: white;
   }
