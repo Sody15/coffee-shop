@@ -28,9 +28,13 @@
       background: url('/assets/images/brand-white.svg');
       background-size: contain;
       background-repeat: no-repeat;
-      width: 274px;
-      height: 33px;
       cursor: pointer;
+      width: 219px;
+      height: 26px;
+      @include mixins.respond-to('md') {
+        width: 274px;
+        height: 33px;
+      }
     }
     &__menu {
       position: relative;
@@ -53,8 +57,12 @@
       background: url('/assets/images/brand-black.svg');
       background-size: contain;
       background-repeat: no-repeat;
-      width: 274px;
-      height: 33px;
+      width: 219px;
+      height: 26px;
+      @include mixins.respond-to('md') {
+        width: 274px;
+        height: 33px;
+      }
     }
   }
   &__menu {
