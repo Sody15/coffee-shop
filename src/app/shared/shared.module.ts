@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
+
+import { StoreModule } from '@ngrx/store';
+
 import { FooterComponent } from './layout/footer/footer.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { RouterModule } from '@angular/router';
@@ -9,10 +12,25 @@ import { NgIconsModule } from '@ng-icons/core';
 import { heroArrowRight, heroBars3 } from '@ng-icons/heroicons/outline';
 import { TwoColContainerComponent } from './layout/two-col-container/two-col-container.component';
 import { HeaderSeperatorComponent } from './layout/header/header-seperator/header-seperator.component';
+import { CartComponent } from './components/cart/cart.component';
 
 @NgModule({
-  declarations: [FooterComponent, HeaderComponent, ButtonComponent, TwoColContainerComponent, HeaderSeperatorComponent],
+  declarations: [
+    FooterComponent,
+    HeaderComponent,
+    ButtonComponent,
+    TwoColContainerComponent,
+    HeaderSeperatorComponent,
+    CartComponent,
+  ],
   imports: [CommonModule, RouterModule, NgOptimizedImage, NgIconsModule.withIcons({ heroArrowRight, heroBars3 })],
-  exports: [FooterComponent, HeaderComponent, ButtonComponent, TwoColContainerComponent, HeaderSeperatorComponent],
+  exports: [
+    FooterComponent,
+    HeaderComponent,
+    ButtonComponent,
+    TwoColContainerComponent,
+    HeaderSeperatorComponent,
+    CartComponent,
+  ],
 })
 export class SharedModule {}

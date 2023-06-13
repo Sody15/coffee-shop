@@ -1,0 +1,26 @@
+<div class="cart" *ngIf="selectedProducts$ | async as selectedProducts">
+  <ng-container *ngIf="selectedProducts.length > 0; else emptyCart">
+    <div *ngFor="let product of selectedProducts" class="product">
+      <div class="left-col">
+        <div class="product__name">{{ product.name }}</div>
+        <div class="product__price-container">
+          <input
+            type="number"
+            class="product__quantity"
+            name="price"
+            [id]="'product-' + product.id"
+            [value]="product.quantity"
+          />
+          <div class="product__price">x {{ product.price | currency }}</div>
+        </div>
+      </div>
+      <div class="right-col">
+        <div class="product__quantity">Qty. {{ product.quantity }}</div>
+        <div class="product__remove" (click)="onRemove(product.id)">X</div>
+      </div>
+    </div>
+  </ng-container>
+  <ng-template #emptyCart>
+    <div class="empty-cart">Cart is empty</div>
+  </ng-template>
+</div>

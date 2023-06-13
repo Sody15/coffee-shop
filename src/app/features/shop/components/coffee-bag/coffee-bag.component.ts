@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Product } from 'src/app/core/models/product';
 
 @Component({
@@ -8,4 +8,6 @@ import { Product } from 'src/app/core/models/product';
 })
 export class CoffeeBagComponent {
   @Input() product!: Product;
+
+  @Output() onAdd = new EventEmitter<Product>();
 }

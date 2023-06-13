@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
+import { PRODUCTS } from 'src/app/core/data';
 import { Product } from 'src/app/core/models/product';
+import { Store } from '@ngrx/store';
+
+import { add, reset } from 'src/app/shared/components/cart/cart.actions';
 
 @Component({
   selector: 'cof-shop',
@@ -7,10 +11,14 @@ import { Product } from 'src/app/core/models/product';
   styleUrls: ['./shop.component.scss'],
 })
 export class ShopComponent {
-  products: Product[] = [
-    { name: 'Coffee 1', price: 23.99 },
-    { name: 'Coffee 2', price: 21.99 },
-    { name: 'Coffee 3', price: 19.99 },
-  ];
-  selectedProducts: Product[] = [];
+  products = PRODUCTS;
+  constructor(private store: Store<{ cart: Product[] }>) {}
+
+  reset() {
+    this.store.dispatch(reset());
+  }
+
+  addProductToCart(newItem: Product) {
+    this.store.dispatch(add({ newItem }));
+  }
 }

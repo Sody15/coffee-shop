@@ -1,7 +1,13 @@
+@use 'variables' as vars;
+
 .shop {
-  padding: 2rem;
   .products {
     display: flex;
+    justify-content: center;
     gap: 1rem;
+    padding: 2rem;
+    max-width: vars.$max-section-width;
+    margin: auto;
+    background-color: white;
   }
 }
