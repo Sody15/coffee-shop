@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
-import { Product } from 'src/app/core/models/product';
 import { CartProduct, CartState } from './cart.reducer';
 import { removeItem } from './cart.actions';
 

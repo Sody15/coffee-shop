@@ -10,13 +10,16 @@
             name="price"
             [id]="'product-' + product.id"
             [value]="product.quantity"
+            cofMaxDigits
           />
-          <div class="product__price">x {{ product.price | currency }}</div>
+          <div class="product__price">{{ product.price | currency }}</div>
         </div>
       </div>
       <div class="right-col">
-        <div class="product__quantity">Qty. {{ product.quantity }}</div>
-        <div class="product__remove" (click)="onRemove(product.id)">X</div>
+        <div class="product__total">{{ product.totalPrice | currency }}</div>
+        <button>
+          <ng-icon class="product__remove" name="heroXCircle" (click)="onRemove(product.id)"></ng-icon>
+        </button>
       </div>
     </div>
   </ng-container>
