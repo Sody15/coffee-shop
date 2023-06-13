@@ -1,0 +1,27 @@
+@mixin keyframe-bounceDown {
+  @keyframes bounceDown {
+    0% {
+      transform: translateY(0);
+    }
+    25% {
+      transform: translateY(0.2rem);
+    }
+    80% {
+      transform: translateY(-0.2rem);
+    }
+    100% {
+      transform: translateY(0rem);
+    }
+  }
+}
+
+@mixin keyframe-rotate {
+  @keyframes rotate {
+    0% {
+      transform: rotate(0);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
