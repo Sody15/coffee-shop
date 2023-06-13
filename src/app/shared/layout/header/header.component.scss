@@ -84,6 +84,13 @@
     }
   }
   @include mixins.respond-to('md') {
+    &--not-transparent {
+      .header__menu__list {
+        li:not(:last-child) {
+          border-right: 2px solid black;
+        }
+      }
+    }
     font-size: 1rem;
     &__menu {
       position: initial;
