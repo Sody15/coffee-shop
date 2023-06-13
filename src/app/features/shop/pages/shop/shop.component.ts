@@ -4,11 +4,11 @@ import { Product } from 'src/app/core/models/product';
 
 import { Store } from '@ngrx/store';
 
-import { Observable, from } from 'rxjs';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { FilterType, ShopState } from './shop.reducer';
-import { filterBy } from './shop.actions';
+import { FilterType, ShopState } from '../../shop.reducer';
+import { filterBy } from '../../shop.actions';
 
 import { add, reset } from 'src/app/shared/components/cart/cart.actions';
 import { CartState } from 'src/app/shared/components/cart/cart.reducer';

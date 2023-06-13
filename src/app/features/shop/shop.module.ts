@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ShopComponent } from './shop.component';
-import { ShopRoutingModule } from './shop-routing.module';
+import { ShopComponent } from './pages/shop/shop.component';
+import { ShopRoutingModule } from './pages/shop-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ProductComponent } from './components/product/product.component';
 import { StoreModule } from '@ngrx/store';
