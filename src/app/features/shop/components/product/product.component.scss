@@ -6,6 +6,12 @@
   align-items: center;
   gap: 1rem;
   border-radius: 0.4rem;
+  cursor: pointer;
+  transition: scale 0.2s ease-in-out;
+
+  &:hover {
+    scale: 1.03;
+  }
 
   img {
     max-width: 100%;
