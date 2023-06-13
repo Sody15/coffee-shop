@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 import { PRODUCTS } from 'src/app/core/data';
 import { Product } from 'src/app/core/models/product';
+
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
+
+import { Observable, from } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 import { FilterType, ShopState } from './shop.reducer';
 import { filterBy } from './shop.actions';
@@ -19,21 +21,21 @@ import { CartState } from 'src/app/shared/components/cart/cart.reducer';
 export class ShopComponent {
   products = PRODUCTS;
 
-  filteredProducts!: Product[];
   filter$: Observable<FilterType>;
+  filteredProducts$!: Observable<Product[]>;
 
   constructor(private store: Store<{ cart: CartState; shop: ShopState }>) {
-    this.filter$ = this.store
-      .select((state) => state.shop.filter)
-      .pipe(
-        tap((filter) => {
-          if (filter === 'all') {
-            this.filteredProducts = this.products;
-          } else {
-            this.filteredProducts = this.products.filter((product) => product.type === filter);
-          }
-        })
-      );
+    this.filter$ = this.store.select((state) => state.shop.filter);
+
+    this.filteredProducts$ = this.filter$.pipe(
+      map((filter) => {
+        if (filter === 'all') {
+          return this.products;
+        } else {
+          return this.products.filter((product) => product.type === filter);
+        }
+      })
+    );
   }
 
   onSelect(filter: FilterType) {
