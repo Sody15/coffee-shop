@@ -1,9 +1,13 @@
 @use 'mixins' as mixins;
 @use 'variables' as vars;
 
+.header-seperator {
+  height: 7rem;
+  background-color: white;
+}
+
 .header {
   transition: color, background-color, cubic-bezier(0.4, 0, 0.2, 1) 300ms;
-  position: relative;
   background-color: transparent;
   width: 100%;
   z-index: 50;

@@ -9,7 +9,6 @@ import { ButtonComponent } from './components/button/button.component';
 import { NgIconsModule } from '@ng-icons/core';
 import { heroArrowRight, heroBars3, heroXCircle } from '@ng-icons/heroicons/outline';
 import { TwoColContainerComponent } from './layout/two-col-container/two-col-container.component';
-import { HeaderSeperatorComponent } from './layout/header/header-seperator/header-seperator.component';
 import { CartComponent } from './components/cart/cart.component';
 import { MaxDigitsDirective } from './directives/max-digits.directive';
 import { ClickOutsideDirective } from './directives/click-outside.directive';
@@ -20,7 +19,6 @@ import { ClickOutsideDirective } from './directives/click-outside.directive';
     HeaderComponent,
     ButtonComponent,
     TwoColContainerComponent,
-    HeaderSeperatorComponent,
     CartComponent,
     MaxDigitsDirective,
     ClickOutsideDirective,
@@ -36,7 +34,6 @@ import { ClickOutsideDirective } from './directives/click-outside.directive';
     HeaderComponent,
     ButtonComponent,
     TwoColContainerComponent,
-    HeaderSeperatorComponent,
     CartComponent,
     MaxDigitsDirective,
   ],
