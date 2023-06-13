@@ -42,16 +42,16 @@
         position: relative;
         .hero__content-logo-outer-1 {
           position: absolute;
-          top: -2.2rem;
-          left: -2.2rem;
+          top: -1.2rem;
+          left: -1.2rem;
           height: 115%;
           width: 115%;
           animation: rotate 30s linear infinite;
         }
         .hero__content-logo-outer-2 {
           position: absolute;
-          top: -5.1rem;
-          left: -5.1rem;
+          top: -2.7rem;
+          left: -2.7rem;
           height: 135%;
           width: 135%;
           animation: rotate 30s linear infinite reverse;
@@ -81,6 +81,16 @@
     &__content-logo {
       width: 320px;
       height: 320px;
+      &-outer {
+        &-1 {
+          top: -1.55rem !important;
+          left: -1.55rem !important;
+        }
+        &-2 {
+          top: -3.5rem !important;
+          left: -3.5rem !important;
+        }
+      }
     }
   }
 
@@ -88,6 +98,16 @@
     &__content-logo {
       width: 480px;
       height: 480px;
+      &-outer {
+        &-1 {
+          top: -2.2rem !important;
+          left: -2.2rem !important;
+        }
+        &-2 {
+          top: -5.1rem !important;
+          left: -5.1rem !important;
+        }
+      }
     }
   }
 }
