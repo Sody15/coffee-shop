@@ -27,8 +27,9 @@
 
     &:hover {
       background-color: vars.$secondary-color;
+      color: black;
       ng-icon {
-        color: white;
+        color: black;
       }
       &::before {
         transform: translateX(100%) rotate(60deg);

@@ -12,6 +12,7 @@ import { TwoColContainerComponent } from './layout/two-col-container/two-col-con
 import { HeaderSeperatorComponent } from './layout/header/header-seperator/header-seperator.component';
 import { CartComponent } from './components/cart/cart.component';
 import { MaxDigitsDirective } from './directives/max-digits.directive';
+import { ClickOutsideDirective } from './directives/click-outside.directive';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { MaxDigitsDirective } from './directives/max-digits.directive';
     HeaderSeperatorComponent,
     CartComponent,
     MaxDigitsDirective,
+    ClickOutsideDirective,
   ],
   imports: [
     CommonModule,
