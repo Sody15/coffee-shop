@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { PRODUCTS } from 'src/app/core/data';
 import { Product } from 'src/app/core/models/product';
 
@@ -8,10 +10,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { FilterType, ShopState } from '../../shop.reducer';
-import { filterBy } from '../../shop.actions';
-
-import { add, reset } from 'src/app/shared/components/cart/cart.actions';
-import { CartState } from 'src/app/shared/components/cart/cart.reducer';
+import { filterBy, selectProduct } from '../../shop.actions';
 
 @Component({
   selector: 'cof-shop',
@@ -24,7 +23,7 @@ export class ShopComponent {
   filter$: Observable<FilterType>;
   filteredProducts$!: Observable<Product[]>;
 
-  constructor(private store: Store<{ cart: CartState; shop: ShopState }>) {
+  constructor(private store: Store<{ shop: ShopState }>, private router: Router) {
     this.filter$ = this.store.select((state) => state.shop.filter);
 
     this.filteredProducts$ = this.filter$.pipe(
@@ -38,19 +37,13 @@ export class ShopComponent {
     );
   }
 
-  onSelect(filter: FilterType) {
-    this.store.dispatch(filterBy({ filter }));
-  }
-
-  reset() {
-    this.store.dispatch(reset());
-  }
-
-  addProductToCart(newItem: Product) {
-    this.store.dispatch(add({ newItem }));
-  }
-
   onFilterChange(filter: FilterType) {
     this.store.dispatch(filterBy({ filter }));
+  }
+
+  onProductSelect(productId: number) {
+    this.store.dispatch(selectProduct({ productId }));
+
+    this.router.navigate(['/shop/product', productId]);
   }
 }

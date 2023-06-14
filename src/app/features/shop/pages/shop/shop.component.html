@@ -11,7 +11,7 @@
       <cof-product
         *ngFor="let product of filteredProducts$ | async"
         [product]="product"
-        (onAdd)="addProductToCart($event)"
+        (onSelect)="onProductSelect($event)"
       ></cof-product>
     </div>
   </div>

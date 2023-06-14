@@ -1,0 +1,28 @@
+<section class="product-section">
+  <div class="product-page">
+    <div class="product-page__upper">
+      <img [src]="'assets/images/' + product.imgSrc" />
+      <div class="product-page__upper-right-col">
+        <h2>{{ product.name }}</h2>
+        <h3>{{ product.price | currency }} <span>excl. tax</span></h3>
+        <span>OVERVIEW</span>
+        <p>
+          {{ product.desc }}
+        </p>
+        <cof-quantity></cof-quantity>
+      </div>
+    </div>
+
+    <div class="product-page__bottom">
+      <h3>Our dear coffee loving customer, perhaps you would be</h3>
+      <h2>Interested in some of our amazing coffees?</h2>
+      <div class="product-page__bottom-prod-container">
+        <cof-product
+          *ngFor="let product of bottomProducts"
+          [product]="product"
+          (onSelect)="onProductSelect($event)"
+        ></cof-product>
+      </div>
+    </div>
+  </div>
+</section>

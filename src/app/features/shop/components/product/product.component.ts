@@ -9,5 +9,5 @@ import { Product } from 'src/app/core/models/product';
 export class ProductComponent {
   @Input() product!: Product;
 
-  @Output() onAdd = new EventEmitter<Product>();
+  @Output() onSelect = new EventEmitter<number>();
 }
