@@ -1,11 +1,6 @@
 @use 'mixins' as mixins;
 @use 'variables' as vars;
 
-.header-seperator {
-  height: 7rem;
-  background-color: white;
-}
-
 .header {
   transition: color, background-color, cubic-bezier(0.4, 0, 0.2, 1) 300ms;
   background-color: transparent;
@@ -14,7 +9,6 @@
   position: fixed;
   font-weight: 600;
   color: white;
-  font-size: 1rem;
   &__wrapper {
     position: relative;
     padding: 2.4rem 1rem;
@@ -79,7 +73,8 @@
       list-style: none;
       text-transform: uppercase;
       cursor: pointer;
-      font-size: 1rem;
+      font-size: 2rem;
+      gap: 2rem;
       li {
         padding-right: 0.9rem;
         &:hover {
@@ -132,4 +127,9 @@
   @include mixins.respond-to('lg') {
     font-size: 1.2rem;
   }
+}
+
+.header-seperator {
+  height: 7rem;
+  background-color: white;
 }

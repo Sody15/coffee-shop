@@ -10,12 +10,12 @@
         [ngClass]="{ 'header__menu--mb-open': isMenuOpen, 'header__menu--mb-closed': !isMenuOpen }"
       >
         <ul class="header__menu__list">
-          <li routerLink="/">who we are?</li>
-          <li>cafes</li>
-          <li routerLink="shop">shop</li>
-          <li routerLink="subscribe">subscribe</li>
-          <li>contact</li>
-          <li (click)="showCart = !showCart">cart</li>
+          <li routerLink="/" (click)="toggleMenu()">who we are?</li>
+          <li (click)="toggleMenu()">cafes</li>
+          <li (click)="toggleMenu()" routerLink="shop">shop</li>
+          <li (click)="toggleMenu()" routerLink="subscribe">subscribe</li>
+          <li (click)="toggleMenu()">contact</li>
+          <li (click)="toggleMenu(); showCart = !showCart">cart</li>
         </ul>
       </nav>
 
