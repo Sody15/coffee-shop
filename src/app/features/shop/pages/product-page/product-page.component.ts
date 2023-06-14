@@ -6,7 +6,7 @@ import { PRODUCTS } from 'src/app/core/data';
 import { Product } from 'src/app/core/models/product';
 import { selectProduct } from '../../shop.actions';
 import { add } from 'src/app/shared/components/cart/cart.actions';
-import { Observable, map, switchMap, tap } from 'rxjs';
+import { Observable, map, switchMap } from 'rxjs';
 import { CartState } from 'src/app/shared/components/cart/cart.reducer';
 
 @Component({
@@ -24,36 +24,13 @@ export class ProductPageComponent implements OnInit {
   constructor(private store: Store<{ cart: CartState }>, private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
-    // this.route.paramMap
-    //   .pipe(
-    //     map((params) => {
-    //       const productId = params.get('id');
-    //       if (productId) {
-    //         this.product = PRODUCTS.filter((p) => p.id === +productId)[0];
-    //       }
-    //       return productId;
-    //     })
-    //   )
-    //   .subscribe();
-
-    // // Get item quantity
-    // this.quantity$ = this.store
-    //   .select((state) => state.cart.items)
-    //   .pipe(
-    //     map((cartProducts) => {
-    //       console.log(cartProducts);
-    //       const product = cartProducts.filter((cartProd) => cartProd.id === +productId)[0];
-    //       console.log(product);
-    //       return product ? product.quantity : 0;
-    //     }),
-    //     tap(console.log)
-    //   );
-
+    // Load correct product - then set product quantity
     this.quantity$ = this.route.paramMap.pipe(
       switchMap((params) => {
         const productId = params.get('id');
         // Set product
         this.product = productId ? PRODUCTS.filter((p) => p.id === +productId!)[0] : undefined;
+        // Get quantity
         return this.store
           .select((state) => state.cart.items)
           .pipe(
@@ -62,8 +39,7 @@ export class ProductPageComponent implements OnInit {
               return cartProduct ? cartProduct.quantity.toString() : '0';
             })
           );
-      }),
-      tap((val) => console.log('qty- ' + val))
+      })
     );
   }
 
