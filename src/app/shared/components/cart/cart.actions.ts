@@ -1,6 +1,6 @@
 import { createAction, props } from '@ngrx/store';
-import { Product } from 'src/app/core/models/product';
+import { CartProduct } from './cart.reducer';
 
-export const add = createAction('[Cart Component] Add Item', props<{ newItem: Product }>());
+export const add = createAction('[Cart Component] Add Item', props<{ item: CartProduct }>());
 export const removeItem = createAction('[Cart Component] Remove Item', props<{ id: number }>());
 export const reset = createAction('[Cart Component] Reset');

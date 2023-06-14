@@ -9,7 +9,7 @@
         <p>
           {{ product.desc }}
         </p>
-        <cof-quantity></cof-quantity>
+        <cof-quantity (onAddToCart)="addToCart($event)"></cof-quantity>
       </div>
     </div>
 

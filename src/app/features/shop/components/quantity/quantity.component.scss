@@ -2,6 +2,7 @@
 @use 'mixins' as mixins;
 
 .quantity {
+  color: black;
   display: flex;
   justify-content: space-between;
   font-weight: bold;
@@ -68,7 +69,8 @@
       justify-content: center;
       align-items: center;
       transition: background-color 0.2s ease-out;
-      &:hover {
+      text-transform: uppercase;
+      &--active {
         background-color: vars.$primary-color;
       }
     }

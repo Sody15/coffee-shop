@@ -5,6 +5,7 @@ import { Store } from '@ngrx/store';
 import { PRODUCTS } from 'src/app/core/data';
 import { Product } from 'src/app/core/models/product';
 import { selectProduct } from '../../shop.actions';
+import { add } from 'src/app/shared/components/cart/cart.actions';
 
 @Component({
   selector: 'cof-product-page',
@@ -25,6 +26,11 @@ export class ProductPageComponent implements OnInit {
         this.product = PRODUCTS.filter((p) => p.id === +productId)[0];
       }
     });
+  }
+
+  addToCart(qty: number) {
+    const { desc, ...cartProduct } = this.product;
+    this.store.dispatch(add({ item: { ...cartProduct, quantity: qty, totalPrice: this.product.price * qty } }));
   }
 
   onProductSelect(productId: number) {

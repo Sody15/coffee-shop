@@ -2,7 +2,7 @@ import { createReducer, on } from '@ngrx/store';
 import { add, removeItem, reset } from './cart.actions';
 import { Product } from 'src/app/core/models/product';
 
-export interface CartProduct extends Product {
+export interface CartProduct extends Omit<Product, 'desc'> {
   quantity: number;
   totalPrice: number;
 }
@@ -17,25 +17,25 @@ export const initialState: CartState = {
 
 export const cartReducer = createReducer(
   initialState,
-  on(add, (state, { newItem }) => {
-    const match = state.items.filter((item) => item.id === newItem.id);
+  on(add, (state, { item }) => {
+    const match = state.items.filter((i) => i.id === item.id);
     if (match.length) {
       // If the item already exists in the cart, update its total price and quantity
-      const updatedItems = state.items.map((item) => {
-        if (item.id === newItem.id) {
-          const updatedQuantity = item.quantity + 1;
-          const updatedPrice = updatedQuantity * item.price;
+      const updatedItems = state.items.map((i) => {
+        if (i.id === item.id) {
+          const updatedQuantity = i.quantity + 1;
+          const updatedPrice = updatedQuantity * i.price;
 
-          const updatedItem = { ...item, totalPrice: updatedPrice, quantity: updatedQuantity };
+          const updatedItem = { ...i, totalPrice: updatedPrice, quantity: updatedQuantity };
           return updatedItem;
         }
-        return item;
+        return i;
       });
       // Return the updated state with the updated items array
       return { items: [...updatedItems] };
     } else {
       // If the item doesn't exist in the cart, add it with a quantity of 1
-      return { items: [...state.items, { ...newItem, quantity: 1, totalPrice: newItem.price }] };
+      return { items: [...state.items, { ...item, quantity: 1, totalPrice: item.price }] };
     }
   }),
   on(removeItem, (state, { id }) => {
