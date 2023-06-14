@@ -66,7 +66,7 @@ export const PRODUCTS: Product[] = [
     desc: 'We have been importing this Organic coffee direct from the cooperative Taramesa in the region of Sidama with our colleague from Roasters United for several years now. This coffee is very delicate, fruity with a fresh finish. It is very interesting also in light roast for V60, aeropress, etc. It is more on the blue fruits side than on the espresso roast. This coffee is organic certified by bio-inspecta.',
   },
   {
-    id: 8,
+    id: 9,
     name: 'Gift Card- $25',
     price: 25,
     imgSrc: 'gift-card-25.png',
@@ -74,7 +74,7 @@ export const PRODUCTS: Product[] = [
     desc: 'We have been importing this Organic coffee direct from the cooperative Taramesa in the region of Sidama with our colleague from Roasters United for several years now. This coffee is very delicate, fruity with a fresh finish. It is very interesting also in light roast for V60, aeropress, etc. It is more on the blue fruits side than on the espresso roast. This coffee is organic certified by bio-inspecta.',
   },
   {
-    id: 8,
+    id: 10,
     name: 'Gift Card- $50',
     price: 50,
     imgSrc: 'gift-card-50.png',
@@ -82,7 +82,7 @@ export const PRODUCTS: Product[] = [
     desc: 'We have been importing this Organic coffee direct from the cooperative Taramesa in the region of Sidama with our colleague from Roasters United for several years now. This coffee is very delicate, fruity with a fresh finish. It is very interesting also in light roast for V60, aeropress, etc. It is more on the blue fruits side than on the espresso roast. This coffee is organic certified by bio-inspecta.',
   },
   {
-    id: 8,
+    id: 11,
     name: 'Gift Card- $75',
     price: 75,
     imgSrc: 'gift-card-75.png',
@@ -90,7 +90,7 @@ export const PRODUCTS: Product[] = [
     desc: 'We have been importing this Organic coffee direct from the cooperative Taramesa in the region of Sidama with our colleague from Roasters United for several years now. This coffee is very delicate, fruity with a fresh finish. It is very interesting also in light roast for V60, aeropress, etc. It is more on the blue fruits side than on the espresso roast. This coffee is organic certified by bio-inspecta.',
   },
   {
-    id: 8,
+    id: 12,
     name: 'Gift Card- $100',
     price: 100,
     imgSrc: 'gift-card-100.png',
