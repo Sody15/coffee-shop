@@ -47,18 +47,30 @@
       &-outer {
         &-1 {
           position: absolute;
-          scale: 1.85;
+          scale: 1.4;
           animation: rotate 30s linear infinite;
         }
         &-2 {
           position: absolute;
-          scale: 1.6;
+          scale: 1.2;
           animation: rotate 30s linear infinite reverse;
         }
       }
       @include mixins.respond-to-height('md') {
         width: 320px;
         height: 320px;
+        &-outer {
+          &-1 {
+            position: absolute;
+            scale: 1.85;
+            animation: rotate 30s linear infinite;
+          }
+          &-2 {
+            position: absolute;
+            scale: 1.6;
+            animation: rotate 30s linear infinite reverse;
+          }
+        }
       }
       @include mixins.respond-to-height('lg') {
         width: 480px;
