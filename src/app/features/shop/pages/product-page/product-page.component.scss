@@ -5,7 +5,7 @@
   background-color: white;
 
   .product-page {
-    padding: 1rem;
+    padding: 2rem;
     @include mixins.respond-to('lg') {
       padding: 5rem 1rem;
     }
@@ -14,24 +14,26 @@
     &__upper {
       display: flex;
       flex-direction: column;
-      gap: 4rem;
+      gap: 2rem;
       @include mixins.respond-to('lg') {
         display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: repeat(3, minmax(0, 1fr));
         gap: 0;
       }
 
       img {
-        justify-self: end;
+        justify-self: start;
         align-self: center;
         max-height: 30rem;
         height: auto;
+        width: 100%;
         object-fit: contain;
       }
       &-right-col {
         padding: 0;
         @include mixins.respond-to('lg') {
           padding: 0 3rem;
+          grid-column: 2/-1;
         }
         h2 {
           text-transform: none;
@@ -56,10 +58,14 @@
       }
     }
     &__bottom {
-      padding: 10rem 0;
+      padding: 5rem 0;
+      @include mixins.respond-to('lg') {
+        padding: 10rem 0;
+      }
       text-align: center;
       &-prod-container {
         display: flex;
+        flex-wrap: wrap;
         gap: 2rem;
         padding: 5rem 0;
       }
