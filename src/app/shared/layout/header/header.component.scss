@@ -111,6 +111,7 @@
     &__menu {
       display: block;
       &__list {
+        font-size: 1rem;
         gap: 1rem;
         flex-direction: row;
         li:not(:last-child) {
