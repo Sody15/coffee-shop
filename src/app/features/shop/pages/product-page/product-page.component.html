@@ -1,5 +1,5 @@
-<section class="product-section">
-  <div class="product-page">
+<section class="product-section" *ngIf="quantity$ | async as qty">
+  <div class="product-page" *ngIf="product">
     <div class="product-page__upper">
       <img [src]="'assets/images/' + product.imgSrc" />
       <div class="product-page__upper-right-col">
@@ -9,7 +9,7 @@
         <p>
           {{ product.desc }}
         </p>
-        <cof-quantity (onUpdateQty)="addToCart($event)"></cof-quantity>
+        <cof-quantity [qty]="+qty" (onUpdateQty)="addToCart($event)"></cof-quantity>
       </div>
     </div>
 

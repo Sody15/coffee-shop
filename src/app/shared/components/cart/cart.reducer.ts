@@ -20,8 +20,15 @@ export const cartReducer = createReducer(
   on(add, (state, { item }) => {
     const match = state.items.filter((i) => i.id === item.id);
     if (match.length) {
+      let updatedItems: CartProduct[];
+      // If the item already exists in the cart and quantity is 0, remove it
+      if (item.quantity === 0) {
+        console.log('remove');
+        updatedItems = state.items.filter((i) => i.id !== item.id);
+        return { items: [...updatedItems] };
+      }
       // If the item already exists in the cart, update its total price and quantity
-      const updatedItems = state.items.map((i) => {
+      updatedItems = state.items.map((i) => {
         if (i.id === item.id) {
           const updatedPrice = item.quantity * i.price;
 
