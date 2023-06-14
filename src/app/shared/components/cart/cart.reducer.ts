@@ -23,10 +23,9 @@ export const cartReducer = createReducer(
       // If the item already exists in the cart, update its total price and quantity
       const updatedItems = state.items.map((i) => {
         if (i.id === item.id) {
-          const updatedQuantity = i.quantity + 1;
-          const updatedPrice = updatedQuantity * i.price;
+          const updatedPrice = item.quantity * i.price;
 
-          const updatedItem = { ...i, totalPrice: updatedPrice, quantity: updatedQuantity };
+          const updatedItem = { ...i, totalPrice: updatedPrice, quantity: item.quantity };
           return updatedItem;
         }
         return i;
