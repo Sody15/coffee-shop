@@ -1,25 +1,29 @@
 @use 'variables' as vars;
 
-.product-filter {
+.p-filter {
   display: flex;
   padding: 1rem 0;
   gap: 2rem;
   text-transform: uppercase;
   font-weight: 700;
-  ul {
+
+  &__list {
     display: flex;
     gap: 2rem;
     list-style: none;
-    li {
+    &-item {
       padding-right: 2rem;
       color: grey;
       cursor: pointer;
       &:hover {
         color: vars.$primary-color;
       }
-    }
-    li:not(:last-child) {
-      border-right: 1px solid black;
+      &.active {
+        color: vars.$primary-color;
+      }
+      &:not(:last-child) {
+        border-right: 1px solid black;
+      }
     }
   }
 }

@@ -1,10 +1,10 @@
-<section class="shop" *ngIf="filter$ | async">
+<section class="shop" *ngIf="filter$ | async as filter">
   <div class="shop__container">
     <div class="shop__container-header">
       <h3>Our dear coffee loving customer, perhaps you would be</h3>
       <h2>Interested in some of our amazing coffees?</h2>
       <div class="shop__container-header-filter">
-        <cof-product-filter (onSelect)="onFilterChange($event)"></cof-product-filter>
+        <cof-product-filter [filter]="filter" (onSelect)="onFilterChange($event)"></cof-product-filter>
       </div>
     </div>
     <div class="shop__container-products">

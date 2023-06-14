@@ -1,8 +1,12 @@
-<div class="product-filter">
-  <span clas="product-filter__heading">Sort Products By:</span>
-  <ul>
-    <li (click)="onSelect.emit('all')">All</li>
-    <li (click)="onSelect.emit('coffee')">Coffee</li>
-    <li (click)="onSelect.emit('card')">Gift Cards</li>
+<div class="p-filter">
+  <span clas="p-filter__heading">Sort Products By:</span>
+  <ul class="p-filter__list">
+    <li class="p-filter__list-item" [ngClass]="{ active: filter === 'all' }" (click)="onSelect.emit('all')">All</li>
+    <li class="p-filter__list-item" [ngClass]="{ active: filter === 'coffee' }" (click)="onSelect.emit('coffee')">
+      Coffee
+    </li>
+    <li class="p-filter__list-item" [ngClass]="{ active: filter === 'card' }" (click)="onSelect.emit('card')">
+      Gift Cards
+    </li>
   </ul>
 </div>
