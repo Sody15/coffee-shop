@@ -5,59 +5,66 @@
   background-color: white;
 
   .product-page {
-    padding: 2rem;
-    @include mixins.respond-to('lg') {
-      padding: 5rem 1rem;
+    &--bg-color * {
+      color: black !important;
     }
-    max-width: vars.$max-width--wide;
-    margin: auto;
     &__upper {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
+      transition: background-color 0.5s ease-in;
+      padding: 2rem;
       @include mixins.respond-to('lg') {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 0;
+        padding: 5rem 1rem;
       }
-
-      img {
-        justify-self: start;
-        align-self: center;
-        max-height: 30rem;
-        height: auto;
-        width: 100%;
-        object-fit: contain;
-      }
-      &-right-col {
-        padding: 0;
+      &-container {
+        max-width: vars.$max-width--wide;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
         @include mixins.respond-to('lg') {
-          padding: 0 3rem;
-          grid-column: 2/-1;
+          display: grid;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 0;
         }
-        h2 {
-          text-transform: none;
+
+        img {
+          align-self: center;
+          max-height: 30rem;
+          height: auto;
+          width: 100%;
+          object-fit: contain;
         }
-        h3 {
-          font-size: 1.5rem;
-          padding-bottom: 2rem;
-          span {
-            text-transform: lowercase;
-            color: vars.$text-color-light;
-            font-size: 0.8rem;
-            padding-left: 0.3rem;
+        &-right-col {
+          padding: 0;
+          @include mixins.respond-to('lg') {
+            padding: 0 3rem;
+            grid-column: 2/-1;
           }
-        }
-        span {
-          font-weight: bold;
-        }
-        p {
-          padding: 3rem 0;
-          color: vars.$text-color-light;
+          h2 {
+            text-transform: none;
+          }
+          h3 {
+            font-size: 1.5rem;
+            padding-bottom: 2rem;
+            span {
+              text-transform: lowercase;
+              color: vars.$text-color-light;
+              font-size: 0.8rem;
+              padding-left: 0.3rem;
+            }
+          }
+          span {
+            font-weight: bold;
+          }
+          p {
+            padding: 3rem 0;
+            color: vars.$text-color-light;
+          }
         }
       }
     }
     &__bottom {
+      max-width: vars.$max-width--wide;
+      margin: auto;
       padding: 5rem 0;
       @include mixins.respond-to('lg') {
         padding: 10rem 0;

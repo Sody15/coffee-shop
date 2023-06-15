@@ -1,6 +1,8 @@
 import { Component, HostListener } from '@angular/core';
 import { NavigationStart, Router } from '@angular/router';
 
+const transparentRoutes = ['/', '/shop'];
+
 @Component({
   selector: 'cof-header',
   templateUrl: './header.component.html',
@@ -13,10 +15,10 @@ export class HeaderComponent {
   isMenuOpen = false;
 
   constructor(private router: Router) {
-    this.router.events.pipe().subscribe((event) => {
+    this.router.events.subscribe((event) => {
       if (event instanceof NavigationStart) {
-        this.isTransparent = event.url === '/';
-        this.canBeTransparent = event.url === '/';
+        this.isTransparent = transparentRoutes.includes(event.url);
+        this.canBeTransparent = this.isTransparent;
       }
     });
   }

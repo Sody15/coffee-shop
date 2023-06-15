@@ -1,5 +1,9 @@
 <div class="product" (click)="onSelect.emit(product.id)">
-  <img [src]="'assets/images/' + product.imgSrc" alt="Coffee Bag Image" />
+  <img
+    [src]="'assets/images/' + product.imgSrc"
+    alt="Coffee Bag Image"
+    [ngStyle]="{ height: imgHeight ? imgHeight : 'auto' }"
+  />
   <div class="product-name">{{ product.name }}</div>
   <div class="product-price">{{ product.price | currency }}</div>
 </div>

@@ -1,15 +1,17 @@
 <section class="product-section" *ngIf="quantity$ | async as qty">
-  <div class="product-page" *ngIf="product">
-    <div class="product-page__upper">
-      <img [src]="'assets/images/' + product.imgSrc" />
-      <div class="product-page__upper-right-col">
-        <h2>{{ product.name }}</h2>
-        <h3>{{ product.price | currency }} <span>excl. tax</span></h3>
-        <span>OVERVIEW</span>
-        <p>
-          {{ product.desc }}
-        </p>
-        <cof-quantity [qty]="+qty" (onUpdateQty)="addToCart($event)"></cof-quantity>
+  <div class="product-page" *ngIf="product" [ngClass]="{ 'product-page--bg-color': product.color }">
+    <div class="product-page__upper" [ngStyle]="{ 'background-color': product.color }">
+      <div class="product-page__upper-container">
+        <img [src]="'assets/images/' + product.imgSrc" />
+        <div class="product-page__upper-container-right-col">
+          <h2>{{ product.name }}</h2>
+          <h3>{{ product.price | currency }} <span>excl. tax</span></h3>
+          <span>OVERVIEW</span>
+          <p>
+            {{ product.desc }}
+          </p>
+          <cof-quantity [qty]="+qty" (onUpdateQty)="addToCart($event)"></cof-quantity>
+        </div>
       </div>
     </div>
 
@@ -20,6 +22,7 @@
         <cof-product
           *ngFor="let product of bottomProducts"
           [product]="product"
+          imgHeight="18rem"
           (onSelect)="onProductSelect($event)"
         ></cof-product>
       </div>

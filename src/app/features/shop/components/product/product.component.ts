@@ -8,6 +8,7 @@ import { Product } from 'src/app/core/models/product';
 })
 export class ProductComponent {
   @Input() product!: Product;
+  @Input() imgHeight?: string;
 
   @Output() onSelect = new EventEmitter<number>();
 }

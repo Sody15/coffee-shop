@@ -5,6 +5,7 @@ export interface Product {
   imgSrc: string;
   desc: string;
   type: ProductType;
+  color?: string;
 }
 
 export type ProductType = 'coffee' | 'card';

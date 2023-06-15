@@ -8,6 +8,7 @@ export const PRODUCTS: Product[] = [
     imgSrc: 'coffee-bag-1.jpg',
     type: 'coffee',
     desc: 'We have been importing this Organic coffee direct from the cooperative Taramesa in the region of Sidama with our colleague from Roasters United for several years now. This coffee is very delicate, fruity with a fresh finish. It is very interesting also in light roast for V60, aeropress, etc. It is more on the blue fruits side than on the espresso roast. This coffee is organic certified by bio-inspecta.',
+    color: '#7db2c0',
   },
   {
     id: 2,
@@ -16,6 +17,7 @@ export const PRODUCTS: Product[] = [
     imgSrc: 'coffee-bag-2.jpg',
     type: 'coffee',
     desc: 'We have been importing this Organic coffee direct from the cooperative Taramesa in the region of Sidama with our colleague from Roasters United for several years now. This coffee is very delicate, fruity with a fresh finish. It is very interesting also in light roast for V60, aeropress, etc. It is more on the blue fruits side than on the espresso roast. This coffee is organic certified by bio-inspecta.',
+    color: '#f79f46',
   },
   {
     id: 3,
@@ -24,6 +26,7 @@ export const PRODUCTS: Product[] = [
     imgSrc: 'coffee-bag-3.jpg',
     type: 'coffee',
     desc: 'We have been importing this Organic coffee direct from the cooperative Taramesa in the region of Sidama with our colleague from Roasters United for several years now. This coffee is very delicate, fruity with a fresh finish. It is very interesting also in light roast for V60, aeropress, etc. It is more on the blue fruits side than on the espresso roast. This coffee is organic certified by bio-inspecta.',
+    color: '#187f3a',
   },
   {
     id: 4,
@@ -32,6 +35,7 @@ export const PRODUCTS: Product[] = [
     imgSrc: 'coffee-bag-4.jpg',
     type: 'coffee',
     desc: 'We have been importing this Organic coffee direct from the cooperative Taramesa in the region of Sidama with our colleague from Roasters United for several years now. This coffee is very delicate, fruity with a fresh finish. It is very interesting also in light roast for V60, aeropress, etc. It is more on the blue fruits side than on the espresso roast. This coffee is organic certified by bio-inspecta.',
+    color: '#099683',
   },
   {
     id: 5,
@@ -40,6 +44,7 @@ export const PRODUCTS: Product[] = [
     imgSrc: 'coffee-bag-5.jpg',
     type: 'coffee',
     desc: 'We have been importing this Organic coffee direct from the cooperative Taramesa in the region of Sidama with our colleague from Roasters United for several years now. This coffee is very delicate, fruity with a fresh finish. It is very interesting also in light roast for V60, aeropress, etc. It is more on the blue fruits side than on the espresso roast. This coffee is organic certified by bio-inspecta.',
+    color: '#790654',
   },
   {
     id: 6,
@@ -48,6 +53,7 @@ export const PRODUCTS: Product[] = [
     imgSrc: 'coffee-bag-6.jpg',
     type: 'coffee',
     desc: 'We have been importing this Organic coffee direct from the cooperative Taramesa in the region of Sidama with our colleague from Roasters United for several years now. This coffee is very delicate, fruity with a fresh finish. It is very interesting also in light roast for V60, aeropress, etc. It is more on the blue fruits side than on the espresso roast. This coffee is organic certified by bio-inspecta.',
+    color: '#634636',
   },
   {
     id: 7,
@@ -56,6 +62,7 @@ export const PRODUCTS: Product[] = [
     imgSrc: 'coffee-bag-7.jpg',
     type: 'coffee',
     desc: 'We have been importing this Organic coffee direct from the cooperative Taramesa in the region of Sidama with our colleague from Roasters United for several years now. This coffee is very delicate, fruity with a fresh finish. It is very interesting also in light roast for V60, aeropress, etc. It is more on the blue fruits side than on the espresso roast. This coffee is organic certified by bio-inspecta.',
+    color: '#af754d',
   },
   {
     id: 8,
@@ -64,6 +71,7 @@ export const PRODUCTS: Product[] = [
     imgSrc: 'coffee-bag-8.jpg',
     type: 'coffee',
     desc: 'We have been importing this Organic coffee direct from the cooperative Taramesa in the region of Sidama with our colleague from Roasters United for several years now. This coffee is very delicate, fruity with a fresh finish. It is very interesting also in light roast for V60, aeropress, etc. It is more on the blue fruits side than on the espresso roast. This coffee is organic certified by bio-inspecta.',
+    color: '#a25016',
   },
   {
     id: 9,
