@@ -61,12 +61,10 @@
         height: 320px;
         &-outer {
           &-1 {
-            position: absolute;
             scale: 1.85;
             animation: rotate 30s linear infinite;
           }
           &-2 {
-            position: absolute;
             scale: 1.6;
             animation: rotate 30s linear infinite reverse;
           }
@@ -75,6 +73,16 @@
       @include mixins.respond-to-height('lg') {
         width: 480px;
         height: 480px;
+        &-outer {
+          &-1 {
+            scale: 2.7;
+            animation: rotate 30s linear infinite;
+          }
+          &-2 {
+            scale: 2.3;
+            animation: rotate 30s linear infinite reverse;
+          }
+        }
       }
     }
     &-buttons {

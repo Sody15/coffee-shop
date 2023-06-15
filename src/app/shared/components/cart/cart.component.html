@@ -1,4 +1,8 @@
 <div class="cart" *ngIf="selectedProducts$ | async as selectedProducts">
+  <div class="cart__top">
+    <span>Your Cart [{{ selectedProducts.length }}]</span>
+    <button><ng-icon name="heroXMark"></ng-icon></button>
+  </div>
   <ng-container *ngIf="selectedProducts.length > 0; else emptyCart">
     <div *ngFor="let product of selectedProducts" class="product">
       <div class="left-col">

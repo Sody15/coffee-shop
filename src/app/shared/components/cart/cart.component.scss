@@ -1,10 +1,20 @@
 @use 'variables' as vars;
 
+@keyframes slideLeft {
+  0% {
+    right: -100%;
+  }
+  100% {
+    right: 0;
+  }
+}
+
 .cart {
   box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  position: absolute;
-  top: 2rem;
+  position: fixed;
+  top: 0;
   right: 0;
+  animation: slideLeft 0.2s ease-in;
   padding: 1rem 2rem;
   background-color: white;
   color: black;
@@ -12,6 +22,12 @@
   flex-direction: column;
   align-items: center;
   gap: 2rem;
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    h2 {
+    }
+  }
   .product {
     padding: 1rem;
     font-size: 1rem;

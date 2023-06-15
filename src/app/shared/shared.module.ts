@@ -7,13 +7,20 @@ import { RouterModule } from '@angular/router';
 import { ButtonComponent } from './components/button/button.component';
 
 import { NgIconsModule } from '@ng-icons/core';
-import { heroArrowLeft, heroArrowRight, heroBars3, heroXCircle, heroShoppingCart } from '@ng-icons/heroicons/outline';
+import {
+  heroArrowLeft,
+  heroArrowRight,
+  heroBars3,
+  heroXCircle,
+  heroShoppingCart,
+  heroXMark,
+} from '@ng-icons/heroicons/outline';
 import { TwoColContainerComponent } from './layout/two-col-container/two-col-container.component';
 import { CartComponent } from './components/cart/cart.component';
 import { MaxDigitsDirective } from './directives/max-digits.directive';
 import { ClickOutsideDirective } from './directives/click-outside.directive';
 
-const ngIcons = { heroArrowLeft, heroArrowRight, heroBars3, heroXCircle, heroShoppingCart };
+const ngIcons = { heroArrowLeft, heroArrowRight, heroBars3, heroXCircle, heroShoppingCart, heroXMark };
 
 @NgModule({
   declarations: [
