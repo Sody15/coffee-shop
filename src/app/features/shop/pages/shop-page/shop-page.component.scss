@@ -8,15 +8,20 @@
       background: url('/assets/images/pexels-igor-haritanovich-1695052.jpg');
       background-size: contain;
       background-repeat: repeat;
-
-      padding: 10rem 1rem;
       margin-bottom: 2rem;
       text-align: center;
+      padding: 5rem 1rem;
+      @include mixins.respond-to('md') {
+        padding: 10rem 1rem;
+      }
       &-inner {
         background-color: white;
-        padding: 2rem 4rem;
+        padding: 2rem;
         margin: auto;
         width: fit-content;
+        @include mixins.respond-to('md') {
+          padding: 2rem 4rem;
+        }
         &-filter {
           display: flex;
           justify-content: center;

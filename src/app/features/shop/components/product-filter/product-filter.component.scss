@@ -1,16 +1,29 @@
 @use 'variables' as vars;
+@use 'mixins' as mixins;
 
 .p-filter {
   display: flex;
   padding: 1rem 0;
-  gap: 2rem;
+  gap: 1rem;
   text-transform: uppercase;
   font-weight: 700;
+  flex-direction: column;
+
+  @include mixins.respond-to('md') {
+    flex-direction: row;
+    gap: 2rem;
+  }
 
   &__list {
     display: flex;
-    gap: 2rem;
+    gap: 1rem;
     list-style: none;
+    flex-direction: column;
+
+    @include mixins.respond-to('md') {
+      flex-direction: row;
+      gap: 2rem;
+    }
     &-item {
       padding-right: 2rem;
       color: grey;
@@ -21,8 +34,10 @@
       &.active {
         color: vars.$primary-color;
       }
-      &:not(:last-child) {
-        border-right: 1px solid black;
+      @include mixins.respond-to('md') {
+        &:not(:last-child) {
+          border-right: 1px solid black;
+        }
       }
     }
   }
