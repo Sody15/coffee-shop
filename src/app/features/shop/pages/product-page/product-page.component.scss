@@ -6,10 +6,18 @@
 
   .product-page {
     &--bg-color {
-      h3,
-      span,
-      p {
-        color: black !important;
+      .product-page__upper-container {
+        h3,
+        span,
+        p {
+          color: black;
+        }
+        a {
+          color: white;
+          &:hover {
+            color: black;
+          }
+        }
       }
     }
     &__upper {
@@ -34,7 +42,7 @@
           text-decoration: none;
           position: absolute;
           top: -3rem;
-          color: white;
+          color: black;
           display: flex;
           gap: 0.5rem;
           align-items: center;
