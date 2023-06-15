@@ -13,11 +13,11 @@ import { FilterType, ShopState } from '../../shop.reducer';
 import { filterBy, selectProduct } from '../../shop.actions';
 
 @Component({
-  selector: 'cof-shop',
-  templateUrl: './shop.component.html',
-  styleUrls: ['./shop.component.scss'],
+  selector: 'cof-shop-page',
+  templateUrl: './shop-page.component.html',
+  styleUrls: ['./shop-page.component.scss'],
 })
-export class ShopComponent {
+export class ShopPageComponent {
   products = PRODUCTS;
 
   filter$: Observable<FilterType>;
