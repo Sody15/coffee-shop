@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { StoreModule } from '@ngrx/store';
+import { StoreModule, ActionReducer, MetaReducer } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { localStorageSync } from 'ngrx-store-localstorage';
 
 import { NgIconsModule } from '@ng-icons/core';
 import { heroArrowRight, heroBars3, heroXCircle, heroShoppingCart } from '@ng-icons/heroicons/outline';
@@ -14,6 +15,11 @@ import { cartReducer } from './shared/components/cart/cart.reducer';
 
 const ngIcons = { heroArrowRight, heroBars3, heroXCircle, heroShoppingCart };
 
+export function localStorageSyncReducer(reducer: ActionReducer<any>): ActionReducer<any> {
+  return localStorageSync({ keys: ['cart', 'shop'], rehydrate: true })(reducer);
+}
+const metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncReducer];
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -21,7 +27,7 @@ const ngIcons = { heroArrowRight, heroBars3, heroXCircle, heroShoppingCart };
     BrowserModule,
     SharedModule,
     NgIconsModule.withIcons({ ...ngIcons }),
-    StoreModule.forRoot({ cart: cartReducer }),
+    StoreModule.forRoot({ cart: cartReducer }, { metaReducers }),
     StoreDevtoolsModule.instrument(),
   ],
   providers: [],
