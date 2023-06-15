@@ -5,14 +5,25 @@
   &__container {
     background-color: white;
     &-header {
+      background: url('/assets/images/pexels-igor-haritanovich-1695052.jpg');
+      background-size: contain;
+      background-repeat: repeat;
+
       padding: 4rem 1rem;
+      margin-bottom: 2rem;
       @include mixins.respond-to('lg') {
         padding: 6rem 1rem;
       }
       text-align: center;
-      &-filter {
-        display: flex;
-        justify-content: center;
+      &-inner {
+        background-color: white;
+        padding: 2rem 4rem;
+        margin: auto;
+        width: fit-content;
+        &-filter {
+          display: flex;
+          justify-content: center;
+        }
       }
     }
     &-products {

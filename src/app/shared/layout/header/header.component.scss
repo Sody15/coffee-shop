@@ -23,11 +23,11 @@
       background-size: contain;
       background-repeat: no-repeat;
       cursor: pointer;
-      width: 219px;
-      height: 26px;
+      width: 197px;
+      height: 38px;
       @include mixins.respond-to('md') {
-        width: 274px;
-        height: 33px;
+        width: 246px;
+        height: 47px;
       }
     }
     &__menu {
@@ -51,11 +51,11 @@
       background: url('/assets/images/brand-black.svg');
       background-size: contain;
       background-repeat: no-repeat;
-      width: 219px;
-      height: 26px;
+      width: 197px;
+      height: 38px;
       @include mixins.respond-to('md') {
-        width: 274px;
-        height: 33px;
+        width: 246px;
+        height: 47px;
       }
     }
   }
@@ -131,6 +131,6 @@
 }
 
 .header-seperator {
-  height: 7rem;
+  height: 6.5rem;
   background-color: white;
 }
