@@ -1,7 +1,9 @@
 import { Component, HostListener } from '@angular/core';
 import { NavigationStart, Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 
-const transparentRoutes = ['/', '/shop', '/shop/product'];
+import { CartState } from '../../components/cart/cart.reducer';
 
 @Component({
   selector: 'cof-header',
@@ -13,12 +15,16 @@ export class HeaderComponent {
   showCart = false;
   isMenuOpen = false;
 
-  constructor(private router: Router) {
+  cartNumProducts$!: Observable<number>;
+
+  constructor(private router: Router, private store: Store<{ cart: CartState }>) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationStart) {
         this.isTransparent = true;
       }
     });
+
+    this.cartNumProducts$ = this.store.select((state) => state.cart.items.length);
   }
 
   @HostListener('window:scroll', ['$event'])

@@ -25,8 +25,9 @@
     </div>
 
     <!-- Cart -->
-    <div class="header__wrapper-cart">
-      <div (click)="toggleMenu(); showCart = !showCart">Cart</div>
+    <div class="header__wrapper-cart" (click)="toggleMenu(); showCart = !showCart">
+      <span class="header__wrapper-cart-num" *ngIf="cartNumProducts$ | async as numProducts">{{ numProducts }}</span>
+      <ng-icon class="header__wrapper-cart-btn" name="heroShoppingCart"></ng-icon>
       <cof-cart *ngIf="showCart" cofClickOutside (onClickOutside)="showCart = false"></cof-cart>
     </div>
   </div>

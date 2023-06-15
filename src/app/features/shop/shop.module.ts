@@ -9,9 +9,19 @@ import { shopReducer } from './shop.reducer';
 import { ProductFilterComponent } from './components/product-filter/product-filter.component';
 import { ProductPageComponent } from './pages/product-page/product-page.component';
 import { QuantityComponent } from './components/quantity/quantity.component';
+import { NgIconsModule } from '@ng-icons/core';
+import { heroArrowLeft } from '@ng-icons/heroicons/outline';
+
+const ngIcons = { heroArrowLeft };
 
 @NgModule({
   declarations: [ShopPageComponent, ProductComponent, ProductFilterComponent, ProductPageComponent, QuantityComponent],
-  imports: [CommonModule, ShopRoutingModule, SharedModule, StoreModule.forFeature('shop', shopReducer)],
+  imports: [
+    CommonModule,
+    ShopRoutingModule,
+    SharedModule,
+    NgIconsModule.withIcons({ ...ngIcons }),
+    StoreModule.forFeature('shop', shopReducer),
+  ],
 })
 export class ShopModule {}

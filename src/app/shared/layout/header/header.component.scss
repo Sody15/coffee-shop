@@ -69,7 +69,23 @@
       }
     }
     &-cart {
+      cursor: pointer;
+      position: relative;
       text-align: right;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      padding: 0.8rem;
+      &-num {
+        font-size: 0.8rem;
+        position: absolute;
+        top: 0.05rem;
+        right: 0.7rem;
+      }
+      &-btn {
+        font-size: 1.5rem;
+      }
       @include mixins.respond-to('lg') {
         // flex: 1;
       }
