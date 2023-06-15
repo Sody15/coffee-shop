@@ -4,6 +4,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
 import { CartState } from '../../components/cart/cart.reducer';
+import { toggleCart } from '../../components/cart/cart.actions';
 
 @Component({
   selector: 'cof-header',
@@ -35,5 +36,9 @@ export class HeaderComponent {
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  toggleCart() {
+    this.store.dispatch(toggleCart());
   }
 }

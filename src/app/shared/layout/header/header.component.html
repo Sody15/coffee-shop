@@ -19,16 +19,14 @@
           <li (click)="toggleMenu()" routerLink="subscribe">subscribe</li>
           <li routerLink="/" (click)="toggleMenu()">who we are?</li>
           <li (click)="toggleMenu()">cafes</li>
-          <li (click)="toggleMenu(); showCart = !showCart">cart</li>
         </ul>
       </nav>
     </div>
 
     <!-- Cart -->
-    <div class="header__wrapper-cart" (click)="toggleMenu(); showCart = !showCart">
+    <div class="header__wrapper-cart" (click)="toggleCart(); showCart = !showCart">
       <span class="header__wrapper-cart-num" *ngIf="cartNumProducts$ | async as numProducts">{{ numProducts }}</span>
       <ng-icon class="header__wrapper-cart-btn" name="heroShoppingCart"></ng-icon>
-      <cof-cart *ngIf="showCart" cofClickOutside (onClickOutside)="showCart = false"></cof-cart>
     </div>
   </div>
 </header>

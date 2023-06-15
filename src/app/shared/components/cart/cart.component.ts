@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
+
 import { Store } from '@ngrx/store';
+
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 import { CartProduct, CartState } from './cart.reducer';
-import { removeItem } from './cart.actions';
+import { removeItem, toggleCart } from './cart.actions';
 
 @Component({
   selector: 'cof-cart',
@@ -11,13 +14,25 @@ import { removeItem } from './cart.actions';
   styleUrls: ['./cart.component.scss'],
 })
 export class CartComponent {
-  selectedProducts$: Observable<CartProduct[]>;
+  cartProducts$: Observable<CartProduct[]>;
+  cartSubTotal$: Observable<string>;
 
   constructor(private store: Store<{ cart: CartState }>) {
-    this.selectedProducts$ = this.store.select((state) => state.cart.items);
+    this.cartProducts$ = this.store.select((state) => state.cart.items);
+
+    this.cartSubTotal$ = this.cartProducts$.pipe(
+      map((cartProducts) => {
+        const subTotal = cartProducts.reduce((acc, cur) => acc + cur.totalPrice, 0);
+        return subTotal.toString();
+      })
+    );
   }
 
   onRemove(id: number) {
     this.store.dispatch(removeItem({ id }));
+  }
+
+  onClose() {
+    this.store.dispatch(toggleCart());
   }
 }

@@ -1,5 +1,13 @@
+<!-- Header -->
 <cof-header></cof-header>
+
+<!-- Cart -->
+<cof-cart *ngIf="isCartOpen$ | async"></cof-cart>
+
+<!-- Main Content -->
 <main>
   <router-outlet></router-outlet>
 </main>
+
+<!-- Footer -->
 <cof-footer></cof-footer>

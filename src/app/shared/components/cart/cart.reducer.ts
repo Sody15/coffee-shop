@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { add, removeItem, reset } from './cart.actions';
+import { addItem, removeItem, reset, toggleCart } from './cart.actions';
 import { Product } from 'src/app/core/models/product';
 
 export interface CartProduct extends Omit<Product, 'desc'> {
@@ -9,15 +9,17 @@ export interface CartProduct extends Omit<Product, 'desc'> {
 
 export interface CartState {
   items: CartProduct[];
+  isOpen: boolean;
 }
 
 export const initialState: CartState = {
   items: [],
+  isOpen: false,
 };
 
 export const cartReducer = createReducer(
   initialState,
-  on(add, (state, { item }) => {
+  on(addItem, (state, { item }) => {
     const match = state.items.filter((i) => i.id === item.id);
     if (match.length) {
       let updatedItems: CartProduct[];
@@ -25,7 +27,7 @@ export const cartReducer = createReducer(
       if (item.quantity === 0) {
         console.log('remove');
         updatedItems = state.items.filter((i) => i.id !== item.id);
-        return { items: [...updatedItems] };
+        return { ...state, items: [...updatedItems] };
       }
       // If the item already exists in the cart, update its total price and quantity
       updatedItems = state.items.map((i) => {
@@ -38,14 +40,15 @@ export const cartReducer = createReducer(
         return i;
       });
       // Return the updated state with the updated items array
-      return { items: [...updatedItems] };
+      return { ...state, items: [...updatedItems] };
     } else {
       // If the item doesn't exist in the cart, add it with a quantity of 1
-      return { items: [...state.items, { ...item, quantity: 1, totalPrice: item.price }] };
+      return { ...state, items: [...state.items, { ...item, quantity: 1, totalPrice: item.price }] };
     }
   }),
   on(removeItem, (state, { id }) => {
-    return { items: [...state.items.filter((item) => item.id !== id)] };
+    return { ...state, items: [...state.items.filter((item) => item.id !== id)] };
   }),
-  on(reset, () => initialState)
+  on(reset, () => initialState),
+  on(toggleCart, (state) => ({ ...state, isOpen: !state.isOpen }))
 );

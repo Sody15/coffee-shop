@@ -1,4 +1,5 @@
 @use 'variables' as vars;
+@use 'mixins' as mixins;
 
 @keyframes slideLeft {
   0% {
@@ -9,80 +10,125 @@
   }
 }
 
-.cart {
-  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+@keyframes slideDown {
+  0% {
+    top: -100vh;
+  }
+  100% {
+    top: 0;
+  }
+}
+
+.cart-overlay {
+  z-index: 50;
   position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.3;
+}
+
+.cart {
+  font-size: 1rem;
+  font-weight: bold;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  z-index: 100;
+  height: 100%;
+  position: fixed;
+  width: 100%;
   top: 0;
   right: 0;
-  animation: slideLeft 0.2s ease-in;
-  padding: 1rem 2rem;
+  animation: slideLeft 0.4s ease-in-out;
   background-color: white;
   color: black;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 2rem;
+  @include mixins.respond-to('md') {
+    width: 30rem;
+  }
   &__top {
     display: flex;
     justify-content: space-between;
-    h2 {
+    border-bottom: 1px solid black;
+    padding: 1.5rem 2rem;
+    .close-btn {
+      font-size: 1.4rem;
     }
   }
-  .product {
-    padding: 1rem;
-    font-size: 1rem;
-    width: 20rem;
+  &__content {
+    flex: 1;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    &:nth-child(even) {
-      background-color: #f3f3f3;
-    }
-    .left-col {
-      .product__name {
-        font-weight: 700;
-        margin-bottom: 0.5rem;
-        letter-spacing: 0.05rem;
-      }
-    }
-    .right-col {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1.5rem 2rem;
+    min-height: 5rem;
+    overflow-y: auto;
+
+    .product {
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
-      gap: 1rem;
-      button {
+      padding-bottom: 2rem;
+      &:not(:last-child) {
+        border-bottom: 1px solid black;
+      }
+      img {
+        height: 8rem;
+      }
+      .left-col {
+        .product__name {
+          font-weight: 700;
+          margin-bottom: 0.5rem;
+          letter-spacing: 0.05rem;
+        }
+      }
+      .right-col {
         display: flex;
         justify-content: center;
         align-items: center;
-        .product__remove {
-          font-size: 1.7rem;
-          font-weight: 1000;
-          color: vars.$primary-color;
-          cursor: pointer;
+        gap: 1rem;
+        button {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          .product__remove {
+            font-size: 1.7rem;
+            font-weight: 1000;
+            color: vars.$primary-color;
+            cursor: pointer;
+          }
         }
       }
-    }
-    &__price-container {
-      display: flex;
-      align-items: center;
-    }
-    &__name {
-      text-transform: uppercase;
-    }
-    &__price {
-    }
-    &__quantity {
-      padding: 0.4rem 0.5rem;
-      text-align: center;
-      width: 1rem;
-      font-size: 1rem;
-      margin-right: 0.6rem;
-      &::-webkit-inner-spin-button,
-      &::-webkit-outer-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
+      &__price-container {
+        display: flex;
+        align-items: center;
       }
-      -moz-appearance: textfield;
+      &__name {
+        text-transform: uppercase;
+      }
+      &__quantity {
+        padding: 0.4rem 0.5rem;
+        text-align: center;
+        width: 1rem;
+        font-size: 1rem;
+        margin-right: 0.6rem;
+        &::-webkit-inner-spin-button,
+        &::-webkit-outer-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+        -moz-appearance: textfield;
+      }
     }
+  }
+  &__bottom {
+    background-color: white;
+    border-top: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+    padding: 3rem 2rem;
+  }
+  .empty-cart {
+    text-align: center;
   }
 }

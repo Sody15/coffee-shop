@@ -1,11 +1,11 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output } from '@angular/core';
 
 @Component({
   selector: 'cof-quantity',
   templateUrl: './quantity.component.html',
   styleUrls: ['./quantity.component.scss'],
 })
-export class QuantityComponent implements OnInit {
+export class QuantityComponent implements OnChanges {
   @Input() qty: number = 0;
 
   @Output() onUpdateQty = new EventEmitter<number>();
@@ -14,7 +14,7 @@ export class QuantityComponent implements OnInit {
 
   readonly maxQty = 10;
 
-  ngOnInit() {
+  ngOnChanges() {
     this.updateBtnText();
   }
 
@@ -23,7 +23,6 @@ export class QuantityComponent implements OnInit {
       this.qty++;
       this.onUpdateQty.emit(this.qty);
     }
-    this.updateBtnText();
   }
 
   decrement() {
@@ -31,7 +30,6 @@ export class QuantityComponent implements OnInit {
       this.qty--;
       this.onUpdateQty.emit(this.qty);
     }
-    this.updateBtnText();
   }
 
   addToCart() {

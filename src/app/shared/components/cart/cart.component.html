@@ -1,33 +1,43 @@
-<div class="cart" *ngIf="selectedProducts$ | async as selectedProducts">
-  <div class="cart__top">
-    <span>Your Cart [{{ selectedProducts.length }}]</span>
-    <button><ng-icon name="heroXMark"></ng-icon></button>
-  </div>
-  <ng-container *ngIf="selectedProducts.length > 0; else emptyCart">
-    <div *ngFor="let product of selectedProducts" class="product">
-      <div class="left-col">
-        <div class="product__name">{{ product.name }}</div>
-        <div class="product__price-container">
-          <input
-            type="number"
-            class="product__quantity"
-            name="price"
-            [id]="'product-' + product.id"
-            [value]="product.quantity"
-            cofMaxDigits
-          />
-          <div class="product__price">{{ product.price | currency }}</div>
-        </div>
-      </div>
-      <div class="right-col">
-        <div class="product__total">{{ product.totalPrice | currency }}</div>
-        <button>
-          <ng-icon class="product__remove" name="heroXCircle" (click)="onRemove(product.id)"></ng-icon>
-        </button>
-      </div>
+<ng-container *ngIf="cartProducts$ | async as cartProducts">
+  <div class="cart-overlay" (click)="onClose()"></div>
+  <div class="cart">
+    <div class="cart__top">
+      <span>Your Cart [{{ cartProducts.length }}]</span>
+      <button type="button" (click)="onClose()"><ng-icon class="close-btn" name="heroXMark"></ng-icon></button>
     </div>
-  </ng-container>
-  <ng-template #emptyCart>
-    <div class="empty-cart">Cart is empty</div>
-  </ng-template>
-</div>
+    <div class="cart__content">
+      <ng-container *ngIf="cartProducts.length > 0; else emptyCart">
+        <div *ngFor="let product of cartProducts" class="product">
+          <img [src]="'assets/images/' + product.imgSrc" alt="" />
+          <div class="left-col">
+            <div class="product__name">{{ product.name }}</div>
+            <div class="product__price-container">
+              <input
+                type="number"
+                class="product__quantity"
+                name="price"
+                [id]="'product-' + product.id"
+                [value]="product.quantity"
+                cofMaxDigits
+              />
+              <div class="product__price">{{ product.price | currency }}</div>
+            </div>
+          </div>
+          <div class="right-col">
+            <div class="product__total">{{ product.totalPrice | currency }}</div>
+            <button>
+              <ng-icon class="product__remove" name="heroXCircle" (click)="onRemove(product.id)"></ng-icon>
+            </button>
+          </div>
+        </div>
+      </ng-container>
+      <ng-template #emptyCart>
+        <div class="empty-cart">Your shopping cart is empty</div>
+      </ng-template>
+    </div>
+    <div class="cart__bottom">
+      <span>Subtotal</span>
+      <span *ngIf="cartSubTotal$ | async as cartSubTotal">{{ cartSubTotal | currency }}</span>
+    </div>
+  </div>
+</ng-container>

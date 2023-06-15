@@ -5,7 +5,7 @@ import { Store } from '@ngrx/store';
 import { PRODUCTS } from 'src/app/core/data';
 import { Product } from 'src/app/core/models/product';
 import { selectProduct } from '../../shop.actions';
-import { add } from 'src/app/shared/components/cart/cart.actions';
+import { addItem } from 'src/app/shared/components/cart/cart.actions';
 import { Observable, map, switchMap } from 'rxjs';
 import { CartState } from 'src/app/shared/components/cart/cart.reducer';
 
@@ -46,7 +46,7 @@ export class ProductPageComponent implements OnInit {
   addToCart(qty: number) {
     if (this.product) {
       const { desc, ...cartProduct } = this.product;
-      this.store.dispatch(add({ item: { ...cartProduct, quantity: qty, totalPrice: this.product.price * qty } }));
+      this.store.dispatch(addItem({ item: { ...cartProduct, quantity: qty, totalPrice: this.product.price * qty } }));
     }
   }
 
