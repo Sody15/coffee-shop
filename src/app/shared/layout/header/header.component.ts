@@ -1,7 +1,7 @@
 import { Component, HostListener } from '@angular/core';
 import { NavigationStart, Router } from '@angular/router';
 
-const transparentRoutes = ['/', '/shop'];
+const transparentRoutes = ['/', '/shop', '/shop/product'];
 
 @Component({
   selector: 'cof-header',
@@ -9,7 +9,6 @@ const transparentRoutes = ['/', '/shop'];
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  canBeTransparent = true;
   isTransparent = true;
   showCart = false;
   isMenuOpen = false;
@@ -17,18 +16,15 @@ export class HeaderComponent {
   constructor(private router: Router) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationStart) {
-        this.isTransparent = transparentRoutes.includes(event.url);
-        this.canBeTransparent = this.isTransparent;
+        this.isTransparent = true;
       }
     });
   }
 
   @HostListener('window:scroll', ['$event'])
   onWindowScroll() {
-    if (this.canBeTransparent) {
-      const scrollPosition = window.pageYOffset;
-      this.isTransparent = scrollPosition < 100;
-    }
+    const scrollPosition = window.pageYOffset;
+    this.isTransparent = scrollPosition < 100;
   }
 
   toggleMenu() {

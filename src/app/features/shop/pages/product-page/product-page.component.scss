@@ -10,9 +10,9 @@
     }
     &__upper {
       transition: background-color 0.5s ease-in;
-      padding: 2rem;
+      padding: 8rem 2rem;
       @include mixins.respond-to('lg') {
-        padding: 5rem 1rem;
+        padding: 10rem 1rem;
       }
       &-container {
         max-width: vars.$max-width--wide;

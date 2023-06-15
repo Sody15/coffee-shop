@@ -9,11 +9,8 @@
       background-size: contain;
       background-repeat: repeat;
 
-      padding: 4rem 1rem;
+      padding: 10rem 1rem;
       margin-bottom: 2rem;
-      @include mixins.respond-to('lg') {
-        padding: 10rem 1rem;
-      }
       text-align: center;
       &-inner {
         background-color: white;
