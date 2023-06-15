@@ -1,24 +1,32 @@
 <header class="header" [ngClass]="{ 'header--not-transparent': !isTransparent }">
   <div class="header__wrapper">
-    <div class="header__wrapper__logo" routerLink="/"></div>
-    <div class="header__wrapper__menu">
-      <button class="header__wrapper__menu__btn" (click)="toggleMenu()">
-        <ng-icon name="heroBars3"></ng-icon>
-      </button>
-      <nav
-        class="header__menu"
-        [ngClass]="{ 'header__menu--mb-open': isMenuOpen, 'header__menu--mb-closed': !isMenuOpen }"
-      >
-        <ul class="header__menu__list">
-          <li routerLink="/" (click)="toggleMenu()">who we are?</li>
-          <li (click)="toggleMenu()">cafes</li>
+    <!-- Mobile Menu Btn -->
+    <button class="header__wrapper-hamburger" (click)="toggleMenu()">
+      <ng-icon name="heroBars3"></ng-icon>
+    </button>
+
+    <!-- Logo -->
+    <div class="header__wrapper-logo" routerLink="/"></div>
+
+    <!-- Menu -->
+    <div
+      class="header__wrapper-menu"
+      [ngClass]="{ 'header__wrapper-menu--open': isMenuOpen, 'header__wrapper-menu--closed': !isMenuOpen }"
+    >
+      <nav>
+        <ul>
           <li (click)="toggleMenu()" routerLink="shop">shop</li>
           <li (click)="toggleMenu()" routerLink="subscribe">subscribe</li>
-          <li (click)="toggleMenu()">contact</li>
+          <li routerLink="/" (click)="toggleMenu()">who we are?</li>
+          <li (click)="toggleMenu()">cafes</li>
           <li (click)="toggleMenu(); showCart = !showCart">cart</li>
         </ul>
       </nav>
+    </div>
 
+    <!-- Cart -->
+    <div class="header__wrapper-cart">
+      <div (click)="toggleMenu(); showCart = !showCart">Cart</div>
       <cof-cart *ngIf="showCart" cofClickOutside (onClickOutside)="showCart = false"></cof-cart>
     </div>
   </div>

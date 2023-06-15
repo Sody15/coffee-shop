@@ -11,130 +11,128 @@
   color: white;
   &__wrapper {
     position: relative;
-    padding: 2.4rem 1rem;
-    max-width: vars.$max-width--wide;
+    padding: 1rem 2rem;
+    max-width: vars.$max-width--wider;
     display: flex;
     justify-content: space-between;
     align-items: center;
     left: 50%;
     transform: translateX(-50%);
-    &__logo {
+    &-hamburger {
+      color: white;
+      font-size: 2rem;
+    }
+    &-logo {
       background: url('/assets/images/brand-white.svg');
       background-size: contain;
       background-repeat: no-repeat;
       cursor: pointer;
       width: 197px;
       height: 38px;
-      @include mixins.respond-to('md') {
+      @include mixins.respond-to('lg') {
         width: 246px;
         height: 47px;
+        // flex: 1;
       }
     }
-    &__menu {
-      position: relative;
-      &__btn {
-        color: white;
+    &-menu {
+      position: fixed;
+      top: 4rem;
+      left: 0;
+      color: black;
+      padding: 5rem 2rem;
+      width: 100%;
+      background-color: white;
+      flex-grow: 1;
+      &--open {
+        display: block;
+      }
+      &--closed {
+        display: none;
+      }
+      ul {
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+        text-transform: uppercase;
+        text-shadow: 1px 1px 2px black;
+        cursor: pointer;
         font-size: 2rem;
-      }
-    }
-  }
-  &--not-transparent {
-    background-color: white;
-    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-    .header__menu {
-      color: black;
-    }
-    .header__wrapper__menu__btn {
-      color: black;
-    }
-    .header__wrapper__logo {
-      background: url('/assets/images/brand-black.svg');
-      background-size: contain;
-      background-repeat: no-repeat;
-      width: 197px;
-      height: 38px;
-      @include mixins.respond-to('md') {
-        width: 246px;
-        height: 47px;
-      }
-    }
-    .header__menu__list {
-      text-shadow: none;
-    }
-  }
-  &__menu {
-    position: fixed;
-    top: 7rem;
-    left: 0;
-    color: black;
-    padding: 5rem 2rem;
-    width: 100%;
-    background-color: white;
-    &__list {
-      display: flex;
-      flex-direction: column;
-      list-style: none;
-      text-transform: uppercase;
-      text-shadow: 1px 1px 2px black;
-      cursor: pointer;
-      font-size: 2rem;
-      gap: 2rem;
-      li {
-        padding-right: 0.9rem;
-        &:hover {
-          color: vars.$primary-color;
+        gap: 2rem;
+        li {
+          padding-right: 0.9rem;
+          &:hover {
+            color: vars.$primary-color;
+          }
         }
       }
     }
-    &--mb-open {
-      display: block;
-    }
-    &--mb-closed {
-      display: none;
+    &-cart {
+      text-align: right;
+      @include mixins.respond-to('lg') {
+        // flex: 1;
+      }
     }
   }
+
+  &--not-transparent {
+    background-color: white;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    .header__wrapper {
+      &-hamburger {
+        color: black;
+      }
+      &-logo {
+        background: url('/assets/images/brand-black.svg');
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 197px;
+        height: 38px;
+        @include mixins.respond-to('lg') {
+          width: 246px;
+          height: 47px;
+        }
+      }
+      &-menu {
+        ul {
+          color: black;
+          text-shadow: none;
+        }
+      }
+      &-cart {
+        color: black;
+      }
+    }
+  }
+
   @include mixins.respond-to('lg') {
     &--not-transparent {
-      .header__menu__list {
+      .header__menu-list {
         li:not(:last-child) {
           border-right: 2px solid black;
         }
       }
     }
-    font-size: 1rem;
-    &__menu {
-      position: initial;
-    }
     &__wrapper {
-      &__menu {
-        &__btn {
-          display: none;
+      &-hamburger {
+        display: none;
+      }
+      &-menu {
+        position: initial;
+        display: block;
+        background-color: transparent;
+        color: white;
+        padding: 0;
+        ul {
+          font-size: 1rem;
+          gap: 1rem;
+          flex-direction: row;
+          li:not(:last-child) {
+            border-right: 2px solid white;
+          }
         }
       }
     }
-    &__menu {
-      display: block;
-      &__list {
-        font-size: 1rem;
-        gap: 1rem;
-        flex-direction: row;
-        li:not(:last-child) {
-          border-right: 2px solid white;
-        }
-      }
-    }
-    &__menu {
-      background-color: transparent;
-      color: white;
-      padding: 0;
-    }
   }
-  @include mixins.respond-to('lg') {
-    font-size: 1.2rem;
-  }
-}
-
-.header-seperator {
-  height: 7.4rem;
-  background-color: white;
 }
