@@ -19,11 +19,14 @@
     flex-direction: column;
     justify-content: space-between;
     padding: 2rem 3rem;
+    h2 {
+      padding-top: 0;
+    }
     &-separator {
       width: 2rem;
       height: 0.4rem;
       background-color: vars.$primary-color;
-      margin: 1rem 0;
+      margin: 0.2rem 0 0.5rem 0;
     }
     &-main {
       color: #94a3b8;
@@ -37,7 +40,12 @@
     }
   }
 
-  @include mixins.respond-to('lg') {
+  @include mixins.respond-to('md') {
+    &__text {
+      padding: 2rem 3rem;
+    }
+  }
+  @include mixins.respond-to('2xl') {
     &__text {
       padding: 5rem 7rem;
     }

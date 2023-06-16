@@ -11,15 +11,23 @@
 
 @font-face {
   font-family: 'Inter';
-  src: url('assets/fonts/Inter-Light.woff2');
-  font-weight: 300;
-  font-style: medium;
+  src: url('assets/fonts/Inter-Bold.woff2');
+  font-weight: 700;
+  font-style: bold;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Inter';
-  src: url('assets/fonts/Inter-Bold.woff2');
+  font-family: 'Inconsolata';
+  src: url('assets/fonts/Inconsolata-Normal.woff2');
+  font-weight: 400;
+  font-style: regular;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inconsolata';
+  src: url('assets/fonts/Inconsolata-Bold.woff2');
   font-weight: 700;
   font-style: bold;
   font-display: swap;
@@ -31,7 +39,7 @@
 }
 
 html {
-  font-family: vars.$font-family;
+  font-family: vars.$primary-font;
   background-color: vars.$primary-color;
   line-height: 1.5rem;
   font-weight: 400;
@@ -44,6 +52,12 @@ html {
   @include mixins.respond-to('lg') {
     font-size: 18px;
   }
+}
+
+h1,
+h2,
+h3 {
+  font-family: vars.$secondary-font;
 }
 
 h1 {

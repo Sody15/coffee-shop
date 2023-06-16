@@ -31,17 +31,18 @@
     &-products {
       display: flex;
       flex-direction: column;
+      align-items: center;
       row-gap: 4rem;
       padding: 0 2rem 2rem 2rem;
       max-width: vars.$max-width--wide;
       margin: auto;
       background-color: white;
-      @include mixins.respond-to('md') {
+      @include mixins.respond-to('sm') {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
         column-gap: 1rem;
       }
-      @include mixins.respond-to('2xl') {
+      @include mixins.respond-to('md') {
         display: grid;
         grid-template-columns: repeat(4, minmax(0, 1fr));
         column-gap: 1rem;

@@ -3,12 +3,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 
 import { Observable, map, switchMap } from 'rxjs';
-import { tap } from 'rxjs/operators';
 
 import { PRODUCTS } from 'src/app/core/data';
 import { Product } from 'src/app/core/models/product';
 import { selectProduct } from '../../shop.actions';
-import { addItem, removeItem } from 'src/app/shared/components/cart/cart.actions';
+import { addItem, removeItem, toggleCart } from 'src/app/shared/components/cart/cart.actions';
 import { CartState } from 'src/app/shared/components/cart/cart.reducer';
 import { QuantityComponent } from 'src/app/shared/components/quantity/quantity.component';
 
@@ -21,7 +20,7 @@ export class ProductPageComponent implements OnInit {
   @ViewChild(QuantityComponent) qtyComponent!: QuantityComponent;
 
   quantity$!: Observable<string>;
-  btnText$!: Observable<string>;
+  inCart$!: Observable<'true' | 'false'>;
 
   product!: Product | undefined;
   bottomProducts: Product[] = PRODUCTS.slice(0, 4);
@@ -47,27 +46,26 @@ export class ProductPageComponent implements OnInit {
       })
     );
 
-    this.btnText$ = this.route.paramMap.pipe(
+    this.inCart$ = this.route.paramMap.pipe(
       switchMap((params) => {
+        // Get Product Id
         const productId = params.get('id');
-        // Set product
-        this.product = productId ? PRODUCTS.filter((p) => p.id === +productId!)[0] : undefined;
         // Get quantity
         return this.store
           .select((state) => state.cart.items)
           .pipe(
             map((cartProducts) => {
               const inCart = cartProducts.filter((cartProduct) => cartProduct.id === +productId!);
-              return inCart.length ? 'Added to Cart' : 'Add to Cart';
+              return inCart.length ? 'true' : 'false';
             })
           );
       })
     );
   }
 
-  addToCart() {
+  addToCart(quantity?: number) {
     if (this.product) {
-      const qty = this.qtyComponent.qty;
+      const qty = quantity ? quantity : this.qtyComponent.qty;
 
       // Remove item if qty is 0
       if (qty === 0) {
@@ -86,6 +84,11 @@ export class ProductPageComponent implements OnInit {
           },
         })
       );
+
+      if (!quantity) {
+        // Open Cart
+        this.store.dispatch(toggleCart());
+      }
     }
   }
 

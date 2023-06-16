@@ -10,15 +10,6 @@
   }
 }
 
-@keyframes slideDown {
-  0% {
-    top: -100vh;
-  }
-  100% {
-    top: 0;
-  }
-}
-
 .cart-overlay {
   z-index: 50;
   position: fixed;
@@ -29,6 +20,7 @@
 }
 
 .cart {
+  font-family: vars.$secondary-font;
   font-size: 1rem;
   font-weight: bold;
   box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);

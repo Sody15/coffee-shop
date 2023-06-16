@@ -3,6 +3,9 @@
     [src]="'assets/images/' + product.imgSrc"
     alt="Coffee Bag Image"
     [ngStyle]="{ height: imgHeight ? imgHeight : 'auto' }"
+    [cofProductColor]="product"
+    [onHover]="true"
+    baseBgColor="#e3ded7"
   />
   <div class="product-name">{{ product.name }}</div>
   <div class="product-price">{{ product.price | currency }}</div>
