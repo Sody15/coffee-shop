@@ -31,7 +31,7 @@ export class HeaderComponent {
   @HostListener('window:scroll', ['$event'])
   onWindowScroll() {
     const scrollPosition = window.pageYOffset;
-    this.isTransparent = scrollPosition < 100;
+    this.isTransparent = scrollPosition < 30;
   }
 
   toggleMenu() {

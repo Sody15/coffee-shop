@@ -10,7 +10,7 @@
         <ng-container *ngIf="cartState.cartProducts.length > 0; else emptyCart">
           <!-- Product -->
           <div class="product" *ngFor="let product of cartState.cartProducts">
-            <img src="{{ 'assets/images/' + product.imgSrc }}" alt="" />
+            <img [src]="product.imgSrc ? 'assets/images/' + product.imgSrc : null" alt="" />
             <div class="product__details">
               <div class="product__details-name">{{ product.name }}</div>
               <div class="product__details-price">{{ product.price | currency }}</div>
