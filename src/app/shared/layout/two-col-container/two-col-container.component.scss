@@ -25,14 +25,14 @@
     &-separator {
       width: 2rem;
       height: 0.4rem;
-      background-color: vars.$primary-color;
+      background-color: vars.$color-primary;
       margin: 0.2rem 0 0.5rem 0;
     }
     &-main {
       color: #94a3b8;
     }
   }
-  @include mixins.respond-to('md') {
+  @include mixins.respond-to('lg') {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     &--img-right .two-col__img {
@@ -43,11 +43,6 @@
   @include mixins.respond-to('md') {
     &__text {
       padding: 2rem 3rem;
-    }
-  }
-  @include mixins.respond-to('2xl') {
-    &__text {
-      padding: 5rem 7rem;
     }
   }
 }

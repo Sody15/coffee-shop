@@ -1,0 +1,11 @@
+@use 'mixins' as mixins;
+
+.home {
+  &__content {
+    padding-top: 3rem;
+    background-color: white;
+    @include mixins.respond-to('lg') {
+      padding-top: 0;
+    }
+  }
+}

@@ -13,7 +13,7 @@
   cursor: pointer;
   outline: inherit;
   ng-icon {
-    color: rgb(252, 170, 18);
+    color: vars.$color-button-accent;
     transform: translateY(-0.08rem);
     font-size: 1.5rem !important;
     transition: color 0.5s;
@@ -31,7 +31,7 @@
     }
 
     &:hover {
-      background-color: vars.$primary-color;
+      background-color: vars.$color-button;
       color: black;
       ng-icon {
         color: black;
@@ -58,7 +58,7 @@
     border: 2px solid white;
     padding: 1rem 0;
     &:hover {
-      color: rgb(252, 170, 18);
+      color: vars.$color-button;
     }
   }
 }

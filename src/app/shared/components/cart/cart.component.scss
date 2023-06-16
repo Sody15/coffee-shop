@@ -20,7 +20,6 @@
 }
 
 .cart {
-  font-family: vars.$secondary-font;
   font-size: 1rem;
   font-weight: bold;
   box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
@@ -41,6 +40,7 @@
   &__top {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     border-bottom: 1px solid black;
     padding: 1.5rem 2rem;
     .close-btn {
@@ -70,8 +70,6 @@
       }
       &__details {
         flex: 1;
-        &-name {
-        }
         &-price {
           font-size: 0.8rem;
           margin-bottom: 1rem;
@@ -108,7 +106,7 @@
       background-color: black;
       transition: background-color 0.2s ease-in;
       &:hover {
-        background-color: vars.$primary-color;
+        background-color: vars.$color-primary;
       }
     }
   }

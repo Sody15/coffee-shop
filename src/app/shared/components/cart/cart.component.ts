@@ -7,6 +7,7 @@ import { map } from 'rxjs/operators';
 
 import { CartProduct, CartState } from './cart.reducer';
 import { removeItem, toggleCart, updateItem } from './cart.actions';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'cof-cart',
@@ -17,7 +18,7 @@ export class CartComponent {
   cartProducts$: Observable<CartProduct[]>;
   cartSubTotal$: Observable<string>;
 
-  constructor(private store: Store<{ cart: CartState }>) {
+  constructor(private store: Store<{ cart: CartState }>, private router: Router) {
     this.cartProducts$ = this.store.select((state) => state.cart.items);
 
     this.cartSubTotal$ = this.cartProducts$.pipe(
@@ -32,7 +33,7 @@ export class CartComponent {
     this.store.dispatch(removeItem({ id }));
   }
 
-  onClose() {
+  toggle() {
     this.store.dispatch(toggleCart());
   }
 
@@ -46,5 +47,10 @@ export class CartComponent {
     // Else- update qty and totalPrice
     const updatedItem = { ...cartProduct, quantity: updatedQty, totalPrice: cartProduct.price * updatedQty };
     this.store.dispatch(updateItem({ updatedItem }));
+  }
+
+  onCheckout() {
+    this.toggle();
+    this.router.navigate(['/checkout']);
   }
 }

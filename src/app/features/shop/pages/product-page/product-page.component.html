@@ -13,8 +13,8 @@
           <p>
             {{ product.desc }}
           </p>
-          <cof-quantity [qty]="+qty" (onUpdateQty)="addToCart($event)"></cof-quantity>
-          <button type="button" (click)="addToCart()">
+          <cof-quantity [qty]="+qty" (onUpdateQty)="addToCart($event, inCart)"></cof-quantity>
+          <button type="button" (click)="addToCart()" [ngClass]="{ 'btn--incart': inCart === 'true' }">
             {{ inCart === 'true' ? 'Added to Cart' : 'Add to Cart' }}
           </button>
         </div>

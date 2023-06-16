@@ -84,8 +84,12 @@
             background-color: black;
             color: white;
             padding: 0.7rem 2rem;
-            &:hover {
+            &:not(.btn--incart):hover {
               opacity: 0.9;
+            }
+            &.btn--incart {
+              background-color: vars.$color-primary;
+              cursor: default;
             }
           }
         }

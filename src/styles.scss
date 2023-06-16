@@ -1,5 +1,6 @@
 @use 'variables' as vars;
 @use 'mixins' as mixins;
+@use 'scrollbar' as scroll;
 
 @font-face {
   font-family: 'Inter';
@@ -33,6 +34,8 @@
   font-display: swap;
 }
 
+@include scroll.scrollbar;
+
 * {
   margin: 0;
   padding: 0;
@@ -40,7 +43,7 @@
 
 html {
   font-family: vars.$primary-font;
-  background-color: vars.$primary-color;
+  background-color: vars.$color-primary;
   line-height: 1.5rem;
   font-weight: 400;
   margin: 0;
@@ -75,7 +78,7 @@ h2 {
 
 h3 {
   text-transform: uppercase;
-  color: vars.$primary-color;
+  color: vars.$color-heading;
   padding: 0.3rem 0 0.3rem 0;
   font-size: 1rem;
   line-height: 1.1;

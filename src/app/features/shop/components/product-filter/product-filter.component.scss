@@ -29,10 +29,10 @@
       color: grey;
       cursor: pointer;
       &:hover {
-        color: vars.$primary-color;
+        color: vars.$color-primary;
       }
       &.active {
-        color: vars.$primary-color;
+        color: vars.$color-primary;
       }
       @include mixins.respond-to('md') {
         &:not(:last-child) {

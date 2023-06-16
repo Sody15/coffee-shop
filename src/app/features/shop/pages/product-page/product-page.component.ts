@@ -63,7 +63,10 @@ export class ProductPageComponent implements OnInit {
     );
   }
 
-  addToCart(quantity?: number) {
+  addToCart(quantity?: number, inCart?: 'true' | 'false') {
+    if (quantity && inCart === 'false') {
+      return;
+    }
     if (this.product) {
       const qty = quantity ? quantity : this.qtyComponent.qty;
 

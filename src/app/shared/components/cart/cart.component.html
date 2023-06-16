@@ -1,9 +1,9 @@
 <ng-container *ngIf="cartProducts$ | async as cartProducts">
-  <div class="cart-overlay" (click)="onClose()"></div>
-  <div class="cart">
+  <div class="cart-overlay" (click)="toggle()"></div>
+  <div class="cart scrollbar">
     <div class="cart__top">
       <span>Your Cart [{{ cartProducts.length }}]</span>
-      <button type="button" (click)="onClose()"><ng-icon class="close-btn" name="heroXMark"></ng-icon></button>
+      <button type="button" (click)="toggle()"><ng-icon class="close-btn" name="heroXMark"></ng-icon></button>
     </div>
     <div class="cart__content">
       <ng-container *ngIf="cartProducts.length > 0; else emptyCart">
@@ -26,7 +26,7 @@
         <span>Subtotal</span>
         <span *ngIf="cartSubTotal$ | async as cartSubTotal">{{ cartSubTotal | currency }}</span>
       </div>
-      <button type="button" class="cart__bottom-chkbtn">Checkout</button>
+      <button type="button" class="cart__bottom-chkbtn" (click)="onCheckout()">Checkout</button>
     </div>
   </div>
 </ng-container>
