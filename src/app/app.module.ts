@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { StoreModule, ActionReducer, MetaReducer } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -25,6 +26,7 @@ const metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncReducer];
   imports: [
     AppRoutingModule,
     BrowserModule,
+    BrowserAnimationsModule,
     SharedModule,
     NgIconsModule.withIcons({ ...ngIcons }),
     StoreModule.forRoot({ cart: cartReducer }, { metaReducers }),
