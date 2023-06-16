@@ -16,11 +16,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./cart.component.scss'],
   animations: [
     trigger('slideInLeft', [
-      transition(':enter', [
-        style({ right: '-100%', opacity: 0 }),
-        animate('400ms', style({ right: '0', opacity: 1 })),
-      ]),
-      transition(':leave', [style({ right: 0, opacity: 1 }), animate('400ms', style({ right: '-100%', opacity: 0 }))]),
+      transition(':enter', [style({ right: '-100%' }), animate('400ms', style({ right: '0' }))]),
+      transition(':leave', [style({ right: 0 }), animate('400ms', style({ right: '-100%' }))]),
     ]),
   ],
 })
