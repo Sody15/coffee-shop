@@ -66,14 +66,24 @@
 
     .product {
       display: flex;
-      justify-content: space-between;
+      gap: 2rem;
       align-items: center;
       padding-bottom: 2rem;
       &:not(:last-child) {
         border-bottom: 1px solid black;
       }
+
       img {
-        height: 8rem;
+        width: 30%;
+      }
+      &__details {
+        flex: 1;
+        &-name {
+        }
+        &-price {
+          font-size: 0.8rem;
+          margin-bottom: 1rem;
+        }
       }
       .left-col {
         .product__name {
@@ -82,51 +92,33 @@
           letter-spacing: 0.05rem;
         }
       }
-      .right-col {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 1rem;
-        button {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          .product__remove {
-            font-size: 1.7rem;
-            font-weight: 1000;
-            color: vars.$primary-color;
-            cursor: pointer;
-          }
-        }
-      }
       &__price-container {
         display: flex;
         align-items: center;
       }
-      &__name {
-        text-transform: uppercase;
-      }
-      &__quantity {
-        padding: 0.4rem 0.5rem;
-        text-align: center;
-        width: 1rem;
-        font-size: 1rem;
-        margin-right: 0.6rem;
-        &::-webkit-inner-spin-button,
-        &::-webkit-outer-spin-button {
-          -webkit-appearance: none;
-          margin: 0;
-        }
-        -moz-appearance: textfield;
-      }
     }
   }
   &__bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
     background-color: white;
     border-top: 1px solid black;
-    display: flex;
-    justify-content: space-between;
-    padding: 3rem 2rem;
+    padding: 2rem;
+    &-total {
+      display: flex;
+      justify-content: space-between;
+    }
+    &-chkbtn {
+      width: 100%;
+      padding: 1rem;
+      color: white;
+      background-color: black;
+      transition: background-color 0.2s ease-in;
+      &:hover {
+        background-color: vars.$primary-color;
+      }
+    }
   }
   .empty-cart {
     text-align: center;

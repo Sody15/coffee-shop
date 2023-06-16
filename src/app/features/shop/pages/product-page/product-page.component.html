@@ -1,6 +1,9 @@
 <section class="product-section" *ngIf="quantity$ | async as qty">
-  <div class="product-page" *ngIf="product" [ngClass]="{ 'product-page--bg-color': product.color }">
-    <div class="product-page__upper" [ngStyle]="{ 'background-color': product.color }">
+  <div class="product-page" *ngIf="product">
+    <div
+      class="product-page__upper"
+      [ngStyle]="{ 'background-color': product.color ? product.color : 'rgb(125, 178, 192)' }"
+    >
       <div class="product-page__upper-container" style="position: relative">
         <a routerLink="/shop"> <ng-icon class="arrow" name="heroArrowLeft"></ng-icon>Back</a>
         <img [src]="'assets/images/' + product.imgSrc" />
@@ -10,7 +13,8 @@
           <p>
             {{ product.desc }}
           </p>
-          <cof-quantity [qty]="+qty" (onUpdateQty)="addToCart($event)"></cof-quantity>
+          <cof-quantity [qty]="+qty"></cof-quantity>
+          <button *ngIf="btnText$ | async as btnText" type="button" (click)="addToCart()">{{ btnText }}</button>
         </div>
       </div>
     </div>

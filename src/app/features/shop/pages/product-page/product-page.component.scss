@@ -5,21 +5,6 @@
   background-color: white;
 
   .product-page {
-    &--bg-color {
-      .product-page__upper-container {
-        h3,
-        span,
-        p {
-          color: black;
-        }
-        a {
-          color: white;
-          &:hover {
-            color: black;
-          }
-        }
-      }
-    }
     &__upper {
       transition: background-color 0.5s ease-in;
       padding: 8rem 2rem;
@@ -46,6 +31,10 @@
           display: flex;
           gap: 0.5rem;
           align-items: center;
+          color: white;
+          &:hover {
+            color: black;
+          }
           .arrow {
             transform: translateY(-0.1rem);
           }
@@ -71,11 +60,11 @@
             text-transform: none;
           }
           h3 {
+            color: black;
             font-size: 1.5rem;
             padding-bottom: 2rem;
             span {
               text-transform: lowercase;
-              color: vars.$text-color-light;
               font-size: 0.8rem;
               padding-left: 0.3rem;
             }
@@ -86,7 +75,16 @@
           p {
             font-size: 0.8rem;
             padding: 3rem 0;
-            color: vars.$text-color-light;
+          }
+          button {
+            margin-top: 2rem;
+            display: block;
+            background-color: black;
+            color: white;
+            padding: 0.7rem 2rem;
+            &:hover {
+              opacity: 0.9;
+            }
           }
         }
       }

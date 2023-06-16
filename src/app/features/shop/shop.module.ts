@@ -8,14 +8,13 @@ import { StoreModule } from '@ngrx/store';
 import { shopReducer } from './shop.reducer';
 import { ProductFilterComponent } from './components/product-filter/product-filter.component';
 import { ProductPageComponent } from './pages/product-page/product-page.component';
-import { QuantityComponent } from './components/quantity/quantity.component';
 import { NgIconsModule } from '@ng-icons/core';
 import { heroArrowLeft } from '@ng-icons/heroicons/outline';
 
 const ngIcons = { heroArrowLeft };
 
 @NgModule({
-  declarations: [ShopPageComponent, ProductComponent, ProductFilterComponent, ProductPageComponent, QuantityComponent],
+  declarations: [ShopPageComponent, ProductComponent, ProductFilterComponent, ProductPageComponent],
   imports: [
     CommonModule,
     ShopRoutingModule,

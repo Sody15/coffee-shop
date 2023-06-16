@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { CartProduct, CartState } from './cart.reducer';
-import { removeItem, toggleCart } from './cart.actions';
+import { removeItem, toggleCart, updateItem } from './cart.actions';
 
 @Component({
   selector: 'cof-cart',
@@ -34,5 +34,17 @@ export class CartComponent {
 
   onClose() {
     this.store.dispatch(toggleCart());
+  }
+
+  updateQty(updatedQty: number, cartProduct: CartProduct) {
+    // Remove item if qty is 0
+    if (updatedQty === 0) {
+      this.store.dispatch(removeItem({ id: cartProduct.id }));
+      return;
+    }
+
+    // Else- update qty and totalPrice
+    const updatedItem = { ...cartProduct, quantity: updatedQty, totalPrice: cartProduct.price * updatedQty };
+    this.store.dispatch(updateItem({ updatedItem }));
   }
 }

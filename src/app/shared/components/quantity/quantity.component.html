@@ -1,0 +1,15 @@
+<div class="qty">
+  <label for="qty__clicker-input">Quantity</label>
+  <div class="qty__clicker">
+    <button class="qty__clicker-subtract" type="button" (click)="decrement()">-</button>
+    <input
+      type="number"
+      name="qty__clicker-input"
+      id="qty__clicker-input"
+      cofMaxDigits
+      [(ngModel)]="qty"
+      (ngModelChange)="qty ? onUpdateQty.emit(qty) : null"
+    />
+    <button class="qty__clicker-add" type="button" (click)="increment()">+</button>
+  </div>
+</div>
