@@ -16,15 +16,16 @@
     position: absolute;
     opacity: 0;
     top: 1rem;
-    left: 1rem;
+    left: 0.85rem;
     font-size: 0.7rem;
     transition: all 0.2s ease-in;
+    color: gray;
   }
   input {
     width: 100%;
     transition: padding-top 0.2s ease-in, padding-bottom 0.2s ease-in;
-    font-size: 1rem;
-    padding: 0.8rem 1rem;
+    font-size: 0.9rem;
+    padding: 0.8rem;
     border-radius: 3px;
     border: 1px solid #ececec;
     outline: none;

@@ -1,11 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'cof-text-input',
-  templateUrl: './text-input.component.html',
-  styleUrls: ['./text-input.component.scss'],
+  selector: 'cof-text-box',
+  templateUrl: './text-box.component.html',
+  styleUrls: ['./text-box.component.scss'],
 })
-export class TextInputComponent implements OnInit {
+export class TextBoxComponent implements OnInit {
   showLabel!: boolean;
   @Input() label!: string;
   @Input() name!: string;
