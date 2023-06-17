@@ -9,8 +9,8 @@
       <div class="cart__content">
         <ng-container *ngIf="cartState.cartProducts.length > 0; else emptyCart">
           <!-- Product -->
-          <div class="product" *ngFor="let product of cartState.cartProducts; let isFirst = first">
-            <img *ngIf="isFirst" [src]="'assets/images/' + product.imgSrc" alt="" />
+          <div class="product" *ngFor="let product of cartState.cartProducts">
+            <img [src]="'assets/images/' + product.imgSrc" alt="" />
             <div class="product__details">
               <div class="product__details-name">{{ product.name }}</div>
               <div class="product__details-price">{{ product.price | currency }}</div>
