@@ -1,1 +1,62 @@
-<section class="checkout">Checkout</section>
+<section class="checkout">
+  <div class="checkout-inner">
+    <!-- Left Column -->
+    <div class="checkout__left">
+      <div>
+        <div class="checkout__left-logo"></div>
+        <div class="checkout__left-nav">
+          <ul>
+            <li>Information</li>
+            <li>></li>
+            <li>Shipping</li>
+            <li>></li>
+            <li>Payment</li>
+          </ul>
+        </div>
+      </div>
+      <div class="checkout__left-contact">
+        <h3>Contact</h3>
+        <div class="checkout__left-contact-inputs">
+          <cof-text-input name="email" placeholder="Email" _value=""></cof-text-input>
+        </div>
+      </div>
+      <div class="checkout__left-shipping">
+        <h3>Shipping address</h3>
+
+        <div class="checkout__left-shipping-inputs">
+          <select name="country" id="country">
+            <option disabled selected>Country/region</option>
+            <option value="US">United States</option>
+          </select>
+
+          <cof-text-input name="first-name" placeholder="First name" _value=""></cof-text-input>
+          <cof-text-input name="last-name" placeholder="Last name" _value=""></cof-text-input>
+          <cof-text-input name="address" placeholder="Address" _value=""></cof-text-input>
+          <cof-text-input name="apartment" placeholder="Apartment, suite, etc (optional)" _value=""></cof-text-input>
+          <cof-text-input name="city" placeholder="city" _value=""></cof-text-input>
+
+          <select name="state" id="state">
+            <option *ngFor="let entry of stateSalesTax | keyvalue" [value]="entry.key">{{ entry.key }}</option>
+          </select>
+          <cof-text-input name="zip" placeholder="ZIP code" _value="" type="number"></cof-text-input>
+          <cof-text-input name="phone" placeholder="Phone (optional)" _value=""></cof-text-input>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column -->
+    <div class="checkout__right">
+      <div class="checkout__right-cart scrollbar">
+        <div class="checkout__right-cart-product" *ngFor="let cartProduct of cartProducts$ | async">
+          <img [src]="'assets/images/' + cartProduct.imgSrc" alt="" />
+          <span class="checkout__right-cart-product-name">{{ cartProduct.name }}</span>
+          <span class="checkout__right-cart-product-price">{{ cartProduct.price | currency }}</span>
+        </div>
+      </div>
+      <div class="checkout__right-promo">
+        <cof-text-input name="promo" placeholder="Gift card or discount code" _value=""></cof-text-input>
+        <button type="button" [disabled]="true">Apply</button>
+      </div>
+    </div>
+  </div>
+</section>

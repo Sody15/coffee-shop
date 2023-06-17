@@ -1,0 +1,114 @@
+@use 'variables' as vars;
+
+.checkout {
+  font-family: vars.$font-secondary;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+  padding: 3rem 1rem;
+  h3 {
+    text-transform: none;
+    padding-bottom: 1rem;
+  }
+  &-inner {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin: auto;
+    max-width: vars.$max-width--wide;
+  }
+  &__left {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding-right: 5rem;
+    border-right: 1px solid black;
+
+    &-logo {
+      background: url('/assets/images/brand-black.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      width: 236px;
+      height: 46px;
+    }
+    &-nav {
+      padding-top: 0.8rem;
+      font-size: 0.8rem;
+      ul {
+        display: flex;
+        gap: 0.7rem;
+        list-style: none;
+      }
+    }
+    &-contact-inputs {
+      display: grid;
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+      input {
+        grid-column: 1/-1;
+      }
+    }
+    &-shipping-inputs {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 1rem;
+
+      :nth-child(1),
+      :nth-child(4),
+      :nth-child(5),
+      :nth-child(9) {
+        grid-column: 1/-1;
+      }
+      :nth-child(2) {
+        grid-column: 1/7;
+      }
+      :nth-child(3) {
+        grid-column: 7/-1;
+      }
+      :nth-child(6) {
+        grid-column: 1/5;
+      }
+      :nth-child(7) {
+        grid-column: 5/9;
+      }
+      :nth-child(8) {
+        grid-column: 9/-1;
+      }
+    }
+  }
+
+  &__right {
+    padding: 0 2rem 2rem 5rem;
+    &-cart {
+      max-height: 18rem;
+      padding: 0 2rem 2rem 0;
+      overflow-y: auto;
+      border-bottom: 1px solid black;
+      &-product {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        img {
+          width: 5rem;
+          height: 5rem;
+        }
+        &-name {
+          flex: 1;
+        }
+        &-price {
+        }
+      }
+    }
+    &-promo {
+      display: flex;
+      margin-top: 1rem;
+      gap: 1rem;
+      input {
+        flex: 1;
+      }
+      button {
+        background-color: black;
+        border-radius: 3px;
+        color: white;
+        padding: 0.5rem 1rem;
+      }
+    }
+  }
+}

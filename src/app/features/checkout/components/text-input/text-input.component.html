@@ -1,0 +1,13 @@
+<div class="text-input" [ngClass]="{ 'text-input--show-label': showLabel }">
+  <label for="{{ name }}">{{ label ? label : placeholder }}</label>
+  <input
+    type="{{ type }}"
+    name="{{ name }}"
+    id="{{ name }}"
+    placeholder="{{ placeholder }}"
+    maxlength="{{ maxlength ? maxlength : null }}"
+    (focus)="onFocus()"
+    (blur)="onBlur()"
+    [(ngModel)]="value"
+  />
+</div>

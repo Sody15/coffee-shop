@@ -71,8 +71,10 @@ export class CartComponent {
     this.store.dispatch(updateItem({ updatedItem }));
   }
 
-  onCheckout() {
-    this.toggle();
-    this.router.navigate(['/checkout']);
+  onCheckout(numItemsInCart: number) {
+    if (numItemsInCart > 0) {
+      this.toggle();
+      this.router.navigate(['/checkout']);
+    }
   }
 }

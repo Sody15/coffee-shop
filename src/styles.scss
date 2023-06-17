@@ -43,7 +43,7 @@
 
 html {
   color: black;
-  font-family: vars.$primary-font;
+  font-family: vars.$font-primary;
   background-color: vars.$color-primary;
   line-height: 1.5rem;
   font-weight: 400;
@@ -61,7 +61,7 @@ html {
 h1,
 h2,
 h3 {
-  font-family: vars.$secondary-font;
+  font-family: vars.$font-secondary;
 }
 
 h1 {
@@ -96,4 +96,12 @@ button {
   cursor: pointer;
   outline: inherit;
   border: none;
+}
+
+select {
+  font-size: 1rem;
+  padding: 1rem;
+  border-radius: 3px;
+  border: 1px solid #ececec;
+  outline: none;
 }

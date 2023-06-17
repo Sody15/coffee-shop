@@ -1,0 +1,32 @@
+.text-input {
+  width: 100%;
+  display: inline-block;
+  position: relative;
+  &--show-label {
+    input {
+      padding-top: 1.5rem !important;
+      padding-bottom: 0.5rem !important;
+    }
+    label {
+      top: 0.2rem !important;
+      opacity: 1 !important;
+    }
+  }
+  label {
+    position: absolute;
+    opacity: 0;
+    top: 1rem;
+    left: 1rem;
+    font-size: 0.8rem;
+    transition: all 0.2s ease-in;
+  }
+  input {
+    width: 100%;
+    transition: padding-top 0.2s ease-in, padding-bottom 0.2s ease-in;
+    font-size: 1rem;
+    padding: 1rem;
+    border-radius: 3px;
+    border: 1px solid #ececec;
+    outline: none;
+  }
+}

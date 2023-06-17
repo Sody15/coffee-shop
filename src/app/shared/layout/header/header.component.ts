@@ -6,12 +6,15 @@ import { Observable } from 'rxjs';
 import { CartState } from '../../components/cart/cart.reducer';
 import { toggleCart } from '../../components/cart/cart.actions';
 
+const notTransparentRoutes = ['/checkout'];
+
 @Component({
   selector: 'cof-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
+  canBeTransparent!: boolean;
   isTransparent = true;
   showCart = false;
   isMenuOpen = false;
@@ -21,7 +24,8 @@ export class HeaderComponent {
   constructor(private router: Router, private store: Store<{ cart: CartState }>) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationStart) {
-        this.isTransparent = true;
+        this.isTransparent = !notTransparentRoutes.includes(event.url);
+        this.canBeTransparent = this.isTransparent;
       }
     });
 
@@ -30,8 +34,10 @@ export class HeaderComponent {
 
   @HostListener('window:scroll', ['$event'])
   onWindowScroll() {
-    const scrollPosition = window.pageYOffset;
-    this.isTransparent = scrollPosition < 30;
+    if (this.canBeTransparent) {
+      const scrollPosition = window.pageYOffset;
+      this.isTransparent = scrollPosition < 30;
+    }
   }
 
   toggleMenu() {
