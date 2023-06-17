@@ -1,6 +1,6 @@
 <div class="dropdown" [ngClass]="{ 'text-input--show-label': showLabel }">
   <label for="{{ name }}">{{ label ? label : placeholder }}</label>
-  <select name="{{ name }}" id="{{ name }}" [value]="selectedOption" (change)="onInputChange($event)" (open)="onOpen()">
+  <select name="{{ name }}" id="{{ name }}" [value]="selectedOption" (change)="onInputChange($event)">
     <option disabled selected>{{ placeholder }}</option>
     <option *ngFor="let option of options | keyvalue" value="{{ option.key }}">{{ option.value }}</option>
   </select>

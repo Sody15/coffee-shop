@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { CartProduct, CartState } from 'src/app/shared/components/cart/cart.reducer';
+import { CartState } from 'src/app/shared/components/cart/cart.reducer';
 import { Observable } from 'rxjs';
 import { InfoFormComponent } from '../../forms/info-form/info-form.component';
 
@@ -11,9 +11,9 @@ import { InfoFormComponent } from '../../forms/info-form/info-form.component';
 export class CheckoutPageComponent {
   @ViewChild(InfoFormComponent, { static: false }) infoFormComponent!: InfoFormComponent;
 
-  cartProducts$: Observable<CartProduct[]>;
+  cartState$: Observable<CartState>;
 
   constructor(private store: Store<{ cart: CartState }>) {
-    this.cartProducts$ = this.store.select((state) => state.cart.items);
+    this.cartState$ = this.store.select((state) => state.cart);
   }
 }

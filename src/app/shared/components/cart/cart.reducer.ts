@@ -10,23 +10,32 @@ export interface CartProduct extends Omit<Product, 'desc'> {
 export interface CartState {
   items: CartProduct[];
   isOpen: boolean;
+  subTotal: number;
 }
 
 export const initialState: CartState = {
   items: [],
   isOpen: false,
+  subTotal: 0,
 };
 
 export const cartReducer = createReducer(
   initialState,
   on(addItem, (state, { item }) => {
+    // Check if item already exists in array
     const match = state.items.filter((i) => i.id === item.id);
+
+    let updatedItems: CartProduct[];
+
     if (match.length) {
-      let updatedItems: CartProduct[];
       // If the item already exists in the cart and quantity is 0, remove it
       if (item.quantity === 0) {
         updatedItems = state.items.filter((i) => i.id !== item.id);
-        return { ...state, items: [...updatedItems] };
+        return {
+          ...state,
+          items: [...updatedItems],
+          subTotal: updatedItems.reduce((acc, cur) => acc + cur.totalPrice, 0),
+        };
       }
       // If the item already exists in the cart, update its total price and quantity
       updatedItems = state.items.map((i) => {
@@ -39,10 +48,19 @@ export const cartReducer = createReducer(
         return i;
       });
       // Return the updated state with the updated items array
-      return { ...state, items: [...updatedItems] };
+      return {
+        ...state,
+        items: [...updatedItems],
+        subTotal: updatedItems.reduce((acc, cur) => acc + cur.totalPrice, 0),
+      };
     } else {
       // If the item doesn't exist in the cart, add it with a quantity of 1
-      return { ...state, items: [...state.items, { ...item }] };
+      updatedItems = [...state.items, { ...item }];
+      return {
+        ...state,
+        items: [...updatedItems],
+        subTotal: updatedItems.reduce((acc, cur) => acc + cur.totalPrice, 0),
+      };
     }
   }),
   on(updateItem, (state, { updatedItem }) => {
@@ -52,10 +70,11 @@ export const cartReducer = createReducer(
       }
       return item;
     });
-    return { ...state, items: [...updatedItems] };
+    return { ...state, items: [...updatedItems], subTotal: updatedItems.reduce((acc, cur) => acc + cur.totalPrice, 0) };
   }),
   on(removeItem, (state, { id }) => {
-    return { ...state, items: [...state.items.filter((item) => item.id !== id)] };
+    const updatedItems = state.items.filter((item) => item.id !== id);
+    return { ...state, items: [...updatedItems], subTotal: updatedItems.reduce((acc, cur) => acc + cur.totalPrice, 0) };
   }),
   on(reset, () => initialState),
   on(toggleCart, (state) => ({ ...state, isOpen: !state.isOpen }))

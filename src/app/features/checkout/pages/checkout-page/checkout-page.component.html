@@ -20,9 +20,9 @@
     </div>
 
     <!-- Right Column -->
-    <div class="checkout__right">
+    <div class="checkout__right" *ngIf="cartState$ | async as cartState">
       <div class="checkout__right-cart scrollbar">
-        <div class="checkout__right-cart-product" *ngFor="let cartProduct of cartProducts$ | async">
+        <div class="checkout__right-cart-product" *ngFor="let cartProduct of cartState.items">
           <img [src]="'assets/images/' + cartProduct.imgSrc" alt="" />
           <span class="checkout__right-cart-product-name">{{ cartProduct.name }}</span>
           <span class="checkout__right-cart-product-price">{{ cartProduct.price | currency }}</span>
@@ -36,7 +36,7 @@
       <div class="checkout__right-shipping">
         <div class="subtotal">
           <div class="subtotal-label">Subtotal</div>
-          <div class="subtotal-val">$17.00</div>
+          <div class="subtotal-val">{{ cartState.subTotal | currency }}</div>
         </div>
         <div class="shipping">
           <div class="shipping-label">Shipping</div>
@@ -45,7 +45,7 @@
       </div>
       <div class="checkout__right-price">
         <div class="total-label">Total</div>
-        <div class="total-val"><span>USD</span>$17.00</div>
+        <div class="total-val"><span>USD</span>{{ cartState.subTotal | currency }}</div>
       </div>
     </div>
   </div>

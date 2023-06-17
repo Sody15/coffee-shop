@@ -1,20 +1,13 @@
 import { Component } from '@angular/core';
 import { trigger, transition, animate, style } from '@angular/animations';
 
-import { Store } from '@ngrx/store';
+import { Store, select } from '@ngrx/store';
 
-import { Observable, combineLatest } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 import { CartProduct, CartState } from './cart.reducer';
 import { removeItem, toggleCart, updateItem } from './cart.actions';
 import { Router } from '@angular/router';
-
-type State = {
-  isCartOpen: boolean;
-  cartProducts: CartProduct[];
-  cartSubTotal: string;
-};
 
 @Component({
   selector: 'cof-cart',
@@ -28,27 +21,10 @@ type State = {
   ],
 })
 export class CartComponent {
-  isCartOpen$: Observable<boolean>;
-  cartProducts$: Observable<CartProduct[]>;
-  cartSubTotal$: Observable<string>;
-
-  cartState$: Observable<State>;
+  cartState$: Observable<CartState>;
 
   constructor(private store: Store<{ cart: CartState }>, private router: Router) {
-    this.isCartOpen$ = this.store.select((state) => state.cart.isOpen);
-
-    this.cartProducts$ = this.store.select((state) => state.cart.items);
-
-    this.cartSubTotal$ = this.cartProducts$.pipe(
-      map((cartProducts) => {
-        const subTotal = cartProducts.reduce((acc, cur) => acc + cur.totalPrice, 0);
-        return subTotal.toString();
-      })
-    );
-
-    this.cartState$ = combineLatest([this.isCartOpen$, this.cartProducts$, this.cartSubTotal$]).pipe(
-      map(([isCartOpen, cartProducts, cartSubTotal]) => ({ isCartOpen, cartProducts, cartSubTotal }))
-    );
+    this.cartState$ = this.store.pipe(select((state) => state.cart));
   }
 
   onRemove(id: number) {

@@ -23,7 +23,6 @@ export class DropdownComponent implements ControlValueAccessor {
   selectedOption: string = '';
 
   private onChange: any = (el: InputEvent) => {
-    console.log((el.target as HTMLInputElement).value);
     this.showLabel = !!(el.target as HTMLInputElement).value.length;
   };
 
@@ -52,9 +51,5 @@ export class DropdownComponent implements ControlValueAccessor {
     this.onTouched();
 
     this.showLabel = !!this.selectedOption.length;
-  }
-
-  onOpen() {
-    console.log('open');
   }
 }
