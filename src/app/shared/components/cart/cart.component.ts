@@ -10,6 +10,12 @@ import { CartProduct, CartState } from './cart.reducer';
 import { removeItem, toggleCart, updateItem } from './cart.actions';
 import { Router } from '@angular/router';
 
+type State = {
+  isCartOpen: boolean;
+  cartProducts: CartProduct[];
+  cartSubTotal: string;
+};
+
 @Component({
   selector: 'cof-cart',
   templateUrl: './cart.component.html',
@@ -24,9 +30,9 @@ import { Router } from '@angular/router';
 export class CartComponent {
   isCartOpen$: Observable<boolean>;
   cartProducts$: Observable<CartProduct[]>;
-  cartState$: Observable<any>;
-
   cartSubTotal$: Observable<string>;
+
+  cartState$: Observable<State>;
 
   constructor(private store: Store<{ cart: CartState }>, private router: Router) {
     this.isCartOpen$ = this.store.select((state) => state.cart.isOpen);
@@ -40,8 +46,8 @@ export class CartComponent {
       })
     );
 
-    this.cartState$ = combineLatest([this.isCartOpen$, this.cartProducts$]).pipe(
-      map(([isCartOpen, cartProducts]) => ({ isCartOpen, cartProducts }))
+    this.cartState$ = combineLatest([this.isCartOpen$, this.cartProducts$, this.cartSubTotal$]).pipe(
+      map(([isCartOpen, cartProducts, cartSubTotal]) => ({ isCartOpen, cartProducts, cartSubTotal }))
     );
   }
 

@@ -25,7 +25,7 @@
       <div class="cart__bottom">
         <div class="cart__bottom-total">
           <span>Subtotal</span>
-          <span *ngIf="cartSubTotal$ | async as cartSubTotal">{{ cartSubTotal | currency }}</span>
+          <span>{{ cartState.cartSubTotal | currency }}</span>
         </div>
         <button type="button" class="cart__bottom-chkbtn" (click)="onCheckout()">Checkout</button>
       </div>
