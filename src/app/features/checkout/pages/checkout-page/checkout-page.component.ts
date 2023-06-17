@@ -1,15 +1,16 @@
-import { Component } from '@angular/core';
-import { stateSalesTax } from '../../checkout-constants';
+import { Component, ViewChild } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { CartProduct, CartState } from 'src/app/shared/components/cart/cart.reducer';
 import { Observable } from 'rxjs';
+import { InfoFormComponent } from '../../forms/info-form/info-form.component';
 
 @Component({
   templateUrl: './checkout-page.component.html',
   styleUrls: ['./checkout-page.component.scss'],
 })
 export class CheckoutPageComponent {
-  stateSalesTax = stateSalesTax;
+  @ViewChild(InfoFormComponent, { static: false }) infoFormComponent!: InfoFormComponent;
+
   cartProducts$: Observable<CartProduct[]>;
 
   constructor(private store: Store<{ cart: CartState }>) {

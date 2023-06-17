@@ -1,0 +1,36 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="info-form">
+  <div class="info-form__contact">
+    <h3>Contact</h3>
+    <div class="info-form__contact-inputs">
+      <cof-text-box name="email" placeholder="Email" _value=""></cof-text-box>
+    </div>
+  </div>
+  <div class="info-form__shipping">
+    <h3>Shipping address</h3>
+
+    <div class="info-form__shipping-inputs">
+      <cof-dropdown
+        name="country"
+        placeholder="Country"
+        formControlName="country"
+        [options]="countryOptions"
+      ></cof-dropdown>
+
+      <cof-text-box name="first-name" placeholder="First name" formControlName="firstName"></cof-text-box>
+      <cof-text-box name="last-name" placeholder="Last name" formControlName="lastName"></cof-text-box>
+      <cof-text-box name="address" placeholder="Address" formControlName="address"></cof-text-box>
+      <cof-text-box
+        name="apartment"
+        placeholder="Apartment, suite, etc (optional)"
+        formControlName="apartment"
+      ></cof-text-box>
+      <cof-text-box name="city" placeholder="City" formControlName="city"></cof-text-box>
+
+      <cof-dropdown name="state" placeholder="State" formControlName="state" [options]="usStates"></cof-dropdown>
+
+      <cof-text-box name="zip" placeholder="ZIP code" type="number" formControlName="zip"></cof-text-box>
+      <cof-text-box name="phone" placeholder="Phone (optional)" formControlName="phone"></cof-text-box>
+    </div>
+    <button class="btn" type="submit" [disabled]="!form.valid">Continue to shipping</button>
+  </div>
+</form>

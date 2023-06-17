@@ -2,25 +2,25 @@ import { Component, EventEmitter, Input, Output, forwardRef } from '@angular/cor
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
-  selector: 'cof-text-box',
-  templateUrl: './text-box.component.html',
-  styleUrls: ['./text-box.component.scss'],
+  selector: 'cof-dropdown',
+  templateUrl: './dropdown.component.html',
+  styleUrls: ['./dropdown.component.scss'],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => TextBoxComponent),
+      useExisting: forwardRef(() => DropdownComponent),
       multi: true,
     },
   ],
 })
-export class TextBoxComponent implements ControlValueAccessor {
+export class DropdownComponent implements ControlValueAccessor {
+  @Input() options = new Map<string, string>();
   @Input() label!: string;
   @Input() name!: string;
   @Input() placeholder!: string;
-  @Input() type: 'text' | 'number' = 'text';
   @Input() maxlength?: number;
 
-  value: string = '';
+  selectedOption: string = '';
 
   private onChange: any = (el: InputEvent) => {
     console.log((el.target as HTMLInputElement).value);
@@ -33,9 +33,9 @@ export class TextBoxComponent implements ControlValueAccessor {
 
   @Output() onBlur = new EventEmitter<string>();
 
-  writeValue(value: any) {
-    this.value = value;
-    this.showLabel = !!this.value?.length;
+  writeValue(option: any) {
+    this.selectedOption = option;
+    this.showLabel = !!this.selectedOption?.length;
   }
 
   registerOnChange(fn: any) {
@@ -47,10 +47,14 @@ export class TextBoxComponent implements ControlValueAccessor {
   }
 
   onInputChange(event: any) {
-    this.value = event.target.value;
-    this.onChange(this.value);
+    this.selectedOption = event.target.value;
+    this.onChange(this.selectedOption);
     this.onTouched();
 
-    this.showLabel = !!this.value.length;
+    this.showLabel = !!this.selectedOption.length;
+  }
+
+  onOpen() {
+    console.log('open');
   }
 }

@@ -17,7 +17,7 @@ import { QuantityComponent } from 'src/app/shared/components/quantity/quantity.c
   styleUrls: ['./product-page.component.scss'],
 })
 export class ProductPageComponent implements OnInit {
-  @ViewChild(QuantityComponent) qtyComponent!: QuantityComponent;
+  @ViewChild(QuantityComponent, { static: false }) qtyComponent!: QuantityComponent;
 
   quantity$!: Observable<string>;
   inCart$!: Observable<'true' | 'false'>;
