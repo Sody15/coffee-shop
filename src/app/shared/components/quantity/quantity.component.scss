@@ -12,9 +12,10 @@
       font-size: 1.5rem;
       position: absolute;
       color: black;
+      padding: 0 1rem;
     }
     &-subtract {
-      left: 0;
+      left: -1rem;
       top: 0.2rem;
     }
     input {
@@ -34,7 +35,7 @@
       -moz-appearance: textfield;
     }
     &-add {
-      right: 0;
+      right: -1rem;
       top: 0.2rem;
     }
   }
