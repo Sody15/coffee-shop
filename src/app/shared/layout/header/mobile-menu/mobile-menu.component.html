@@ -1,0 +1,17 @@
+<ng-container *ngIf="isMenuOpen">
+  <div class="mobile-menu-overlay" (click)="toggle()"></div>
+  <div class="mobile-menu" [@slideInRight]>
+    <div class="mobile-menu__top">
+      <span>Menu</span>
+      <button type="button" (click)="toggle()"><ng-icon class="close-btn" name="heroXMark"></ng-icon></button>
+    </div>
+    <nav>
+      <ul>
+        <li (click)="toggle()" routerLink="shop">shop</li>
+        <li (click)="toggle()" routerLink="subscribe">subscribe</li>
+        <li routerLink="/" (click)="toggle()">who we are?</li>
+        <li (click)="toggle()">cafes</li>
+      </ul>
+    </nav>
+  </div>
+</ng-container>

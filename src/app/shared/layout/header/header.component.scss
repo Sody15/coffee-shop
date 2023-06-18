@@ -44,11 +44,9 @@
       width: 100%;
       background-color: white;
       flex-grow: 1;
-      &--open {
+      display: none;
+      @include mixins.respond-to('lg') {
         display: block;
-      }
-      &--closed {
-        display: none;
       }
       ul {
         justify-content: center;

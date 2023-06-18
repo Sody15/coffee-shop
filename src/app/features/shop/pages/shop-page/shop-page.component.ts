@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { PRODUCTS } from 'src/app/core/data';
 import { Product } from 'src/app/core/models/product';
 
-import { Store } from '@ngrx/store';
+import { Store, select } from '@ngrx/store';
 
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -24,7 +24,7 @@ export class ShopPageComponent {
   filteredProducts$!: Observable<Product[]>;
 
   constructor(private store: Store<{ shop: ShopState }>, private router: Router) {
-    this.filter$ = this.store.select((state) => state.shop.filter);
+    this.filter$ = this.store.pipe(select((state) => state.shop.filter));
 
     this.filteredProducts$ = this.filter$.pipe(
       map((filter) => {

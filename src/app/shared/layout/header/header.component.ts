@@ -1,12 +1,13 @@
 import { Component, HostListener } from '@angular/core';
-import { NavigationStart, Router } from '@angular/router';
+
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
 import { CartState } from '../../components/cart/cart.reducer';
 import { toggleCart } from '../../components/cart/cart.actions';
+import { NavigationStart, Router } from '@angular/router';
 
-const notTransparentRoutes = ['/checkout'];
+const noHeaderRoutes = ['/checkout'];
 
 @Component({
   selector: 'cof-header',
@@ -14,7 +15,7 @@ const notTransparentRoutes = ['/checkout'];
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  canBeTransparent!: boolean;
+  isHidden = false;
   isTransparent = true;
   showCart = false;
   isMenuOpen = false;
@@ -22,28 +23,27 @@ export class HeaderComponent {
   cartNumProducts$!: Observable<number>;
 
   constructor(private router: Router, private store: Store<{ cart: CartState }>) {
+    // Hide/show based on route
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationStart) {
-        this.isTransparent = !notTransparentRoutes.includes(event.url);
-        this.canBeTransparent = this.isTransparent;
+        this.isHidden = noHeaderRoutes.includes(event.url);
       }
     });
 
+    // Set num products in cart
     this.cartNumProducts$ = this.store.select((state) => state.cart.items.length);
   }
 
+  // Toggle header transparency based on scroll pos
   @HostListener('window:scroll', ['$event'])
   onWindowScroll() {
-    if (this.canBeTransparent) {
-      const scrollPosition = window.pageYOffset;
+    if (!this.isHidden) {
+      const scrollPosition = window.scrollY;
       this.isTransparent = scrollPosition < 30;
     }
   }
 
-  toggleMenu() {
-    this.isMenuOpen = !this.isMenuOpen;
-  }
-
+  // Toggle cart
   toggleCart() {
     this.store.dispatch(toggleCart());
   }

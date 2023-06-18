@@ -14,6 +14,7 @@ import { MaxDigitsDirective } from './directives/max-digits.directive';
 import { ProductColorDirective } from './directives/product-color.directive';
 import { QuantityComponent } from './components/quantity/quantity.component';
 import { TwoColContainerComponent } from './layout/two-col-container/two-col-container.component';
+import { MobileMenuComponent } from './layout/header/mobile-menu/mobile-menu.component';
 
 const ngIcons = { heroArrowLeft, heroArrowRight, heroBars3, heroShoppingCart, heroXMark };
 
@@ -27,6 +28,7 @@ const ngIcons = { heroArrowLeft, heroArrowRight, heroBars3, heroShoppingCart, he
     ProductColorDirective,
     QuantityComponent,
     TwoColContainerComponent,
+    MobileMenuComponent,
   ],
   imports: [CommonModule, FormsModule, NgIconsModule.withIcons({ ...ngIcons }), NgOptimizedImage, RouterModule],
   exports: [

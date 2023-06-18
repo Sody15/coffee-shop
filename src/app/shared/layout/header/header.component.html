@@ -1,7 +1,7 @@
-<header class="header" [ngClass]="{ 'header--not-transparent': !isTransparent }">
+<header class="header" [ngClass]="{ 'header--not-transparent': !isTransparent }" *ngIf="!isHidden">
   <div class="header__wrapper">
     <!-- Mobile Menu Btn -->
-    <button class="header__wrapper-hamburger" (click)="toggleMenu()">
+    <button class="header__wrapper-hamburger" (click)="mobileMenu.toggle()">
       <ng-icon name="heroBars3"></ng-icon>
     </button>
 
@@ -9,16 +9,13 @@
     <div class="header__wrapper-logo" routerLink="/"></div>
 
     <!-- Menu -->
-    <div
-      class="header__wrapper-menu"
-      [ngClass]="{ 'header__wrapper-menu--open': isMenuOpen, 'header__wrapper-menu--closed': !isMenuOpen }"
-    >
+    <div class="header__wrapper-menu">
       <nav>
         <ul>
-          <li (click)="toggleMenu()" routerLink="shop">shop</li>
-          <li (click)="toggleMenu()" routerLink="subscribe">subscribe</li>
-          <li routerLink="/" (click)="toggleMenu()">who we are?</li>
-          <li (click)="toggleMenu()">cafes</li>
+          <li routerLink="shop">shop</li>
+          <li routerLink="subscribe">subscribe</li>
+          <li routerLink="/">who we are?</li>
+          <li>cafes</li>
         </ul>
       </nav>
     </div>
@@ -30,3 +27,6 @@
     </div>
   </div>
 </header>
+
+<!-- Mobile Menu -->
+<cof-mobile-menu #mobileMenu></cof-mobile-menu>
