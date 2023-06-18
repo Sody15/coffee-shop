@@ -1,0 +1,9 @@
+import { createAction, props } from '@ngrx/store';
+
+import { Info } from './checkout.reducer';
+
+export const submitInfoForm = createAction('[Checkout Component] Submit Info Form', props<{ info: Info }>());
+export const updateStepperIndex = createAction(
+  '[Checkout Component] Update Stepper Index',
+  props<{ stepperIndex: number }>()
+);

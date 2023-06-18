@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { usStates } from '../../checkout-constants';
+import { Info } from '../../checkout.reducer';
 
 @Component({
   selector: 'cof-info-form',
@@ -8,7 +9,10 @@ import { usStates } from '../../checkout-constants';
   styleUrls: ['./info-form.component.scss'],
 })
 export class InfoFormComponent implements OnInit {
+  @Input() info!: Info | undefined;
+
   form!: FormGroup;
+  @Output() onSubmit = new EventEmitter<FormGroup>();
 
   countryOptions = new Map<string, string>([
     ['US', 'US'],
@@ -23,22 +27,22 @@ export class InfoFormComponent implements OnInit {
   }
 
   formInit() {
+    console.log(this.info);
     this.form = this.formBuilder.group({
-      country: ['', Validators.required],
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      address: ['', Validators.required],
-      apartment: [''],
-      city: ['', Validators.required],
-      state: ['', Validators.required],
-      zip: ['', Validators.required],
-      phone: [''],
+      email: [this.info?.email || '', [Validators.required, Validators.email]],
+      country: [this.info?.country || '', [Validators.required]],
+      firstName: [this.info?.firstName || '', [Validators.required]],
+      lastName: [this.info?.lastName || '', [Validators.required]],
+      address: [this.info?.address || '', [Validators.required]],
+      apartment: [this.info?.apartment || ''],
+      city: [this.info?.city || '', [Validators.required]],
+      state: [this.info?.state || '', [Validators.required]],
+      zip: [this.info?.zip || '', [Validators.required]],
+      phone: [this.info?.phone || ''],
     });
 
     this.form.valueChanges.subscribe((value) => {
       console.log(value);
     });
   }
-
-  onSubmit() {}
 }

@@ -1,8 +1,17 @@
 import { Component, ViewChild } from '@angular/core';
+
 import { Store } from '@ngrx/store';
+import { Observable, combineLatest, map } from 'rxjs';
+
 import { CartState } from 'src/app/shared/components/cart/cart.reducer';
-import { Observable } from 'rxjs';
 import { InfoFormComponent } from '../../forms/info-form/info-form.component';
+import { submitInfoForm, updateStepperIndex } from '../../checkout.actions';
+import { CheckoutState } from '../../checkout.reducer';
+
+type State = {
+  cart: CartState;
+  checkout: CheckoutState;
+};
 
 @Component({
   templateUrl: './checkout-page.component.html',
@@ -14,8 +23,25 @@ export class CheckoutPageComponent {
   promoCode = '';
 
   cartState$: Observable<CartState>;
+  checkoutState$: Observable<CheckoutState>;
 
-  constructor(private store: Store<{ cart: CartState }>) {
+  state$: Observable<State>;
+
+  constructor(private store: Store<{ cart: CartState; checkout: CheckoutState }>) {
     this.cartState$ = this.store.select((state) => state.cart);
+    this.checkoutState$ = this.store.select((state) => state.checkout);
+
+    this.state$ = combineLatest([this.cartState$, this.checkoutState$]).pipe(
+      map(([cart, checkout]) => ({ cart, checkout }))
+    );
+  }
+
+  submitInfoForm(formValues: any) {
+    this.store.dispatch(submitInfoForm({ info: formValues }));
+    this.updateStepperIndex(1);
+  }
+
+  updateStepperIndex(stepperIndex: number) {
+    this.store.dispatch(updateStepperIndex({ stepperIndex }));
   }
 }

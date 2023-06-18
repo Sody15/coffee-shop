@@ -35,7 +35,6 @@
   &__left {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
 
     @include mixins.respond-to('md') {
       padding-right: 2rem;
@@ -57,14 +56,7 @@
         background-repeat: no-repeat;
         width: 236px;
         height: 46px;
-      }
-      &-nav {
-        font-size: 0.8rem;
-        ul {
-          display: flex;
-          gap: 0.7rem;
-          list-style: none;
-        }
+        margin-bottom: 0.5rem;
       }
     }
   }

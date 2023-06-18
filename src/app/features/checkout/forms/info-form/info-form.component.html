@@ -1,8 +1,8 @@
-<form [formGroup]="form" (ngSubmit)="onSubmit()" class="info-form">
+<form [formGroup]="form" (ngSubmit)="onSubmit.emit(form.value)" class="info-form">
   <div class="info-form__contact">
     <h3>Contact</h3>
     <div class="info-form__contact-inputs">
-      <cof-text-box name="email" placeholder="Email" _value=""></cof-text-box>
+      <cof-text-box name="email" placeholder="Email" formControlName="email"></cof-text-box>
     </div>
   </div>
   <div class="info-form__shipping">
@@ -31,6 +31,7 @@
       <cof-text-box name="zip" placeholder="ZIP code" type="number" formControlName="zip"></cof-text-box>
       <cof-text-box name="phone" placeholder="Phone (optional)" formControlName="phone"></cof-text-box>
     </div>
-    <button class="btn" type="submit" [disabled]="!form.valid">Continue to shipping</button>
+    <!-- <button class="btn" type="submit" [disabled]="!form.valid">Continue to shipping</button> -->
+    <button class="btn" type="submit">Continue to shipping</button>
   </div>
 </form>

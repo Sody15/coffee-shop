@@ -1,28 +1,29 @@
-<section class="checkout">
+<section class="checkout" *ngIf="state$ | async as state">
   <div class="checkout-inner">
     <!-- Left Column -->
     <div class="checkout__left">
-      <div>
-        <div class="checkout__left-header">
-          <div class="checkout__left-header-logo"></div>
-          <div class="checkout__left-header-nav">
-            <ul>
-              <li>Information</li>
-              <li>></li>
-              <li>Shipping</li>
-              <li>></li>
-              <li>Payment</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <cof-info-form></cof-info-form>
+      <div class="checkout__left-header-logo"></div>
+
+      <!-- Stepper -->
+      <cof-stepper
+        [stepIndex]="state.checkout.stepperIndex"
+        [steps]="['Information', 'Shipping', 'Payment']"
+        (onChange)="updateStepperIndex($event)"
+      >
+        <ng-template>
+          <cof-info-form [info]="state.checkout.info" (onSubmit)="submitInfoForm($event)"></cof-info-form>
+        </ng-template>
+        <ng-template
+          ><cof-shipping-form [infoState]="state.checkout.info" (onBack)="updateStepperIndex(0)"></cof-shipping-form>
+        </ng-template>
+        <ng-template><div>Page 3</div></ng-template>
+      </cof-stepper>
     </div>
 
     <!-- Right Column -->
-    <div class="checkout__right" *ngIf="cartState$ | async as cartState">
+    <div class="checkout__right">
       <div class="checkout__right-cart scrollbar">
-        <div class="checkout__right-cart-product" *ngFor="let cartProduct of cartState.items">
+        <div class="checkout__right-cart-product" *ngFor="let cartProduct of state.cart.items">
           <img [src]="'assets/images/' + cartProduct.imgSrc" alt="" />
           <span class="checkout__right-cart-product-name">{{ cartProduct.name }}</span>
           <span class="checkout__right-cart-product-price">{{ cartProduct.price | currency }}</span>
@@ -36,7 +37,7 @@
       <div class="checkout__right-shipping">
         <div class="subtotal">
           <div class="subtotal-label">Subtotal</div>
-          <div class="subtotal-val">{{ cartState.subTotal | currency }}</div>
+          <div class="subtotal-val">{{ state.cart.subTotal | currency }}</div>
         </div>
         <div class="shipping">
           <div class="shipping-label">Shipping</div>
@@ -45,7 +46,7 @@
       </div>
       <div class="checkout__right-price">
         <div class="total-label">Total</div>
-        <div class="total-val"><span>USD</span>{{ cartState.subTotal | currency }}</div>
+        <div class="total-val"><span>USD</span>{{ state.cart.subTotal | currency }}</div>
       </div>
     </div>
   </div>

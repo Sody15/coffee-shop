@@ -1,0 +1,26 @@
+<div class="stepper">
+  <!-- Nav-->
+  <div class="stepper__nav">
+    <ul>
+      <ng-container *ngFor="let step of steps; let last = last; let index = index">
+        <li
+          class="stepper__nav-control"
+          (click)="onStepIndexChange(index)"
+          [ngClass]="{ 'stepper__nav-control--active': index === stepIndex }"
+        >
+          {{ step }}
+        </li>
+        <li *ngIf="!last">></li>
+      </ng-container>
+    </ul>
+  </div>
+
+  <!-- Content -->
+  <div class="stepper__content">
+    <ng-container *ngFor="let template of contentTemplates; let index = index">
+      <div [@carouselAnimation]="index === stepIndex ? 'active' : 'inactive'" class="stepper__content-block">
+        <ng-container *ngTemplateOutlet="template"></ng-container>
+      </div>
+    </ng-container>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<form class="shipping-form">
+  <div class="shipping-form__info">
+    <div class="shipping-form__info-row">
+      <div>Contact</div>
+      <div>{{ infoState?.email }}</div>
+      <button type="button" (click)="onBack.emit()">Change</button>
+    </div>
+    <div class="shipping-form__info-row">
+      <div>Ship to</div>
+      <div>{{ shipTo }}</div>
+      <button type="button" (click)="onBack.emit()">Change</button>
+    </div>
+  </div>
+  <div class="shipping-form__method">
+    <h3>Shipping method</h3>
+  </div>
+</form>

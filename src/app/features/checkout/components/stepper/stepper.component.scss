@@ -1,0 +1,36 @@
+@use 'variables' as vars;
+
+.stepper {
+  position: relative;
+  &__nav {
+    font-size: 0.8rem;
+    margin-bottom: 2rem;
+    ul {
+      display: flex;
+      gap: 0.7rem;
+      list-style: none;
+    }
+    &-control {
+      cursor: pointer;
+      &:hover {
+        color: vars.$color-primary;
+      }
+      &--active {
+        color: vars.$color-primary;
+      }
+    }
+  }
+  &__content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    // overflow: hidden;
+    &-block {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

@@ -9,7 +9,7 @@ export interface ShopState {
   selectedProduct: number | undefined;
 }
 
-export const initialState: ShopState = {
+const initialState: ShopState = {
   filter: 'all',
   selectedProduct: undefined,
 };

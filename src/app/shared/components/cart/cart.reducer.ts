@@ -13,7 +13,7 @@ export interface CartState {
   subTotal: number;
 }
 
-export const initialState: CartState = {
+const initialState: CartState = {
   items: [],
   isOpen: false,
   subTotal: 0,

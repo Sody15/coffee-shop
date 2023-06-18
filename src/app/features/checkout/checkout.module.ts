@@ -10,6 +10,10 @@ import { TextBoxComponent } from './components/text-box/text-box.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DropdownComponent } from './components/dropdown/dropdown.component';
 import { InfoFormComponent } from './forms/info-form/info-form.component';
+import { StepperComponent } from './components/stepper/stepper.component';
+import { StoreModule } from '@ngrx/store';
+import { checkoutReducer } from './checkout.reducer';
+import { ShippingFormComponent } from './forms/shipping-form/shipping-form.component';
 
 const ngIcons = { heroChevronDown };
 
@@ -20,7 +24,8 @@ const ngIcons = { heroChevronDown };
     FormsModule,
     NgIconsModule.withIcons({ ...ngIcons }),
     ReactiveFormsModule,
+    StoreModule.forFeature('checkout', checkoutReducer),
   ],
-  declarations: [CheckoutPageComponent, TextBoxComponent, DropdownComponent, InfoFormComponent],
+  declarations: [CheckoutPageComponent, TextBoxComponent, DropdownComponent, InfoFormComponent, StepperComponent, ShippingFormComponent],
 })
 export class CheckoutModule {}

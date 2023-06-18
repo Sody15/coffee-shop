@@ -17,7 +17,7 @@ import { cartReducer } from './shared/components/cart/cart.reducer';
 const ngIcons = { heroArrowRight, heroBars3, heroShoppingCart };
 
 export function localStorageSyncReducer(reducer: ActionReducer<any>): ActionReducer<any> {
-  return localStorageSync({ keys: ['cart', 'shop'], rehydrate: true })(reducer);
+  return localStorageSync({ keys: ['cart', 'checkout', 'shop'], rehydrate: true })(reducer);
 }
 const metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncReducer];
 

@@ -2,6 +2,7 @@
 @use 'mixins' as mixins;
 
 .btn {
+  font-family: vars.$font-secondary;
   display: flex;
   text-transform: uppercase;
   justify-content: center;
