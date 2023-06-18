@@ -11,6 +11,8 @@ import { InfoFormComponent } from '../../forms/info-form/info-form.component';
 export class CheckoutPageComponent {
   @ViewChild(InfoFormComponent, { static: false }) infoFormComponent!: InfoFormComponent;
 
+  promoCode = '';
+
   cartState$: Observable<CartState>;
 
   constructor(private store: Store<{ cart: CartState }>) {
