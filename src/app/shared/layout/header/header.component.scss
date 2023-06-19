@@ -21,9 +21,10 @@
     &-hamburger {
       color: white;
       font-size: 2rem;
+      flex: 1;
+      text-align: start;
     }
     &-logo {
-      flex: 1;
       background: url('/assets/images/brand-white.svg');
       background-size: contain;
       background-repeat: no-repeat;
@@ -31,9 +32,9 @@
       width: 197px;
       height: 38px;
       @include mixins.respond-to('lg') {
+        flex: 1;
         width: 246px;
         height: 47px;
-        // flex: 1;
       }
     }
     &-menu {
