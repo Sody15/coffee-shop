@@ -19,7 +19,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 2rem 3rem;
+    padding: 2rem;
     h2,
     h3 {
       text-transform: uppercase;
@@ -34,7 +34,12 @@
       margin: 0.2rem 0 0.5rem 0;
     }
     &-main {
+      flex: 1;
       color: #94a3b8;
+
+      @include mixins.respond-to('md') {
+        padding-top: 2rem;
+      }
     }
   }
   @include mixins.respond-to('lg') {
