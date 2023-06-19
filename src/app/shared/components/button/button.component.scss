@@ -13,6 +13,7 @@
   font: inherit;
   cursor: pointer;
   outline: inherit;
+  white-space: nowrap;
   ng-icon {
     color: vars.$color-button-accent;
     transform: translateY(-0.08rem);
