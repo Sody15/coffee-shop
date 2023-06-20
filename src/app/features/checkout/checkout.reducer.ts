@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { submitInfoForm, updateStepperIndex } from './checkout.actions';
+import { setShippingMethod, submitInfoForm, updateStepperIndex } from './checkout.actions';
 
 export type Info = {
   email: string;
@@ -14,13 +14,24 @@ export type Info = {
   zip: string;
 };
 
+export type ShippingMethod = {
+  id: number;
+  name: string;
+  carrier: 'USPS' | 'UPS';
+  type: 'standard' | 'priority' | 'ground' | '2nd day' | 'next day';
+  rate: number;
+  isFree?: boolean;
+};
+
 export interface CheckoutState {
   info: Info | undefined;
+  shippingMethodId: number;
   stepperIndex: number;
 }
 
 const initialState: CheckoutState = {
   info: undefined,
+  shippingMethodId: 1,
   stepperIndex: 0,
 };
 
@@ -31,5 +42,8 @@ export const checkoutReducer = createReducer(
   }),
   on(updateStepperIndex, (state, { stepperIndex }) => {
     return { ...state, stepperIndex };
+  }),
+  on(setShippingMethod, (state, { shippingMethodId }) => {
+    return { ...state, shippingMethodId };
   })
 );

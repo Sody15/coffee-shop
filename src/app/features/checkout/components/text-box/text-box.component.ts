@@ -23,7 +23,6 @@ export class TextBoxComponent implements ControlValueAccessor {
   value: string = '';
 
   private onChange: any = (el: InputEvent) => {
-    console.log((el.target as HTMLInputElement).value);
     this.showLabel = !!(el.target as HTMLInputElement).value.length;
   };
 

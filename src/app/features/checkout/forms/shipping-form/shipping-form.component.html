@@ -1,17 +1,37 @@
-<form class="shipping-form">
-  <div class="shipping-form__info">
-    <div class="shipping-form__info-row">
-      <div>Contact</div>
-      <div>{{ infoState?.email }}</div>
-      <button type="button" (click)="onBack.emit()">Change</button>
+<div class="sf">
+  <div class="sf__container sf__info">
+    <div class="sf__row">
+      <div class="sf__label">Contact</div>
+      <div class="sf__value">{{ checkoutState.info?.email }}</div>
+      <button class="sf__btn" type="button" (click)="onBack.emit()">Change</button>
     </div>
-    <div class="shipping-form__info-row">
-      <div>Ship to</div>
-      <div>{{ shipTo }}</div>
-      <button type="button" (click)="onBack.emit()">Change</button>
+    <div class="sf__row">
+      <div class="sf__label">Ship to</div>
+      <div class="sf__value">{{ shipTo }}</div>
+      <button class="sf__btn" type="button" (click)="onBack.emit()">Change</button>
     </div>
   </div>
-  <div class="shipping-form__method">
-    <h3>Shipping method</h3>
+  <div class="sf__method">
+    <h3 class="sf__method-title">Shipping method</h3>
+    <form class="sf__container">
+      <!-- Radio Button Row -->
+      <div class="sf__row" *ngFor="let shippingMethod of shippingMethods">
+        <cof-radio
+          name="method"
+          value="{{ shippingMethod.id }}"
+          [(ngModel)]="checkoutState.shippingMethodId"
+          (onUpdate)="onShippingMethodUpdate.emit($event)"
+          ><span>{{ shippingMethod.name }}</span>
+        </cof-radio>
+        <div class="sf__price">
+          <span class="sf__price-value" [ngClass]="{ strikethrough: shippingMethod.isFree }">{{
+            cartState.subTotal * shippingMethod.rate | currency
+          }}</span>
+          <span class="sf__price-status" *ngIf="shippingMethod.isFree">{{
+            shippingMethod.isFree ? 'Free' : (cartState.subTotal * shippingMethod.rate | currency)
+          }}</span>
+        </div>
+      </div>
+    </form>
   </div>
-</form>
+</div>

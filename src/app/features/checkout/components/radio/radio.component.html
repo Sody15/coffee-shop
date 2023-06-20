@@ -1,0 +1,12 @@
+<label class="radio">
+  <input
+    type="radio"
+    [value]="value"
+    [checked]="checked"
+    [disabled]="disabled"
+    (change)="updateValue($event)"
+    name="{{ name }}"
+  />
+  <span class="radio-checkmark"></span>
+  <div class="radio-label"><ng-content></ng-content></div>
+</label>

@@ -5,7 +5,7 @@ import { Observable, combineLatest, map } from 'rxjs';
 
 import { CartState } from 'src/app/shared/components/cart/cart.reducer';
 import { InfoFormComponent } from '../../forms/info-form/info-form.component';
-import { submitInfoForm, updateStepperIndex } from '../../checkout.actions';
+import { setShippingMethod, submitInfoForm, updateStepperIndex } from '../../checkout.actions';
 import { CheckoutState } from '../../checkout.reducer';
 
 type State = {
@@ -43,5 +43,9 @@ export class CheckoutPageComponent {
 
   updateStepperIndex(stepperIndex: number) {
     this.store.dispatch(updateStepperIndex({ stepperIndex }));
+  }
+
+  updateShippingMethod(shippingMethodId: string) {
+    this.store.dispatch(setShippingMethod({ shippingMethodId: +shippingMethodId }));
   }
 }

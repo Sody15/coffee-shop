@@ -14,7 +14,12 @@
           <cof-info-form [info]="state.checkout.info" (onSubmit)="submitInfoForm($event)"></cof-info-form>
         </ng-template>
         <ng-template
-          ><cof-shipping-form [infoState]="state.checkout.info" (onBack)="updateStepperIndex(0)"></cof-shipping-form>
+          ><cof-shipping-form
+            [checkoutState]="state.checkout"
+            [cartState]="state.cart"
+            (onBack)="updateStepperIndex(0)"
+            (onShippingMethodUpdate)="updateShippingMethod($event)"
+          ></cof-shipping-form>
         </ng-template>
         <ng-template><div>Page 3</div></ng-template>
       </cof-stepper>
