@@ -19,8 +19,21 @@
         padding: 2rem;
         margin: auto;
         width: fit-content;
+        h2 {
+          font-size: 1.4rem;
+        }
+        h3 {
+          display: none;
+        }
         @include mixins.respond-to('md') {
           padding: 2rem 4rem;
+          h2 {
+            font-size: 1.8rem;
+          }
+          h3 {
+            display: block;
+            font-size: inherit;
+          }
         }
         &-filter {
           display: flex;
