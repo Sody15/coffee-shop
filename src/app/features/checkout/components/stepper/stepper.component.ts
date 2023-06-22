@@ -22,11 +22,6 @@ export class StepperComponent {
 
   @Output() onChange = new EventEmitter<number>();
 
-  ngAfterContentInit() {
-    // Access the array of content templates
-    console.log(this.contentTemplates.toArray());
-  }
-
   onStepIndexChange(stepIndex: number) {
     this.stepIndex = stepIndex;
     this.onChange.emit(this.stepIndex);

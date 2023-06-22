@@ -15,7 +15,7 @@ export type Info = {
 };
 
 export type ShippingMethod = {
-  id: number;
+  id: string;
   name: string;
   carrier: 'USPS' | 'UPS';
   type: 'standard' | 'priority' | 'ground' | '2nd day' | 'next day';
@@ -25,13 +25,21 @@ export type ShippingMethod = {
 
 export interface CheckoutState {
   info: Info | undefined;
-  shippingMethodId: number;
+  shippingMethod: ShippingMethod;
   stepperIndex: number;
 }
 
+export const shippingMethods: ShippingMethod[] = [
+  { id: '1', carrier: 'USPS', type: 'standard', name: 'Standard', rate: 0.1, isFree: true },
+  { id: '2', carrier: 'USPS', type: 'priority', name: 'USPS Priority Mail', rate: 0.12, isFree: true },
+  { id: '3', carrier: 'UPS', type: 'ground', name: 'UPS Ground', rate: 0.14, isFree: true },
+  { id: '4', carrier: 'UPS', type: '2nd day', name: 'UPS 2nd Day Air', rate: 0.16 },
+  { id: '5', carrier: 'UPS', type: 'next day', name: 'UPS Next Day Air', rate: 0.18 },
+];
+
 const initialState: CheckoutState = {
   info: undefined,
-  shippingMethodId: 1,
+  shippingMethod: { id: '1', carrier: 'USPS', type: 'standard', name: 'Standard', rate: 0.1, isFree: true },
   stepperIndex: 0,
 };
 
@@ -44,6 +52,8 @@ export const checkoutReducer = createReducer(
     return { ...state, stepperIndex };
   }),
   on(setShippingMethod, (state, { shippingMethodId }) => {
-    return { ...state, shippingMethodId };
+    // Find shipping method by id
+    const shippingMethod = shippingMethods.find((method) => method.id === shippingMethodId)!;
+    return { ...state, shippingMethod };
   })
 );

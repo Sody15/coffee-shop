@@ -66,3 +66,17 @@ select {
   border: 1px solid #ececec;
   outline: none;
 }
+
+.form-btn {
+  font-size: 0.8rem;
+  background-color: black;
+  font-weight: bold;
+  border-radius: 3px;
+  color: white;
+  padding: 1rem;
+  width: 100%;
+  &:disabled {
+    cursor: default;
+    opacity: 0.2;
+  }
+}

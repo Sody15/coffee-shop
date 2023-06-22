@@ -2,7 +2,7 @@
   <div class="sf__container sf__info">
     <div class="sf__row">
       <div class="sf__label">Contact</div>
-      <div class="sf__value">{{ checkoutState.info?.email }}</div>
+      <div class="sf__value">{{ info?.email }}</div>
       <button class="sf__btn" type="button" (click)="onBack.emit()">Change</button>
     </div>
     <div class="sf__row">
@@ -19,19 +19,23 @@
         <cof-radio
           name="method"
           value="{{ shippingMethod.id }}"
-          [(ngModel)]="checkoutState.shippingMethodId"
-          (onUpdate)="onShippingMethodUpdate.emit($event)"
+          [(ngModel)]="shippingMethodId"
+          (ngModelChange)="onInputChange($event)"
           ><span>{{ shippingMethod.name }}</span>
         </cof-radio>
         <div class="sf__price">
           <span class="sf__price-value" [ngClass]="{ strikethrough: shippingMethod.isFree }">{{
-            cartState.subTotal * shippingMethod.rate | currency
+            subTotal * shippingMethod.rate | currency
           }}</span>
           <span class="sf__price-status" *ngIf="shippingMethod.isFree">{{
-            shippingMethod.isFree ? 'Free' : (cartState.subTotal * shippingMethod.rate | currency)
+            shippingMethod.isFree ? 'Free' : (subTotal * shippingMethod.rate | currency)
           }}</span>
         </div>
       </div>
     </form>
+  </div>
+  <div class="sf__footer">
+    <button class="form-btn" type="button" (click)="onBack.emit()">Return to information</button>
+    <button class="form-btn" type="submit">Continue to payment</button>
   </div>
 </div>

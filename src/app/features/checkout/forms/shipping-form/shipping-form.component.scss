@@ -1,3 +1,5 @@
+@use 'mixins' as mixins;
+
 .sf {
   display: flex;
   flex-direction: column;
@@ -59,6 +61,23 @@
     }
     .strikethrough {
       text-decoration: line-through;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 1rem;
+    @include mixins.respond-to('lg') {
+      flex-direction: row;
+      gap: 0;
+    }
+  }
+
+  .form-btn {
+    @include mixins.respond-to('md') {
+      width: auto;
     }
   }
 }

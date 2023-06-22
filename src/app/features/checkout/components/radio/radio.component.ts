@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output, forwardRef } from '@angular/core';
+import { Component, Input, forwardRef } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
@@ -17,25 +17,18 @@ export class RadioComponent implements ControlValueAccessor {
   @Input() name = '';
   @Input() value = '';
 
-  @Output() onUpdate = new EventEmitter<string>();
-
   // Variables to store the radio button state
   checked: boolean = false;
   disabled: boolean = false;
 
   // ControlValueAccessor interface methods
-  onChange: any = () => {
-    console.log(this.value);
-    this.onUpdate.emit(this.value);
-  };
+  onChange: any = () => {};
   onTouched: any = () => {};
 
   // Method to update the radio button value and trigger onChange
   updateValue(event: Event) {
     this.checked = (event.target as HTMLInputElement).value === this.value;
     this.onChange(this.value);
-
-    console.log(this.value);
   }
 
   // ControlValueAccessor interface methods

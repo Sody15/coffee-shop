@@ -27,7 +27,6 @@ export class InfoFormComponent implements OnInit {
   }
 
   formInit() {
-    console.log(this.info);
     this.form = this.formBuilder.group({
       email: [this.info?.email || '', [Validators.required, Validators.email]],
       country: [this.info?.country || '', [Validators.required]],

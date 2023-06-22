@@ -15,10 +15,11 @@
         </ng-template>
         <ng-template
           ><cof-shipping-form
-            [checkoutState]="state.checkout"
-            [cartState]="state.cart"
+            [info]="state.checkout.info!"
+            [shippingMethodId]="state.checkout.shippingMethod.id"
+            [subTotal]="state.cart.subTotal"
             (onBack)="updateStepperIndex(0)"
-            (onShippingMethodUpdate)="updateShippingMethod($event)"
+            (onShippingMethodIdUpdate)="updateShippingMethod($event)"
           ></cof-shipping-form>
         </ng-template>
         <ng-template><div>Page 3</div></ng-template>
