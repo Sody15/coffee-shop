@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 
 import { CartProduct, CartState } from '@app-core/state/cart.reducer';
 import { removeItem, toggleCart, updateItem } from '@app-core/state/cart.actions';
-import { selectCart, selectCartSubTotal } from '@app-core/state/cart.selectors';
+import { CartAndSubTotal, selectCartAndSubTotal } from '@app-core/state/cart.selectors';
 
 @Component({
   selector: 'cof-cart',
@@ -22,12 +22,10 @@ import { selectCart, selectCartSubTotal } from '@app-core/state/cart.selectors';
   ],
 })
 export class CartComponent {
-  cartState$: Observable<CartState>;
-  subTotal$: Observable<number>;
+  cartState$: Observable<CartAndSubTotal>;
 
   constructor(private store: Store<{ cart: CartState }>, private router: Router) {
-    this.cartState$ = this.store.pipe(select(selectCart));
-    this.subTotal$ = this.store.pipe(select(selectCartSubTotal));
+    this.cartState$ = this.store.pipe(select(selectCartAndSubTotal));
   }
 
   onRemove(id: number) {

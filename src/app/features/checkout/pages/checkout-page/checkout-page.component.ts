@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 
-import { Store } from '@ngrx/store';
+import { Store, select } from '@ngrx/store';
 import { Observable, combineLatest, map } from 'rxjs';
 
 import { InfoFormComponent } from '../../forms/info-form/info-form.component';
@@ -9,12 +9,11 @@ import { CheckoutState } from '../../state/checkout.reducer';
 import { selectCheckout } from '../../state/checkout.selectors';
 
 import { CartState } from '@app-core/state/cart.reducer';
-import { selectCart, selectCartSubTotal } from '@app-core/state/cart.selectors';
+import { CartAndSubTotal, selectCartAndSubTotal } from '@app-core/state/cart.selectors';
 
 type State = {
-  cart: CartState;
+  cart: CartAndSubTotal;
   checkout: CheckoutState;
-  subTotal: number;
 };
 
 @Component({
@@ -26,19 +25,17 @@ export class CheckoutPageComponent {
 
   promoCode = '';
 
-  cartState$: Observable<CartState>;
+  cartState$: Observable<any>;
   checkoutState$: Observable<CheckoutState>;
-  subTotal$: Observable<number>;
 
   state$: Observable<State>;
 
   constructor(private store: Store<{ cart: CartState; checkout: CheckoutState }>) {
-    this.cartState$ = this.store.select(selectCart);
-    this.checkoutState$ = this.store.select(selectCheckout);
-    this.subTotal$ = this.store.select(selectCartSubTotal);
+    this.cartState$ = this.store.pipe(select(selectCartAndSubTotal));
+    this.checkoutState$ = this.store.pipe(select(selectCheckout));
 
-    this.state$ = combineLatest([this.cartState$, this.checkoutState$, this.subTotal$]).pipe(
-      map(([cart, checkout, subTotal]) => ({ cart, checkout, subTotal }))
+    this.state$ = combineLatest([this.cartState$, this.checkoutState$]).pipe(
+      map(([cart, checkout]) => ({ cart, checkout }))
     );
   }
 

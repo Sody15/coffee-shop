@@ -1,15 +1,15 @@
-<ng-container *ngIf="cartState$ | async as cartState">
-  <ng-container *ngIf="cartState.isOpen">
+<ng-container *ngIf="cartState$ | async as cart">
+  <ng-container *ngIf="cart.isOpen">
     <div class="cart-overlay" (click)="toggle()"></div>
     <div class="cart scrollbar" [@slideInLeft]>
       <div class="cart__top">
-        <span>Your Cart [{{ cartState.items.length }}]</span>
+        <span>Your Cart [{{ cart.items.length }}]</span>
         <button type="button" (click)="toggle()"><ng-icon class="close-btn" name="heroXMark"></ng-icon></button>
       </div>
       <div class="cart__content">
-        <ng-container *ngIf="cartState.items.length > 0; else emptyCart">
+        <ng-container *ngIf="cart.items.length > 0; else emptyCart">
           <!-- Product -->
-          <div class="product" *ngFor="let product of cartState.items">
+          <div class="product" *ngFor="let product of cart.items">
             <img [src]="'assets/images/' + product.imgSrc" alt="" />
             <div class="product__details">
               <div class="product__details-name">{{ product.name }}</div>
@@ -25,9 +25,9 @@
       <div class="cart__bottom">
         <div class="cart__bottom-total">
           <span>Subtotal</span>
-          <span>{{ subTotal$ | async | currency }}</span>
+          <span>{{ cart.subTotal | currency }}</span>
         </div>
-        <button type="button" class="cart__bottom-chkbtn" (click)="onCheckout(cartState.items.length)">Checkout</button>
+        <button type="button" class="cart__bottom-chkbtn" (click)="onCheckout(cart.items.length)">Checkout</button>
       </div>
     </div>
   </ng-container>
