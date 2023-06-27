@@ -10,13 +10,11 @@ export interface CartProduct extends Omit<Product, 'desc'> {
 export interface CartState {
   items: CartProduct[];
   isOpen: boolean;
-  subTotal: number;
 }
 
 const initialState: CartState = {
   items: [],
   isOpen: false,
-  subTotal: 0,
 };
 
 export const cartReducer = createReducer(
@@ -34,7 +32,6 @@ export const cartReducer = createReducer(
         return {
           ...state,
           items: [...updatedItems],
-          subTotal: updatedItems.reduce((acc, cur) => acc + cur.totalPrice, 0),
         };
       }
       // If the item already exists in the cart, update its total price and quantity
@@ -51,7 +48,6 @@ export const cartReducer = createReducer(
       return {
         ...state,
         items: [...updatedItems],
-        subTotal: updatedItems.reduce((acc, cur) => acc + cur.totalPrice, 0),
       };
     } else {
       // If the item doesn't exist in the cart, add it with a quantity of 1
@@ -59,7 +55,6 @@ export const cartReducer = createReducer(
       return {
         ...state,
         items: [...updatedItems],
-        subTotal: updatedItems.reduce((acc, cur) => acc + cur.totalPrice, 0),
       };
     }
   }),
@@ -70,11 +65,11 @@ export const cartReducer = createReducer(
       }
       return item;
     });
-    return { ...state, items: [...updatedItems], subTotal: updatedItems.reduce((acc, cur) => acc + cur.totalPrice, 0) };
+    return { ...state, items: [...updatedItems] };
   }),
   on(removeItem, (state, { id }) => {
     const updatedItems = state.items.filter((item) => item.id !== id);
-    return { ...state, items: [...updatedItems], subTotal: updatedItems.reduce((acc, cur) => acc + cur.totalPrice, 0) };
+    return { ...state, items: [...updatedItems] };
   }),
   on(reset, () => initialState),
   on(toggleCart, (state) => ({ ...state, isOpen: !state.isOpen }))

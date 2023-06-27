@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Store } from '@ngrx/store';
+import { Store, select } from '@ngrx/store';
 
 import { Observable, map, switchMap } from 'rxjs';
 
@@ -38,7 +38,8 @@ export class ProductPageComponent implements OnInit {
         // Set product
         this.product = productId ? PRODUCTS.filter((p) => p.id === +productId!)[0] : undefined;
         // Get quantity
-        return this.store.select(selectCartItems).pipe(
+        return this.store.pipe(
+          select(selectCartItems),
           map((cartProducts) => {
             const cartProduct = productId ? cartProducts.filter((cartProd) => cartProd.id === +productId)[0] : null;
             return cartProduct ? cartProduct.quantity.toString() : '1';
@@ -52,7 +53,8 @@ export class ProductPageComponent implements OnInit {
         // Get Product Id
         const productId = params.get('id');
         // Get quantity
-        return this.store.select(selectCartItems).pipe(
+        return this.store.pipe(
+          select(selectCartItems),
           map((cartProducts) => {
             const inCart = cartProducts.filter((cartProduct) => cartProduct.id === +productId!);
             return inCart.length ? 'true' : 'false';

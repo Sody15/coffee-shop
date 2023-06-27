@@ -17,7 +17,7 @@
           <cof-shipping-form
             [info]="state.checkout.info!"
             [shippingMethodId]="state.checkout.shippingMethod.id"
-            [subTotal]="state.cart.subTotal"
+            [subTotal]="state.subTotal"
             (onBack)="updateStepperIndex(0)"
             (onShippingMethodIdUpdate)="updateShippingMethod($event)"
             (onSubmit)="updateStepperIndex(2)"
@@ -44,7 +44,7 @@
       <div class="checkout__right-shipping">
         <div class="subtotal">
           <div class="subtotal-label">Subtotal</div>
-          <div class="subtotal-val">{{ state.cart.subTotal | currency }}</div>
+          <div class="subtotal-val">{{ state.subTotal | currency }}</div>
         </div>
         <div class="shipping">
           <div class="shipping-label">Shipping</div>
@@ -53,7 +53,7 @@
       </div>
       <div class="checkout__right-price">
         <div class="total-label">Total</div>
-        <div class="total-val"><span>USD</span>{{ state.cart.subTotal | currency }}</div>
+        <div class="total-val"><span>USD</span>{{ state.subTotal | currency }}</div>
       </div>
     </div>
   </div>

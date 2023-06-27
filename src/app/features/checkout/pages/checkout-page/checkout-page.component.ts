@@ -7,12 +7,13 @@ import { CartState } from '@app-shared/state/cart.reducer';
 import { InfoFormComponent } from '../../forms/info-form/info-form.component';
 import { setShippingMethod, submitInfoForm, updateStepperIndex } from '../../state/checkout.actions';
 import { CheckoutState } from '../../state/checkout.reducer';
-import { selectCart } from '@app-shared/state/cart.selectors';
+import { selectCart, selectCartSubTotal } from '@app-shared/state/cart.selectors';
 import { selectCheckout } from '../../state/checkout.selectors';
 
 type State = {
   cart: CartState;
   checkout: CheckoutState;
+  subTotal: number;
 };
 
 @Component({
@@ -26,15 +27,17 @@ export class CheckoutPageComponent {
 
   cartState$: Observable<CartState>;
   checkoutState$: Observable<CheckoutState>;
+  subTotal$: Observable<number>;
 
   state$: Observable<State>;
 
   constructor(private store: Store<{ cart: CartState; checkout: CheckoutState }>) {
     this.cartState$ = this.store.select(selectCart);
     this.checkoutState$ = this.store.select(selectCheckout);
+    this.subTotal$ = this.store.select(selectCartSubTotal);
 
-    this.state$ = combineLatest([this.cartState$, this.checkoutState$]).pipe(
-      map(([cart, checkout]) => ({ cart, checkout }))
+    this.state$ = combineLatest([this.cartState$, this.checkoutState$, this.subTotal$]).pipe(
+      map(([cart, checkout, subTotal]) => ({ cart, checkout, subTotal }))
     );
   }
 
