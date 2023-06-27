@@ -2,7 +2,13 @@
   <label for="{{ name }}">{{ label ? label : placeholder }}</label>
   <select name="{{ name }}" id="{{ name }}" [value]="selectedOption" (change)="onInputChange($event)">
     <option disabled selected>{{ placeholder }}</option>
-    <option *ngFor="let option of options | keyvalue" value="{{ option.key }}">{{ option.value }}</option>
+    <option
+      *ngFor="let option of options | keyvalue"
+      value="{{ option.key }}"
+      [selected]="selectedOption === option.key"
+    >
+      {{ option.value }}
+    </option>
   </select>
   <ng-icon class="dropdown-caret" name="heroChevronDown"></ng-icon>
 </div>

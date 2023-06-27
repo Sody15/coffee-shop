@@ -1,6 +1,7 @@
 @use 'mixins' as mixins;
 
 .sf {
+  font-size: 0.8rem;
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -36,7 +37,6 @@
   }
 
   &__method {
-    font-size: 0.8rem;
     .sf__row {
       span:first-child {
         color: black;

@@ -13,6 +13,7 @@ export class ShippingFormComponent {
 
   @Output() onBack = new EventEmitter<void>();
   @Output() onShippingMethodIdUpdate = new EventEmitter<string>();
+  @Output() onSubmit = new EventEmitter<void>();
 
   shippingMethods: ShippingMethod[] = shippingMethods;
 

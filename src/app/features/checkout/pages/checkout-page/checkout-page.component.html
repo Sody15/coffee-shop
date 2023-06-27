@@ -2,7 +2,7 @@
   <div class="checkout-inner">
     <!-- Left Column -->
     <div class="checkout__left">
-      <div class="checkout__left-header-logo"></div>
+      <div class="checkout__left-header-logo" routerLink="/"></div>
 
       <!-- Stepper -->
       <cof-stepper
@@ -13,13 +13,14 @@
         <ng-template>
           <cof-info-form [info]="state.checkout.info" (onSubmit)="submitInfoForm($event)"></cof-info-form>
         </ng-template>
-        <ng-template
-          ><cof-shipping-form
+        <ng-template>
+          <cof-shipping-form
             [info]="state.checkout.info!"
             [shippingMethodId]="state.checkout.shippingMethod.id"
             [subTotal]="state.cart.subTotal"
             (onBack)="updateStepperIndex(0)"
             (onShippingMethodIdUpdate)="updateShippingMethod($event)"
+            (onSubmit)="updateStepperIndex(2)"
           ></cof-shipping-form>
         </ng-template>
         <ng-template><div>Page 3</div></ng-template>
