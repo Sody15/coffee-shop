@@ -4,12 +4,14 @@ import { Store } from '@ngrx/store';
 
 import { Observable, map, switchMap } from 'rxjs';
 
-import { PRODUCTS } from 'src/app/core/data';
-import { Product } from 'src/app/core/models/product';
-import { selectProduct } from '../../shop.actions';
-import { addItem, removeItem, toggleCart } from 'src/app/shared/components/cart/cart.actions';
-import { CartState } from 'src/app/shared/components/cart/cart.reducer';
-import { QuantityComponent } from 'src/app/shared/components/quantity/quantity.component';
+import { selectProduct } from '../../state/shop.actions';
+
+import { PRODUCTS } from '@app-core/data';
+import { Product } from '@app-core/models/product';
+
+import { addItem, removeItem, toggleCart } from '@app-shared/state/cart.actions';
+import { CartState } from '@app-shared/state/cart.reducer';
+import { QuantityComponent } from '@app-shared/components/quantity/quantity.component';
 
 @Component({
   selector: 'cof-product-page',

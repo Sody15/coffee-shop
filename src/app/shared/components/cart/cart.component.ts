@@ -5,8 +5,8 @@ import { Store, select } from '@ngrx/store';
 
 import { Observable } from 'rxjs';
 
-import { CartProduct, CartState } from './cart.reducer';
-import { removeItem, toggleCart, updateItem } from './cart.actions';
+import { CartProduct, CartState } from '@app-shared/state/cart.reducer';
+import { removeItem, toggleCart, updateItem } from '@app-shared/state/cart.actions';
 import { Router } from '@angular/router';
 
 @Component({

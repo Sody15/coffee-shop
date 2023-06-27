@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Info, ShippingMethod, shippingMethods } from '../../checkout.reducer';
+import { Info, ShippingMethod, shippingMethods } from '../../state/checkout.reducer';
 
 @Component({
   selector: 'cof-shipping-form',

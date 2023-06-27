@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { usStates } from '../../checkout-constants';
-import { Info } from '../../checkout.reducer';
+import { Info } from '../../state/checkout.reducer';
 
 @Component({
   selector: 'cof-info-form',

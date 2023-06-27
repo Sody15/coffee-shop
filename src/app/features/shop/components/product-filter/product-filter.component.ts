@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { FilterType } from '../../shop.reducer';
+import { FilterType } from '../../state/shop.reducer';
 
 @Component({
   selector: 'cof-product-filter',

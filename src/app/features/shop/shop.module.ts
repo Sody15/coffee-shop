@@ -5,7 +5,7 @@ import { ShopRoutingModule } from './pages/shop-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ProductComponent } from './components/product/product.component';
 import { StoreModule } from '@ngrx/store';
-import { shopReducer } from './shop.reducer';
+import { shopReducer } from './state/shop.reducer';
 import { ProductFilterComponent } from './components/product-filter/product-filter.component';
 import { ProductPageComponent } from './pages/product-page/product-page.component';
 import { NgIconsModule } from '@ng-icons/core';

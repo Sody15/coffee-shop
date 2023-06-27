@@ -9,8 +9,8 @@ import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { FilterType, ShopState } from '../../shop.reducer';
-import { filterBy, selectProduct } from '../../shop.actions';
+import { FilterType, ShopState } from '../../state/shop.reducer';
+import { filterBy, selectProduct } from '../../state/shop.actions';
 
 @Component({
   selector: 'cof-shop-page',

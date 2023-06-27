@@ -3,8 +3,8 @@ import { Component, HostListener } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
-import { CartState } from '../../components/cart/cart.reducer';
-import { toggleCart } from '../../components/cart/cart.actions';
+import { CartState } from '../../state/cart.reducer';
+import { toggleCart } from '../../state/cart.actions';
 import { NavigationStart, Router } from '@angular/router';
 
 const noHeaderRoutes = ['/checkout'];

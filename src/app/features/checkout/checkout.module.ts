@@ -12,7 +12,7 @@ import { DropdownComponent } from './components/dropdown/dropdown.component';
 import { InfoFormComponent } from './forms/info-form/info-form.component';
 import { StepperComponent } from './components/stepper/stepper.component';
 import { StoreModule } from '@ngrx/store';
-import { checkoutReducer } from './checkout.reducer';
+import { checkoutReducer } from './state/checkout.reducer';
 import { ShippingFormComponent } from './forms/shipping-form/shipping-form.component';
 import { RadioComponent } from './components/radio/radio.component';
 
@@ -27,6 +27,14 @@ const ngIcons = { heroChevronDown };
     ReactiveFormsModule,
     StoreModule.forFeature('checkout', checkoutReducer),
   ],
-  declarations: [CheckoutPageComponent, TextBoxComponent, DropdownComponent, InfoFormComponent, StepperComponent, ShippingFormComponent, RadioComponent],
+  declarations: [
+    CheckoutPageComponent,
+    TextBoxComponent,
+    DropdownComponent,
+    InfoFormComponent,
+    StepperComponent,
+    ShippingFormComponent,
+    RadioComponent,
+  ],
 })
 export class CheckoutModule {}
