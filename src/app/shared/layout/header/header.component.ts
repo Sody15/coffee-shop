@@ -1,12 +1,12 @@
 import { Component, HostListener } from '@angular/core';
+import { NavigationStart, Router } from '@angular/router';
 
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
-import { CartState } from '../../state/cart.reducer';
-import { toggleCart } from '../../state/cart.actions';
-import { NavigationStart, Router } from '@angular/router';
-import { selectCartNumItems } from '@app-shared/state/cart.selectors';
+import { CartState } from '@app-core/state/cart.reducer';
+import { toggleCart } from '@app-core/state/cart.actions';
+import { selectCartNumItems } from '@app-core/state/cart.selectors';
 
 const noHeaderRoutes = ['/checkout'];
 

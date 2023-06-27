@@ -5,14 +5,13 @@ import { Store, select } from '@ngrx/store';
 import { Observable, map, switchMap } from 'rxjs';
 
 import { selectProduct } from '../../state/shop.actions';
+import { QuantityComponent } from '@app-shared/components/quantity/quantity.component';
 
 import { PRODUCTS } from '@app-core/data';
 import { Product } from '@app-core/models/product';
-
-import { addItem, removeItem, toggleCart } from '@app-shared/state/cart.actions';
-import { CartState } from '@app-shared/state/cart.reducer';
-import { QuantityComponent } from '@app-shared/components/quantity/quantity.component';
-import { selectCartItems } from '@app-shared/state/cart.selectors';
+import { addItem, removeItem, toggleCart } from '@app-core/state/cart.actions';
+import { CartState } from '@app-core/state/cart.reducer';
+import { selectCartItems } from '@app-core/state/cart.selectors';
 
 @Component({
   selector: 'cof-product-page',

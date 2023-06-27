@@ -12,7 +12,7 @@ import { heroArrowRight, heroBars3, heroShoppingCart } from '@ng-icons/heroicons
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
-import { cartReducer } from '@app-shared/state/cart.reducer';
+import { cartReducer } from '@app-core/state/cart.reducer';
 
 const ngIcons = { heroArrowRight, heroBars3, heroShoppingCart };
 

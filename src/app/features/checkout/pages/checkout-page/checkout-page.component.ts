@@ -3,12 +3,13 @@ import { Component, ViewChild } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable, combineLatest, map } from 'rxjs';
 
-import { CartState } from '@app-shared/state/cart.reducer';
 import { InfoFormComponent } from '../../forms/info-form/info-form.component';
 import { setShippingMethod, submitInfoForm, updateStepperIndex } from '../../state/checkout.actions';
 import { CheckoutState } from '../../state/checkout.reducer';
-import { selectCart, selectCartSubTotal } from '@app-shared/state/cart.selectors';
 import { selectCheckout } from '../../state/checkout.selectors';
+
+import { CartState } from '@app-core/state/cart.reducer';
+import { selectCart, selectCartSubTotal } from '@app-core/state/cart.selectors';
 
 type State = {
   cart: CartState;

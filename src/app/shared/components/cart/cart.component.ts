@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
 import { trigger, transition, animate, style } from '@angular/animations';
+import { Router } from '@angular/router';
 
 import { Store, select } from '@ngrx/store';
 
 import { Observable } from 'rxjs';
 
-import { CartProduct, CartState } from '@app-shared/state/cart.reducer';
-import { removeItem, toggleCart, updateItem } from '@app-shared/state/cart.actions';
-import { Router } from '@angular/router';
-import { selectCart, selectCartSubTotal } from '../../state/cart.selectors';
+import { CartProduct, CartState } from '@app-core/state/cart.reducer';
+import { removeItem, toggleCart, updateItem } from '@app-core/state/cart.actions';
+import { selectCart, selectCartSubTotal } from '@app-core/state/cart.selectors';
 
 @Component({
   selector: 'cof-cart',
