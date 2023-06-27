@@ -11,6 +11,7 @@ import { map } from 'rxjs/operators';
 
 import { FilterType, ShopState } from '../../state/shop.reducer';
 import { filterBy, selectProduct } from '../../state/shop.actions';
+import { selectShopFilter } from '../../state/shop.selectors';
 
 @Component({
   selector: 'cof-shop-page',
@@ -24,7 +25,7 @@ export class ShopPageComponent {
   filteredProducts$!: Observable<Product[]>;
 
   constructor(private store: Store<{ shop: ShopState }>, private router: Router) {
-    this.filter$ = this.store.pipe(select((state) => state.shop.filter));
+    this.filter$ = this.store.pipe(select(selectShopFilter));
 
     this.filteredProducts$ = this.filter$.pipe(
       map((filter) => {

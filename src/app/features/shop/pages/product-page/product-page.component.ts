@@ -12,6 +12,7 @@ import { Product } from '@app-core/models/product';
 import { addItem, removeItem, toggleCart } from '@app-shared/state/cart.actions';
 import { CartState } from '@app-shared/state/cart.reducer';
 import { QuantityComponent } from '@app-shared/components/quantity/quantity.component';
+import { selectCartItems } from '@app-shared/state/cart.selectors';
 
 @Component({
   selector: 'cof-product-page',
@@ -37,14 +38,12 @@ export class ProductPageComponent implements OnInit {
         // Set product
         this.product = productId ? PRODUCTS.filter((p) => p.id === +productId!)[0] : undefined;
         // Get quantity
-        return this.store
-          .select((state) => state.cart.items)
-          .pipe(
-            map((cartProducts) => {
-              const cartProduct = productId ? cartProducts.filter((cartProd) => cartProd.id === +productId)[0] : null;
-              return cartProduct ? cartProduct.quantity.toString() : '1';
-            })
-          );
+        return this.store.select(selectCartItems).pipe(
+          map((cartProducts) => {
+            const cartProduct = productId ? cartProducts.filter((cartProd) => cartProd.id === +productId)[0] : null;
+            return cartProduct ? cartProduct.quantity.toString() : '1';
+          })
+        );
       })
     );
 
@@ -53,14 +52,12 @@ export class ProductPageComponent implements OnInit {
         // Get Product Id
         const productId = params.get('id');
         // Get quantity
-        return this.store
-          .select((state) => state.cart.items)
-          .pipe(
-            map((cartProducts) => {
-              const inCart = cartProducts.filter((cartProduct) => cartProduct.id === +productId!);
-              return inCart.length ? 'true' : 'false';
-            })
-          );
+        return this.store.select(selectCartItems).pipe(
+          map((cartProducts) => {
+            const inCart = cartProducts.filter((cartProduct) => cartProduct.id === +productId!);
+            return inCart.length ? 'true' : 'false';
+          })
+        );
       })
     );
   }

@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { CartState } from '../../state/cart.reducer';
 import { toggleCart } from '../../state/cart.actions';
 import { NavigationStart, Router } from '@angular/router';
+import { selectCartNumItems } from '@app-shared/state/cart.selectors';
 
 const noHeaderRoutes = ['/checkout'];
 
@@ -31,7 +32,7 @@ export class HeaderComponent {
     });
 
     // Set num products in cart
-    this.cartNumProducts$ = this.store.select((state) => state.cart.items.length);
+    this.cartNumProducts$ = this.store.select(selectCartNumItems);
   }
 
   // Toggle header transparency based on scroll pos

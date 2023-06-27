@@ -7,6 +7,8 @@ import { CartState } from '@app-shared/state/cart.reducer';
 import { InfoFormComponent } from '../../forms/info-form/info-form.component';
 import { setShippingMethod, submitInfoForm, updateStepperIndex } from '../../state/checkout.actions';
 import { CheckoutState } from '../../state/checkout.reducer';
+import { selectCart } from '@app-shared/state/cart.selectors';
+import { selectCheckout } from '../../state/checkout.selectors';
 
 type State = {
   cart: CartState;
@@ -28,8 +30,8 @@ export class CheckoutPageComponent {
   state$: Observable<State>;
 
   constructor(private store: Store<{ cart: CartState; checkout: CheckoutState }>) {
-    this.cartState$ = this.store.select((state) => state.cart);
-    this.checkoutState$ = this.store.select((state) => state.checkout);
+    this.cartState$ = this.store.select(selectCart);
+    this.checkoutState$ = this.store.select(selectCheckout);
 
     this.state$ = combineLatest([this.cartState$, this.checkoutState$]).pipe(
       map(([cart, checkout]) => ({ cart, checkout }))
