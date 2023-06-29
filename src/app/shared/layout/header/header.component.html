@@ -1,4 +1,4 @@
-<ng-container *ngIf="router$ | async">
+<ng-container *ngIf="routerState$ | async">
   <header class="header" [ngClass]="{ 'header--not-transparent': !isTransparent }" *ngIf="!isHidden">
     <div class="header__wrapper">
       <!-- Mobile Menu Btn -->

@@ -18,6 +18,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { SharedModule } from './shared/shared.module';
+import { StoreRouterConnectingModule, routerReducer } from '@ngrx/router-store';
 
 const ngIcons = { heroArrowRight, heroBars3, heroShoppingCart };
 
@@ -34,7 +35,8 @@ const metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncReducer];
     BrowserAnimationsModule,
     SharedModule,
     NgIconsModule.withIcons({ ...ngIcons }),
-    StoreModule.forRoot({ [rootKey]: cartReducer }, { metaReducers }),
+    StoreModule.forRoot({ [rootKey]: cartReducer, router: routerReducer }, { metaReducers }),
+    StoreRouterConnectingModule.forRoot(),
     StoreDevtoolsModule.instrument(),
   ],
   providers: [],
