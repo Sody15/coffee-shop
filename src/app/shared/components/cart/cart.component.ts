@@ -22,11 +22,9 @@ import { CartAndSubTotal, selectCartAndSubTotal } from '@app-core/state/cart.sel
   ],
 })
 export class CartComponent {
-  cartState$: Observable<CartAndSubTotal>;
+  cartState$: Observable<CartAndSubTotal> = this.store.pipe(select(selectCartAndSubTotal));
 
-  constructor(private store: Store<{ cart: CartState }>, private router: Router) {
-    this.cartState$ = this.store.pipe(select(selectCartAndSubTotal));
-  }
+  constructor(private store: Store<{ cart: CartState }>, private router: Router) {}
 
   onRemove(id: number) {
     this.store.dispatch(removeItem({ id }));

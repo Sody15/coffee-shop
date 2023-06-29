@@ -21,22 +21,19 @@ import { selectShopFilter } from '../../state/shop.selectors';
 export class ShopPageComponent {
   products = PRODUCTS;
 
-  filter$: Observable<FilterType>;
-  filteredProducts$!: Observable<Product[]>;
+  filter$: Observable<FilterType> = this.store.pipe(select(selectShopFilter));
 
-  constructor(private store: Store<{ shop: ShopState }>, private router: Router) {
-    this.filter$ = this.store.pipe(select(selectShopFilter));
+  filteredProducts$: Observable<Product[]> = this.filter$.pipe(
+    map((filter) => {
+      if (filter === 'all') {
+        return this.products;
+      } else {
+        return this.products.filter((product) => product.type === filter);
+      }
+    })
+  );
 
-    this.filteredProducts$ = this.filter$.pipe(
-      map((filter) => {
-        if (filter === 'all') {
-          return this.products;
-        } else {
-          return this.products.filter((product) => product.type === filter);
-        }
-      })
-    );
-  }
+  constructor(private store: Store<{ shop: ShopState }>, private router: Router) {}
 
   onFilterChange(filter: FilterType) {
     this.store.dispatch(filterBy({ filter }));

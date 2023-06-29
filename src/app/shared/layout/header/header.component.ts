@@ -2,7 +2,7 @@ import { Component, HostListener } from '@angular/core';
 import { NavigationStart, Router } from '@angular/router';
 
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 
 import { CartState } from '@app-core/state/cart.reducer';
 import { toggleCart } from '@app-core/state/cart.actions';
@@ -21,19 +21,19 @@ export class HeaderComponent {
   showCart = false;
   isMenuOpen = false;
 
-  cartNumProducts$!: Observable<number>;
-
-  constructor(private router: Router, private store: Store<{ cart: CartState }>) {
-    // Hide/show based on route
-    this.router.events.subscribe((event) => {
+  // Hide/show header based on route
+  router$: Observable<any> = this.router.events.pipe(
+    tap((event) => {
       if (event instanceof NavigationStart) {
         this.isHidden = noHeaderRoutes.includes(event.url);
       }
-    });
+    })
+  );
 
-    // Set num products in cart
-    this.cartNumProducts$ = this.store.select(selectCartNumItems);
-  }
+  // Set number of products in cart
+  cartNumProducts$: Observable<number> = this.store.select(selectCartNumItems);
+
+  constructor(private router: Router, private store: Store<{ cart: CartState }>) {}
 
   // Toggle header transparency based on scroll pos
   @HostListener('window:scroll', ['$event'])

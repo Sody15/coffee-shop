@@ -25,19 +25,14 @@ export class CheckoutPageComponent {
 
   promoCode = '';
 
-  cartState$: Observable<any>;
-  checkoutState$: Observable<CheckoutState>;
+  cartState$: Observable<any> = this.store.pipe(select(selectCartAndSubTotal));
+  checkoutState$: Observable<CheckoutState> = this.store.pipe(select(selectCheckout));
 
-  state$: Observable<State>;
+  state$: Observable<State> = combineLatest([this.cartState$, this.checkoutState$]).pipe(
+    map(([cart, checkout]) => ({ cart, checkout }))
+  );
 
-  constructor(private store: Store<{ cart: CartState; checkout: CheckoutState }>) {
-    this.cartState$ = this.store.pipe(select(selectCartAndSubTotal));
-    this.checkoutState$ = this.store.pipe(select(selectCheckout));
-
-    this.state$ = combineLatest([this.cartState$, this.checkoutState$]).pipe(
-      map(([cart, checkout]) => ({ cart, checkout }))
-    );
-  }
+  constructor(private store: Store<{ cart: CartState; checkout: CheckoutState }>) {}
 
   submitInfoForm(formValues: any) {
     this.store.dispatch(submitInfoForm({ info: formValues }));
