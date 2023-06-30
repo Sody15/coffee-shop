@@ -1,21 +1,21 @@
-<section class="product-section" *ngIf="quantity$ | async as qty">
-  <div class="product-page" *ngIf="product">
+<section class="product-section" *ngIf="productPageState$ | async as state">
+  <div class="product-page">
     <div
       class="product-page__upper"
-      [ngStyle]="{ 'background-color': product.color ? product.color : 'rgb(125, 178, 192)' }"
+      [ngStyle]="{ 'background-color': state.product.color ? state.product.color : 'rgb(125, 178, 192)' }"
     >
-      <div class="product-page__upper-container" style="position: relative" *ngIf="inCart$ | async as inCart">
+      <div class="product-page__upper-container" style="position: relative">
         <a routerLink="/shop"> <ng-icon class="arrow" name="heroArrowLeft"></ng-icon>Back</a>
-        <img [src]="'assets/images/' + product.imgSrc" />
+        <img [src]="'assets/images/' + state.product.imgSrc" />
         <div class="product-page__upper-container-right-col">
-          <h2>{{ product.name }}</h2>
-          <h3>{{ product.price | currency }} <span>excl. tax</span></h3>
+          <h2>{{ state.product.name }}</h2>
+          <h3>{{ state.product.price | currency }} <span>excl. tax</span></h3>
           <p>
-            {{ product.desc }}
+            {{ state.product.desc }}
           </p>
-          <cof-quantity [qty]="+qty" (onUpdateQty)="addToCart($event, inCart)"></cof-quantity>
-          <button type="button" (click)="addToCart()" [ngClass]="{ 'btn--incart': inCart === 'true' }">
-            {{ inCart === 'true' ? 'Added to Cart' : 'Add to Cart' }}
+          <cof-quantity [qty]="+state.qty" (onUpdateQty)="addToCart($event, state.inCart)"></cof-quantity>
+          <button type="button" (click)="addToCart()" [ngClass]="{ 'btn--incart': state.inCart === 'true' }">
+            {{ state.inCart === 'true' ? 'Added to Cart' : 'Add to Cart' }}
           </button>
         </div>
       </div>

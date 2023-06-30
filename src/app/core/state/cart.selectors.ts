@@ -1,5 +1,7 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { CartState } from './cart.reducer';
+import { selectRouteParam } from 'src/app/routing.selectors';
+import { PRODUCTS } from '@app-core/data';
 
 export const rootKey = 'cart';
 
@@ -23,3 +25,21 @@ export const selectCartAndSubTotal = createSelector(
     subTotal,
   })
 );
+
+export const selectProductPageView = createSelector(selectRouteParam('id'), selectCartItems, (productId, cartItems) => {
+  if (!productId) {
+    return null;
+  }
+
+  // Set Product
+  const product = PRODUCTS.filter((p) => p.id === +productId!)[0];
+
+  // Get quantity
+  const itemInCart = cartItems.filter((cartProd) => cartProd.id === +productId)[0];
+  const qty = itemInCart ? itemInCart.quantity.toString() : '1';
+
+  // Set inCart
+  const inCart = itemInCart ? 'true' : 'false';
+
+  return { product, qty, inCart };
+});

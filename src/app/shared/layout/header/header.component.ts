@@ -26,7 +26,6 @@ export class HeaderComponent {
   routerState$: Observable<any> = this.store.pipe(
     select(selectUrl),
     tap((url) => {
-      console.log(url);
       this.isHidden = noHeaderRoutes.includes(url);
     })
   );
