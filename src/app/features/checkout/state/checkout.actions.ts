@@ -1,13 +1,14 @@
-import { createAction, props } from '@ngrx/store';
+import { createActionGroup, props } from '@ngrx/store';
 
 import { Info } from './checkout.reducer';
 
-export const submitInfoForm = createAction('[Checkout Component] Submit Info Form', props<{ info: Info }>());
-export const updateStepperIndex = createAction(
-  '[Checkout Component] Update Stepper Index',
-  props<{ stepperIndex: number }>()
-);
-export const setShippingMethod = createAction(
-  '[Checkout Component] Set Shipping Method',
-  props<{ shippingMethodId: string }>()
-);
+const CheckoutActions = createActionGroup({
+  source: 'Checkout Component',
+  events: {
+    'Submit Info Form': props<{ info: Info }>(),
+    'Update Stepper Index': props<{ stepperIndex: number }>(),
+    'Set Shipping Method': props<{ shippingMethodId: string }>(),
+  },
+});
+
+export default CheckoutActions;

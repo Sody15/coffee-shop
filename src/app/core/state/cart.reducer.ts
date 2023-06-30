@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { addItem, removeItem, reset, toggleCart, updateItem } from './cart.actions';
+import { CartActions, HeaderActions } from './cart.actions';
 import { Product } from 'src/app/core/models/product';
 
 export interface CartProduct extends Omit<Product, 'desc'> {
@@ -19,7 +19,7 @@ const initialState: CartState = {
 
 export const cartReducer = createReducer(
   initialState,
-  on(addItem, (state, { item }) => {
+  on(CartActions.addItem, (state, { item }) => {
     // Check if item already exists in array
     const match = state.items.filter((i) => i.id === item.id);
 
@@ -58,7 +58,7 @@ export const cartReducer = createReducer(
       };
     }
   }),
-  on(updateItem, (state, { updatedItem }) => {
+  on(CartActions.updateItem, (state, { updatedItem }) => {
     const updatedItems = state.items.map((item) => {
       if (item.id === updatedItem.id) {
         return updatedItem;
@@ -67,10 +67,9 @@ export const cartReducer = createReducer(
     });
     return { ...state, items: [...updatedItems] };
   }),
-  on(removeItem, (state, { id }) => {
+  on(CartActions.removeItem, (state, { id }) => {
     const updatedItems = state.items.filter((item) => item.id !== id);
     return { ...state, items: [...updatedItems] };
   }),
-  on(reset, () => initialState),
-  on(toggleCart, (state) => ({ ...state, isOpen: !state.isOpen }))
+  on(HeaderActions.toggleCart, (state) => ({ ...state, isOpen: !state.isOpen }))
 );

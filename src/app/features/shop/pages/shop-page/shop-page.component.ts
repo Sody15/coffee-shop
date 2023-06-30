@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { FilterType, ShopState } from '../../state/shop.reducer';
-import { filterBy, selectProduct } from '../../state/shop.actions';
+import ShopActions from '../../state/shop.actions';
 import { selectShopFilter } from '../../state/shop.selectors';
 
 @Component({
@@ -36,11 +36,11 @@ export class ShopPageComponent {
   constructor(private store: Store<{ shop: ShopState }>, private router: Router) {}
 
   onFilterChange(filter: FilterType) {
-    this.store.dispatch(filterBy({ filter }));
+    this.store.dispatch(ShopActions.filterProducts({ filter }));
   }
 
   onProductSelect(productId: number) {
-    this.store.dispatch(selectProduct({ productId }));
+    this.store.dispatch(ShopActions.selectProduct({ productId }));
 
     this.router.navigate(['/shop/product', productId]);
   }

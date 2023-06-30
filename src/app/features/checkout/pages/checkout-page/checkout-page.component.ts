@@ -4,7 +4,7 @@ import { Store, select } from '@ngrx/store';
 import { Observable, combineLatest, map } from 'rxjs';
 
 import { InfoFormComponent } from '../../forms/info-form/info-form.component';
-import { setShippingMethod, submitInfoForm, updateStepperIndex } from '../../state/checkout.actions';
+import CheckoutActions from '../../state/checkout.actions';
 import { CheckoutState } from '../../state/checkout.reducer';
 import { selectCheckout } from '../../state/checkout.selectors';
 
@@ -35,15 +35,15 @@ export class CheckoutPageComponent {
   constructor(private store: Store<{ cart: CartState; checkout: CheckoutState }>) {}
 
   submitInfoForm(formValues: any) {
-    this.store.dispatch(submitInfoForm({ info: formValues }));
+    this.store.dispatch(CheckoutActions.submitInfoForm({ info: formValues }));
     this.updateStepperIndex(1);
   }
 
   updateStepperIndex(stepperIndex: number) {
-    this.store.dispatch(updateStepperIndex({ stepperIndex }));
+    this.store.dispatch(CheckoutActions.updateStepperIndex({ stepperIndex }));
   }
 
   updateShippingMethod(shippingMethodId: string) {
-    this.store.dispatch(setShippingMethod({ shippingMethodId }));
+    this.store.dispatch(CheckoutActions.setShippingMethod({ shippingMethodId }));
   }
 }

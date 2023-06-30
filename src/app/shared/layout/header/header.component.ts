@@ -4,7 +4,7 @@ import { Store, select } from '@ngrx/store';
 import { Observable, tap } from 'rxjs';
 
 import { CartState } from '@app-core/state/cart.reducer';
-import { toggleCart } from '@app-core/state/cart.actions';
+import { HeaderActions } from '@app-core/state/cart.actions';
 import { selectCartNumItems } from '@app-core/state/cart.selectors';
 import { selectUrl } from 'src/app/routing.selectors';
 import { RouterState } from '@ngrx/router-store';
@@ -46,6 +46,6 @@ export class HeaderComponent {
 
   // Toggle cart
   toggleCart() {
-    this.store.dispatch(toggleCart());
+    this.store.dispatch(HeaderActions.toggleCart());
   }
 }

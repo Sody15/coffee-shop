@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { setShippingMethod, submitInfoForm, updateStepperIndex } from './checkout.actions';
+import CheckoutActions from './checkout.actions';
 
 export type Info = {
   email: string;
@@ -45,13 +45,13 @@ const initialState: CheckoutState = {
 
 export const checkoutReducer = createReducer(
   initialState,
-  on(submitInfoForm, (state, { info }) => {
+  on(CheckoutActions.submitInfoForm, (state, { info }) => {
     return { ...state, info };
   }),
-  on(updateStepperIndex, (state, { stepperIndex }) => {
+  on(CheckoutActions.updateStepperIndex, (state, { stepperIndex }) => {
     return { ...state, stepperIndex };
   }),
-  on(setShippingMethod, (state, { shippingMethodId }) => {
+  on(CheckoutActions.setShippingMethod, (state, { shippingMethodId }) => {
     // Find shipping method by id
     const shippingMethod = shippingMethods.find((method) => method.id === shippingMethodId)!;
     return { ...state, shippingMethod };

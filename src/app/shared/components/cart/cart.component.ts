@@ -7,7 +7,7 @@ import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
 import { CartProduct, CartState } from '@app-core/state/cart.reducer';
-import { removeItem, toggleCart, updateItem } from '@app-core/state/cart.actions';
+import { CartActions, HeaderActions } from '@app-core/state/cart.actions';
 import { CartAndSubTotal, selectCartAndSubTotal } from '@app-core/state/cart.selectors';
 
 @Component({
@@ -27,23 +27,23 @@ export class CartComponent {
   constructor(private store: Store<{ cart: CartState }>, private router: Router) {}
 
   onRemove(id: number) {
-    this.store.dispatch(removeItem({ id }));
+    this.store.dispatch(CartActions.removeItem({ id }));
   }
 
   toggle() {
-    this.store.dispatch(toggleCart());
+    this.store.dispatch(HeaderActions.toggleCart());
   }
 
   updateQty(updatedQty: number, cartProduct: CartProduct) {
     // Remove item if qty is 0
     if (updatedQty === 0) {
-      this.store.dispatch(removeItem({ id: cartProduct.id }));
+      this.store.dispatch(CartActions.removeItem({ id: cartProduct.id }));
       return;
     }
 
     // Else- update qty and totalPrice
     const updatedItem = { ...cartProduct, quantity: updatedQty, totalPrice: cartProduct.price * updatedQty };
-    this.store.dispatch(updateItem({ updatedItem }));
+    this.store.dispatch(CartActions.updateItem({ updatedItem }));
   }
 
   onCheckout(numItemsInCart: number) {
