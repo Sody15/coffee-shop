@@ -23,8 +23,6 @@ type State = {
 export class CheckoutPageComponent {
   @ViewChild(InfoFormComponent, { static: false }) infoFormComponent!: InfoFormComponent;
 
-  promoCode = '';
-
   cartState$: Observable<any> = this.store.pipe(select(selectCartAndSubTotal));
   checkoutState$: Observable<CheckoutState> = this.store.pipe(select(selectCheckout));
 
@@ -45,5 +43,10 @@ export class CheckoutPageComponent {
 
   updateShippingMethod(shippingMethodId: string) {
     this.store.dispatch(CheckoutActions.setShippingMethod({ shippingMethodId }));
+  }
+
+  applyPromo(promoCode: string) {
+    console.log(promoCode);
+    this.store.dispatch(CheckoutActions.applyPromoCode({ promoCode }));
   }
 }

@@ -1,0 +1,22 @@
+<div class="payment">
+  <div class="payment__header">
+    <h3 class="payment__method-title">Shipping method</h3>
+    <form class="payment__container">
+      <!-- Radio Button Row -->
+      <div class="payment__row">
+        <cof-radio name="billing" value="same" [(ngModel)]="billing"><span>Same as shipping address</span> </cof-radio>
+      </div>
+      <div class="payment__row">
+        <cof-radio name="billing" value="different" [(ngModel)]="billing"
+          ><span>Use a different billing address</span>
+        </cof-radio>
+      </div>
+      <cof-info-form *ngIf="billing === 'different'"></cof-info-form>
+    </form>
+  </div>
+  <p>By clicking "Pay Now", you agree to Brewed Awakening's Terms of Use and Privacy Policy.</p>
+  <div class="payment__footer">
+    <button class="form-btn" type="button" (click)="onBack.emit()">Return to shipping</button>
+    <button class="form-btn" type="submit" (click)="onSubmit.emit()">Pay now</button>
+  </div>
+</div>

@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 import { usStates } from '../../checkout-constants';
 import { Info } from '../../state/checkout.reducer';
 
@@ -14,10 +15,7 @@ export class InfoFormComponent implements OnInit {
   form!: FormGroup;
   @Output() onSubmit = new EventEmitter<FormGroup>();
 
-  countryOptions = new Map<string, string>([
-    ['US', 'US'],
-    ['China', 'China'],
-  ]);
+  countryOptions = new Map<string, string>([['US', 'US']]);
   usStates = usStates;
 
   constructor(private formBuilder: FormBuilder) {}
@@ -38,10 +36,6 @@ export class InfoFormComponent implements OnInit {
       state: [this.info?.state || '', [Validators.required]],
       zip: [this.info?.zip || '', [Validators.required]],
       phone: [this.info?.phone || ''],
-    });
-
-    this.form.valueChanges.subscribe((value) => {
-      console.log(value);
     });
   }
 }

@@ -23,7 +23,7 @@
     margin: auto;
     display: flex;
     flex-direction: column;
-    @include mixins.respond-to('md') {
+    @include mixins.respond-to('lg') {
       display: grid;
       grid-template-columns: 1.4fr 1fr;
     }
@@ -35,8 +35,8 @@
     display: flex;
     flex-direction: column;
 
-    @include mixins.respond-to('md') {
-      padding-right: 2rem;
+    @include mixins.respond-to('lg') {
+      padding-right: 5rem;
       border-right: 1px solid black;
     }
 
@@ -63,9 +63,9 @@
 
   &__right {
     display: none;
-    padding: 0 2rem 2rem 2rem;
+    padding-left: 5rem;
 
-    @include mixins.respond-to('md') {
+    @include mixins.respond-to('lg') {
       display: block;
     }
 

@@ -14,8 +14,8 @@
           <cof-info-form [info]="state.checkout.info" (onSubmit)="submitInfoForm($event)"></cof-info-form>
         </ng-template>
         <ng-template>
+          <cof-review-block [info]="state.checkout.info"></cof-review-block>
           <cof-shipping-form
-            [info]="state.checkout.info!"
             [shippingMethodId]="state.checkout.shippingMethod.id"
             [subTotal]="state.cart.subTotal"
             (onBack)="updateStepperIndex(0)"
@@ -23,7 +23,18 @@
             (onSubmit)="updateStepperIndex(2)"
           ></cof-shipping-form>
         </ng-template>
-        <ng-template><div>Page 3</div></ng-template>
+        <ng-template
+          ><div>
+            <cof-review-block [info]="state.checkout.info"></cof-review-block>
+            <cof-payment-form
+              [info]="state.checkout.info!"
+              [shippingMethodId]="state.checkout.shippingMethod.id"
+              [subTotal]="state.cart.subTotal"
+              (onBack)="updateStepperIndex(1)"
+              (onShippingMethodIdUpdate)="updateShippingMethod($event)"
+              (onSubmit)="updateStepperIndex(2)"
+            ></cof-payment-form></div
+        ></ng-template>
       </cof-stepper>
     </div>
 
@@ -37,8 +48,20 @@
         </div>
       </div>
       <div class="checkout__right-promo">
-        <cof-text-box name="promo" placeholder="Gift card or discount code" [(ngModel)]="promoCode"></cof-text-box>
-        <button class="btn" type="button" [disabled]="true">Apply</button>
+        <cof-text-box
+          name="promo"
+          placeholder="Gift card or discount code"
+          [value]="state.checkout.promoCode"
+          #promoCode
+        ></cof-text-box>
+        <button
+          class="btn"
+          type="button"
+          [disabled]="promoCode.value.length === 0"
+          (click)="applyPromo(promoCode.value)"
+        >
+          Apply
+        </button>
       </div>
 
       <div class="checkout__right-shipping">

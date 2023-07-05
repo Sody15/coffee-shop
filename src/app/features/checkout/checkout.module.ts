@@ -15,6 +15,8 @@ import { StoreModule } from '@ngrx/store';
 import { checkoutReducer } from './state/checkout.reducer';
 import { ShippingFormComponent } from './forms/shipping-form/shipping-form.component';
 import { RadioComponent } from './components/radio/radio.component';
+import { PaymentFormComponent } from './forms/payment-form/payment-form.component';
+import { ReviewBlockComponent } from './components/review-block/review-block.component';
 
 const ngIcons = { heroChevronDown };
 
@@ -35,6 +37,8 @@ const ngIcons = { heroChevronDown };
     StepperComponent,
     ShippingFormComponent,
     RadioComponent,
+    PaymentFormComponent,
+    ReviewBlockComponent,
   ],
 })
 export class CheckoutModule {}

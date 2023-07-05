@@ -20,10 +20,10 @@ export class TextBoxComponent implements ControlValueAccessor {
   @Input() type: 'text' | 'number' = 'text';
   @Input() maxlength?: number;
 
-  value: string = '';
+  @Input() value: string = '';
 
   private onChange: any = (el: InputEvent) => {
-    this.showLabel = !!(el.target as HTMLInputElement).value.length;
+    this.showLabel = !!(el.target as HTMLInputElement)?.value.length;
   };
 
   private onTouched: any = () => {};

@@ -1,4 +1,5 @@
 import { Product } from './models/product';
+import { ShippingMethod } from './models/shipping-method';
 
 export const PRODUCTS: Product[] = [
   {
@@ -105,4 +106,12 @@ export const PRODUCTS: Product[] = [
     type: 'card',
     desc: 'We have been importing this Organic coffee direct from the cooperative Taramesa in the region of Sidama with our colleague from Roasters United for several years now. This coffee is very delicate, fruity with a fresh finish. It is very interesting also in light roast for V60, aeropress, etc. It is more on the blue fruits side than on the espresso roast. This coffee is organic certified by bio-inspecta.',
   },
+];
+
+export const shippingMethods: ShippingMethod[] = [
+  { id: '1', carrier: 'USPS', type: 'standard', name: 'Standard', rate: 0.1, isFree: true },
+  { id: '2', carrier: 'USPS', type: 'priority', name: 'USPS Priority Mail', rate: 0.12, isFree: true },
+  { id: '3', carrier: 'UPS', type: 'ground', name: 'UPS Ground', rate: 0.14, isFree: true },
+  { id: '4', carrier: 'UPS', type: '2nd day', name: 'UPS 2nd Day Air', rate: 0.16 },
+  { id: '5', carrier: 'UPS', type: 'next day', name: 'UPS Next Day Air', rate: 0.18 },
 ];

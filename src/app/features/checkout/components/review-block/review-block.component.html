@@ -1,0 +1,17 @@
+<div class="rv_block">
+  <div class="rv_block__row">
+    <div class="rv_block__label">Contact</div>
+    <div class="rv_block__value">{{ info?.email }}</div>
+    <button class="rv_block__btn" type="button" (click)="onStepperChange.emit(0)">Change</button>
+  </div>
+  <div class="rv_block__row">
+    <div class="rv_block__label">Ship to</div>
+    <div class="rv_block__value">{{ shipTo }}</div>
+    <button class="rv_block__btn" type="button" (click)="onStepperChange.emit(0)">Change</button>
+  </div>
+  <div class="rv_block__row">
+    <div class="rv_block__label">Method</div>
+    <div class="rv_block__value">{{ shipTo }}</div>
+    <button class="rv_block__btn" type="button" (click)="onStepperChange.emit(1)">Change</button>
+  </div>
+</div>

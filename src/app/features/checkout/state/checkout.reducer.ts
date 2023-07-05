@@ -1,5 +1,9 @@
 import { createReducer, on } from '@ngrx/store';
+
 import CheckoutActions from './checkout.actions';
+
+import { ShippingMethod } from '@app-core/models/shipping-method';
+import { shippingMethods } from '@app-core/data';
 
 export type Info = {
   email: string;
@@ -14,33 +18,25 @@ export type Info = {
   zip: string;
 };
 
-export type ShippingMethod = {
-  id: string;
+export type PaymentInfo = {
+  cardNumber: string;
   name: string;
-  carrier: 'USPS' | 'UPS';
-  type: 'standard' | 'priority' | 'ground' | '2nd day' | 'next day';
-  rate: number;
-  isFree?: boolean;
+  expDate: string;
+  securityCode: string;
 };
 
 export interface CheckoutState {
   info: Info | undefined;
   shippingMethod: ShippingMethod;
   stepperIndex: number;
+  promoCode: string;
 }
-
-export const shippingMethods: ShippingMethod[] = [
-  { id: '1', carrier: 'USPS', type: 'standard', name: 'Standard', rate: 0.1, isFree: true },
-  { id: '2', carrier: 'USPS', type: 'priority', name: 'USPS Priority Mail', rate: 0.12, isFree: true },
-  { id: '3', carrier: 'UPS', type: 'ground', name: 'UPS Ground', rate: 0.14, isFree: true },
-  { id: '4', carrier: 'UPS', type: '2nd day', name: 'UPS 2nd Day Air', rate: 0.16 },
-  { id: '5', carrier: 'UPS', type: 'next day', name: 'UPS Next Day Air', rate: 0.18 },
-];
 
 const initialState: CheckoutState = {
   info: undefined,
-  shippingMethod: { id: '1', carrier: 'USPS', type: 'standard', name: 'Standard', rate: 0.1, isFree: true },
+  shippingMethod: shippingMethods[0],
   stepperIndex: 0,
+  promoCode: '',
 };
 
 export const checkoutReducer = createReducer(
@@ -55,5 +51,8 @@ export const checkoutReducer = createReducer(
     // Find shipping method by id
     const shippingMethod = shippingMethods.find((method) => method.id === shippingMethodId)!;
     return { ...state, shippingMethod };
+  }),
+  on(CheckoutActions.applyPromoCode, (state, { promoCode }) => {
+    return { ...state, promoCode };
   })
 );
