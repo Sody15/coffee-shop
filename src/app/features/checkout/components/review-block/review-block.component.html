@@ -9,9 +9,15 @@
     <div class="rv_block__value">{{ shipTo }}</div>
     <button class="rv_block__btn" type="button" (click)="onStepperChange.emit(0)">Change</button>
   </div>
-  <div class="rv_block__row">
+  <div class="rv_block__row" *ngIf="shippingMethod">
     <div class="rv_block__label">Method</div>
-    <div class="rv_block__value">{{ shipTo }}</div>
+    <div class="rv_block__value">
+      {{ shippingMethod.name }} -
+      <b
+        ><ng-container *ngIf="shippingCost > 0; else free">{{ shippingCost | currency }}</ng-container
+        ><ng-template #free>Free</ng-template></b
+      >
+    </div>
     <button class="rv_block__btn" type="button" (click)="onStepperChange.emit(1)">Change</button>
   </div>
 </div>

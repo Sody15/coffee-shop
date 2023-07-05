@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 
 import { Store, select } from '@ngrx/store';
-import { Observable, combineLatest, map } from 'rxjs';
+import { Observable, combineLatest, map, tap } from 'rxjs';
 
 import { InfoFormComponent } from '../../forms/info-form/info-form.component';
 import CheckoutActions from '../../state/checkout.actions';
@@ -26,7 +26,12 @@ export class CheckoutPageComponent {
   cartState$: Observable<any> = this.store.pipe(select(selectCartAndSubTotal));
   checkoutState$: Observable<CheckoutState> = this.store.pipe(select(selectCheckout));
 
+  shippingCost: number = 0;
+
   state$: Observable<State> = combineLatest([this.cartState$, this.checkoutState$]).pipe(
+    tap(([cart, checkout]) => {
+      this.shippingCost = !checkout.shippingMethod.isFree ? checkout.shippingMethod.rate * cart.subTotal : 0;
+    }),
     map(([cart, checkout]) => ({ cart, checkout }))
   );
 

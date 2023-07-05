@@ -34,6 +34,7 @@
   &__left {
     display: flex;
     flex-direction: column;
+    padding-bottom: 5rem;
 
     @include mixins.respond-to('lg') {
       padding-right: 5rem;

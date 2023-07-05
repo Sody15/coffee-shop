@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Info } from '../../state/checkout.reducer';
+import { ShippingMethod } from '@app-core/models/shipping-method';
 
 @Component({
   selector: 'cof-review-block',
@@ -8,6 +9,8 @@ import { Info } from '../../state/checkout.reducer';
 })
 export class ReviewBlockComponent {
   @Input() info!: Info | undefined;
+  @Input() shippingMethod?: ShippingMethod;
+  @Input() shippingCost!: number;
 
   @Output() onStepperChange = new EventEmitter<number>();
 

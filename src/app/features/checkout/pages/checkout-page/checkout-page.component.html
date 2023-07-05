@@ -14,7 +14,7 @@
           <cof-info-form [info]="state.checkout.info" (onSubmit)="submitInfoForm($event)"></cof-info-form>
         </ng-template>
         <ng-template>
-          <cof-review-block [info]="state.checkout.info"></cof-review-block>
+          <cof-review-block [info]="state.checkout.info" [shippingCost]="shippingCost"></cof-review-block>
           <cof-shipping-form
             [shippingMethodId]="state.checkout.shippingMethod.id"
             [subTotal]="state.cart.subTotal"
@@ -25,7 +25,11 @@
         </ng-template>
         <ng-template
           ><div>
-            <cof-review-block [info]="state.checkout.info"></cof-review-block>
+            <cof-review-block
+              [info]="state.checkout.info"
+              [shippingMethod]="state.checkout.shippingMethod"
+              [shippingCost]="shippingCost"
+            ></cof-review-block>
             <cof-payment-form
               [info]="state.checkout.info!"
               [shippingMethodId]="state.checkout.shippingMethod.id"
@@ -71,12 +75,12 @@
         </div>
         <div class="shipping">
           <div class="shipping-label">Shipping</div>
-          <div class="shipping-val">Calculated at next step</div>
+          <div class="shipping-val">{{ shippingCost | currency }}</div>
         </div>
       </div>
       <div class="checkout__right-price">
         <div class="total-label">Total</div>
-        <div class="total-val"><span>USD</span>{{ state.cart.subTotal | currency }}</div>
+        <div class="total-val"><span>USD</span>{{ state.cart.subTotal + shippingCost | currency }}</div>
       </div>
     </div>
   </div>
