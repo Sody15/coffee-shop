@@ -14,7 +14,11 @@
           <cof-info-form [info]="state.checkout.info" (onSubmit)="submitInfoForm($event)"></cof-info-form>
         </ng-template>
         <ng-template>
-          <cof-review-block [info]="state.checkout.info" [shippingCost]="shippingCost"></cof-review-block>
+          <cof-review-block
+            [info]="state.checkout.info"
+            [shippingCost]="shippingCost"
+            (onStepperChange)="updateStepperIndex($event)"
+          ></cof-review-block>
           <cof-shipping-form
             [shippingMethodId]="state.checkout.shippingMethod.id"
             [subTotal]="state.cart.subTotal"
@@ -29,6 +33,7 @@
               [info]="state.checkout.info"
               [shippingMethod]="state.checkout.shippingMethod"
               [shippingCost]="shippingCost"
+              (onStepperChange)="updateStepperIndex($event)"
             ></cof-review-block>
             <cof-payment-form
               [info]="state.checkout.info!"
@@ -59,7 +64,7 @@
           #promoCode
         ></cof-text-box>
         <button
-          class="btn"
+          class="btn-form"
           type="button"
           [disabled]="promoCode.value.length === 0"
           (click)="applyPromo(promoCode.value)"

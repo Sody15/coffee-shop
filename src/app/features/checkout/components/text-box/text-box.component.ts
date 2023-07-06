@@ -18,7 +18,7 @@ export class TextBoxComponent implements ControlValueAccessor {
   @Input() name!: string;
   @Input() placeholder!: string;
   @Input() type: 'text' | 'number' = 'text';
-  @Input() maxlength?: number;
+  @Input() maxlength?: string = '100';
 
   @Input() value: string = '';
 

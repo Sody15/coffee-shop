@@ -1,8 +1,23 @@
-<div class="payment">
-  <div class="payment__header">
-    <h3 class="payment__method-title">Shipping method</h3>
-    <form class="payment__container">
-      <!-- Radio Button Row -->
+<form class="payment">
+  <!-- Payment info -->
+  <div class="payment__method">
+    <h3 class="payment__method-title">Payment</h3>
+    <p>All transactions are secure and encrypted.</p>
+    <div class="payment__container">
+      <div class="payment__container-header"><h4>Credit card</h4></div>
+      <div class="payment__container-content">
+        <cof-text-box placeholder="Card number" maxlength="16"></cof-text-box>
+        <cof-text-box placeholder="Name on card" maxlength="50"></cof-text-box>
+        <cof-text-box placeholder="Expiration date (MM / YY)" maxlength="5"></cof-text-box>
+        <cof-text-box placeholder="Security code" type="number"></cof-text-box>
+      </div>
+    </div>
+  </div>
+  <!-- Billing address -->
+  <div class="payment__billing">
+    <h3 class="payment__billing-title">Billing address</h3>
+    <p>Select the address that matches your card or payment method.</p>
+    <div class="payment__container">
       <div class="payment__row">
         <cof-radio name="billing" value="same" [(ngModel)]="billing"><span>Same as shipping address</span> </cof-radio>
       </div>
@@ -12,11 +27,12 @@
         </cof-radio>
       </div>
       <cof-info-form *ngIf="billing === 'different'"></cof-info-form>
-    </form>
+    </div>
+    <p>By clicking "Pay Now", you agree to Brewed Awakening's Terms of Use and Privacy Policy.</p>
   </div>
-  <p>By clicking "Pay Now", you agree to Brewed Awakening's Terms of Use and Privacy Policy.</p>
+  <!-- Footer -->
   <div class="payment__footer">
-    <button class="form-btn" type="button" (click)="onBack.emit()">Return to shipping</button>
-    <button class="form-btn" type="submit" (click)="onSubmit.emit()">Pay now</button>
+    <button class="btn-back" type="button" (click)="onBack.emit()">Return to shipping</button>
+    <button class="btn-form" type="submit" (click)="onSubmit.emit()">Pay now</button>
   </div>
-</div>
+</form>

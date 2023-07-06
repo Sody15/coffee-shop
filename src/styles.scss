@@ -46,6 +46,13 @@ h3 {
   line-height: 1.1;
 }
 
+h4 {
+  color: vars.$color-heading;
+  padding: 1rem 0;
+  font-size: 0.9rem;
+  line-height: 1.1;
+}
+
 p {
   padding: 0.3rem 0;
   font-size: 1rem;
@@ -67,16 +74,48 @@ select {
   outline: none;
 }
 
-.form-btn {
-  font-size: 0.8rem;
-  background-color: black;
-  font-weight: bold;
-  border-radius: 3px;
-  color: white;
-  padding: 1rem;
-  width: 100%;
-  &:disabled {
-    cursor: default;
-    opacity: 0.2;
+.btn {
+  &-form {
+    font-size: 0.8rem;
+    background-color: black;
+    font-weight: bold;
+    border-radius: 3px;
+    color: white;
+    padding: 1rem;
+    &:disabled {
+      cursor: default;
+      opacity: 0.2;
+    }
+  }
+  &-back {
+    font-size: 0.8rem;
+    border-radius: 3px;
+    color: black;
+    position: relative;
+    padding-left: 1.5rem;
+    &::before {
+      content: '';
+      width: 0.7rem;
+      height: 0.1rem;
+      transform: rotate(-45deg) translateY(-50%);
+      top: 1.55rem;
+      left: 0;
+      background-color: black;
+      position: absolute;
+    }
+    &::after {
+      content: '';
+      width: 0.7rem;
+      height: 0.1rem;
+      transform: rotate(45deg) translateY(-50%);
+      top: 2rem;
+      left: -0.05rem;
+      background-color: black;
+      position: absolute;
+    }
+    &:disabled {
+      cursor: default;
+      opacity: 0.2;
+    }
   }
 }
