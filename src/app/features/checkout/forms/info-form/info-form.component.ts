@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { usStates } from '../../checkout-constants';
+import { usStateNames } from '../../checkout-constants';
 import { Info } from '../../state/checkout.reducer';
 
 @Component({
@@ -16,7 +16,7 @@ export class InfoFormComponent implements OnInit {
   @Output() onSubmit = new EventEmitter<FormGroup>();
 
   countryOptions = new Map<string, string>([['US', 'US']]);
-  usStates = usStates;
+  usStates = usStateNames;
 
   constructor(private formBuilder: FormBuilder) {}
 
