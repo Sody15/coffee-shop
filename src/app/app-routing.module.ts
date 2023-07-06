@@ -7,6 +7,10 @@ const routes: Routes = [
   { path: '', loadChildren: () => import('./features/home/home.module').then((m) => m.HomeModule) },
   { path: 'shop', loadChildren: () => import('./features/shop/shop.module').then((m) => m.ShopModule) },
   {
+    path: 'subscription',
+    loadChildren: () => import('./features/subscription/subscription.module').then((m) => m.SubscriptionModule),
+  },
+  {
     path: 'checkout',
     loadChildren: () => import('./features/checkout/checkout.module').then((m) => m.CheckoutModule),
     canActivate: [checkoutGuard],

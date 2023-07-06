@@ -5,7 +5,7 @@
       [ngStyle]="{ 'background-color': state.product.color ? state.product.color : 'rgb(125, 178, 192)' }"
     >
       <div class="product-page__upper-container" style="position: relative">
-        <a routerLink="/shop"> <ng-icon class="arrow" name="heroArrowLeft"></ng-icon>Back</a>
+        <a routerLink="/shop"> <ng-icon class="arrow" name="heroArrowLeft"></ng-icon>Back to shop</a>
         <img [src]="'assets/images/' + state.product.imgSrc" />
         <div class="product-page__upper-container-right-col">
           <h2>{{ state.product.name }}</h2>

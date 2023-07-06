@@ -29,12 +29,12 @@
       background-size: contain;
       background-repeat: no-repeat;
       cursor: pointer;
-      width: 197px;
-      height: 38px;
+      width: 158px;
+      height: 30px;
       @include mixins.respond-to('lg') {
         flex: 1;
-        width: 246px;
-        height: 47px;
+        width: 197px;
+        height: 38px;
       }
     }
     &-menu {
@@ -100,11 +100,11 @@
         background: url('/assets/images/brand-black.svg');
         background-size: contain;
         background-repeat: no-repeat;
-        width: 197px;
-        height: 38px;
+        width: 158px;
+        height: 30px;
         @include mixins.respond-to('lg') {
-          width: 246px;
-          height: 47px;
+          width: 197px;
+          height: 38px;
         }
       }
       &-menu {
