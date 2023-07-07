@@ -1,5 +1,8 @@
 .accordion {
+  background-color: white;
   &__item {
+    position: relative;
+    overflow: hidden;
     &--open {
       .accordion__header-expand-btn::after {
         transform: translate(-50%, -50%) rotate(180deg);
@@ -10,11 +13,14 @@
     }
   }
   &__header {
+    position: inherit;
     cursor: pointer;
     display: flex;
     justify-content: space-between;
     padding: 1.5rem 0;
     font-weight: bold;
+    z-index: 20;
+    background-color: white;
     &-expand-btn {
       position: relative;
       height: 1.2rem;
@@ -43,6 +49,19 @@
     }
   }
   &__content {
+    z-index: 10;
     padding-bottom: 2rem;
+    overflow: hidden;
+    animation: expand 0.3s ease-in-out;
+    transform-origin: top;
+  }
+}
+
+@keyframes expand {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
   }
 }
