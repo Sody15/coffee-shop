@@ -4,7 +4,7 @@
 .sub {
   font-family: vars.$font-tertiary;
   &__img {
-    background: url('/assets/images/delivery-box.jpeg') center/cover no-repeat;
+    background: url('/assets/images/delivery-box.jpg') center/cover no-repeat;
     width: 100%;
     height: 70vh;
     min-height: 30rem;
@@ -135,11 +135,10 @@
       }
     }
     .sub-container {
-      padding: 0 10rem;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
 
       @include mixins.respond-to('lg') {
         flex-direction: row;
