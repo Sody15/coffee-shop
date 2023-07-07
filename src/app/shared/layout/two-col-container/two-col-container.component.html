@@ -11,6 +11,6 @@
     <div class="two-col__text-main">
       <ng-content></ng-content>
     </div>
-    <cof-button type="secondary" class="two-col__button">{{ btnText }}</cof-button>
+    <cof-button type="secondary" class="two-col__button" *ngIf="btnText">{{ btnText }}</cof-button>
   </div>
 </div>

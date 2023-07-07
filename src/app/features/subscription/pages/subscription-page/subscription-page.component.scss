@@ -1,12 +1,12 @@
 @use 'mixins' as mixins;
-@use 'variables' as variables;
+@use 'variables' as vars;
 
 .sub {
-  font-family: variables.$font-tertiary;
+  font-family: vars.$font-tertiary;
   &__img {
     background: url('/assets/images/delivery-box.jpeg') center/cover no-repeat;
     width: 100%;
-    height: 80vh;
+    height: 70vh;
     min-height: 30rem;
     position: relative;
     &-overlay {
@@ -55,16 +55,14 @@
     }
   }
   &__banner {
-    font-size: 1.6rem;
     display: flex;
     flex-direction: column;
-    min-height: 15rem;
+    min-height: 14rem;
     background-color: #1f1815;
     color: white;
     justify-items: center;
     align-items: center;
     gap: 4rem;
-    padding: 2rem 0;
     @include mixins.respond-to('md') {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -73,12 +71,16 @@
         width: 30%;
       }
     }
+
+    @include mixins.respond-to('lg') {
+      height: 30vh;
+    }
     &-header-txt {
       font-size: 2.3rem;
       align-self: flex-start;
       padding: 3rem 2rem;
       @include mixins.respond-to('md') {
-        font-size: 1.6rem;
+        font-size: 1.4rem;
         align-self: center;
       }
     }
@@ -93,24 +95,76 @@
       }
       &-number {
         font-size: 8rem;
-        left: -4rem;
-        top: 0;
+        left: -5rem;
+        top: 2rem;
+        color: vars.$color-primary;
 
         @include mixins.respond-to('lg') {
           position: absolute;
+          font-size: 10rem;
         }
       }
       &-header {
-        font-size: 1.6rem;
+        font-size: 1.4rem;
       }
       &-desc {
         font-size: 1rem;
         left: 0;
         top: 2.1rem;
+        line-height: 1;
         @include mixins.respond-to('lg') {
           position: absolute;
+          font-size: 0.8rem;
         }
       }
+    }
+  }
+  &__get-started {
+    padding: vars.$section-padding-top-bottom;
+    background-color: #e3ded7;
+    .header {
+      h4 {
+        text-align: center;
+        color: black;
+        text-transform: uppercase;
+        padding-bottom: 0;
+      }
+      h2 {
+        text-align: center;
+        font-size: 3rem;
+      }
+    }
+    .sub-container {
+      padding: 0 10rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+
+      @include mixins.respond-to('lg') {
+        flex-direction: row;
+      }
+    }
+  }
+  &__perks {
+    background-color: white;
+    ul {
+      padding-left: 1rem;
+      color: black;
+      li {
+        padding: 0.5rem 0;
+      }
+    }
+  }
+  &__faq {
+    padding: vars.$section-padding-full;
+    background-color: white;
+    h2 {
+      text-align: center;
+    }
+    &-accordion {
+      max-width: 50rem;
+      margin: auto;
     }
   }
 }

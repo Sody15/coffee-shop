@@ -1,0 +1,11 @@
+<div class="sub-card">
+  <div class="sub-card__img" [cofProductColor]="product">
+    <img src="{{ 'assets/images/' + product.imgSrc }}" />
+  </div>
+  <span class="sub-card__name">{{ product.name }}</span>
+  <p>{{ product.desc }}</p>
+  <div class="sub-card__bottom">
+    <span>{{ product.price | currency }}</span>
+    <button class="btn" type="button">Subscribe</button>
+  </div>
+</div>

@@ -1,7 +1,9 @@
 @use 'mixins' as mixins;
+@use 'variables' as vars;
 
 .home {
   &__content {
+    font-family: vars.$font-secondary;
     padding-top: 3rem;
     background-color: white;
     @include mixins.respond-to('lg') {

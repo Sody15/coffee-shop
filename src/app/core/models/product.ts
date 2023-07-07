@@ -8,4 +8,4 @@ export interface Product {
   color?: string;
 }
 
-export type ProductType = 'coffee' | 'card';
+export type ProductType = 'coffee' | 'card' | 'subscription';

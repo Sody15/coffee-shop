@@ -15,6 +15,8 @@
       </div>
     </div>
   </div>
+
+  <!-- Banner -->
   <div class="sub__banner">
     <span class="sub__banner-header-txt">How it Works</span>
     <div class="sub__banner-step">
@@ -37,6 +39,133 @@
         <div class="sub__banner-step-header">Enjoy All The Perks</div>
         <span>discounts, free shipping, and more!</span>
       </div>
+    </div>
+  </div>
+  <!-- Get Started -->
+  <div class="sub__get-started">
+    <div class="header">
+      <h4>Ready to get Started</h4>
+      <h2>Choose Your Coffee</h2>
+    </div>
+    <div class="sub-container">
+      <cof-subscription-card *ngFor="let sub of subProducts" [product]="sub"></cof-subscription-card>
+    </div>
+  </div>
+  <!-- Perk -->
+  <div class="sub__perks">
+    <cof-two-col-container
+      subHeader="AND, IF THAT WASN'T ENOUGH"
+      header="Perks of the Club"
+      imgSrc="assets/images/coffee-mug.jpg"
+    >
+      <ul>
+        <li>30% OFF your first order</li>
+        <li>Free shipping</li>
+        <li>Exclusive access to limited-release, small batch coffees</li>
+        <li>Early “pre-sale” access to special coffees and merch</li>
+        <li>Peace of mind (you’ll never run out of beans at home)</li>
+        <li>Freedom to add, update, pause, or cancel your subscription at any time</li>
+      </ul>
+    </cof-two-col-container>
+  </div>
+  <!-- FAQ -->
+  <div class="sub__faq">
+    <h2>FAQ</h2>
+    <div class="sub__faq-accordion">
+      <cof-accordion>
+        <cof-accordion-item title="Why subscribe?">
+          <ng-template cofAccordionContent>
+            <p>
+              At Stumptown, we're passionate about coffee, and we want to share that passion with you. With our coffee
+              subscription, you can enjoy fresh coffee delivered right to your door. We offer a range of subscription
+              options to fit your needs, so you'll never run out of your favorite coffee.
+            </p>
+            <p>
+              Our beans are carefully sourced and roasted to perfection, ensuring the highest quality and best taste
+              possible. We're committed to sustainability and transparency, so you can trust that you're getting the
+              best of the best.
+            </p>
+            <p>
+              As a subscriber to the Stumptown Coffee Club, you'll enjoy a range of perks, including free shipping,
+              discounts, and early access to exclusive product drops. Plus, you'll have the convenience of never having
+              to worry about running out of coffee again!
+            </p>
+            <p>
+              Browse our coffee subscription options and find the perfect fit for you. Subscribe today and start
+              enjoying the freshest coffee delivered right to your door.
+            </p>
+          </ng-template>
+        </cof-accordion-item>
+        <cof-accordion-item title="What is Roaster's Pick?">
+          <ng-template cofAccordionContent>
+            <p>
+              At Stumptown, we're passionate about coffee, and we want to share that passion with you. With our coffee
+              subscription, you can enjoy fresh coffee delivered right to your door. We offer a range of subscription
+              options to fit your needs, so you'll never run out of your favorite coffee.
+            </p>
+            <p>
+              Our beans are carefully sourced and roasted to perfection, ensuring the highest quality and best taste
+              possible. We're committed to sustainability and transparency, so you can trust that you're getting the
+              best of the best.
+            </p>
+            <p>
+              As a subscriber to the Stumptown Coffee Club, you'll enjoy a range of perks, including free shipping,
+              discounts, and early access to exclusive product drops. Plus, you'll have the convenience of never having
+              to worry about running out of coffee again!
+            </p>
+            <p>
+              Browse our coffee subscription options and find the perfect fit for you. Subscribe today and start
+              enjoying the freshest coffee delivered right to your door.
+            </p>
+          </ng-template>
+        </cof-accordion-item>
+        <cof-accordion-item title="What is Blend Shuffle?">
+          <ng-template cofAccordionContent>
+            <p>
+              At Stumptown, we're passionate about coffee, and we want to share that passion with you. With our coffee
+              subscription, you can enjoy fresh coffee delivered right to your door. We offer a range of subscription
+              options to fit your needs, so you'll never run out of your favorite coffee.
+            </p>
+            <p>
+              Our beans are carefully sourced and roasted to perfection, ensuring the highest quality and best taste
+              possible. We're committed to sustainability and transparency, so you can trust that you're getting the
+              best of the best.
+            </p>
+            <p>
+              As a subscriber to the Stumptown Coffee Club, you'll enjoy a range of perks, including free shipping,
+              discounts, and early access to exclusive product drops. Plus, you'll have the convenience of never having
+              to worry about running out of coffee again!
+            </p>
+            <p>
+              Browse our coffee subscription options and find the perfect fit for you. Subscribe today and start
+              enjoying the freshest coffee delivered right to your door.
+            </p>
+          </ng-template>
+        </cof-accordion-item>
+        <cof-accordion-item title="Can I make changes to my subscription?">
+          <ng-template cofAccordionContent>
+            <p>
+              At Stumptown, we're passionate about coffee, and we want to share that passion with you. With our coffee
+              subscription, you can enjoy fresh coffee delivered right to your door. We offer a range of subscription
+              options to fit your needs, so you'll never run out of your favorite coffee.
+            </p>
+            <p>
+              Our beans are carefully sourced and roasted to perfection, ensuring the highest quality and best taste
+              possible. We're committed to sustainability and transparency, so you can trust that you're getting the
+              best of the best.
+            </p>
+            <p>
+              As a subscriber to the Stumptown Coffee Club, you'll enjoy a range of perks, including free shipping,
+              discounts, and early access to exclusive product drops. Plus, you'll have the convenience of never having
+              to worry about running out of coffee again!
+            </p>
+            <p>
+              Browse our coffee subscription options and find the perfect fit for you. Subscribe today and start
+              enjoying the freshest coffee delivered right to your door.
+            </p>
+          </ng-template>
+        </cof-accordion-item>
+      </cof-accordion>
     </div>
   </div>
 </section>

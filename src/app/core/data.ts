@@ -106,7 +106,36 @@ export const PRODUCTS: Product[] = [
     type: 'card',
     desc: 'We have been importing this Organic coffee direct from the cooperative Taramesa in the region of Sidama with our colleague from Roasters United for several years now. This coffee is very delicate, fruity with a fresh finish. It is very interesting also in light roast for V60, aeropress, etc. It is more on the blue fruits side than on the espresso roast. This coffee is organic certified by bio-inspecta.',
   },
+  {
+    id: 13,
+    name: "Roaster's Pick",
+    price: 23,
+    imgSrc: 'coffee-bag-1.png',
+    type: 'subscription',
+    desc: 'Get the freshest, in-season single origin coffees, plus early access to our most exclusive coffee drops and microlots.',
+    color: '#8EB4CD',
+  },
+  {
+    id: 14,
+    name: 'Blend Shuffle',
+    price: 17,
+    imgSrc: 'coffee-bag-2.png',
+    type: 'subscription',
+    desc: 'Take a tour of our most iconic coffees with a rotation of our favorite blends.',
+    color: '#AB5F4C',
+  },
+  {
+    id: 15,
+    name: 'Dark Blend On Repeat',
+    price: 18,
+    imgSrc: 'coffee-bag-3.png',
+    type: 'subscription',
+    desc: 'So you like the dark side? We respect that. Get your favorite blend delivered on the regular so you never miss a beat. Or bean.',
+    color: '#CAD3DA',
+  },
 ];
+
+export const SUBSCRIPTION_PRODUCTS = PRODUCTS.filter((p) => p.type === 'subscription');
 
 export const shippingMethods: ShippingMethod[] = [
   { id: '1', carrier: 'USPS', type: 'standard', name: 'Standard', rate: 0.1, isFree: true },
