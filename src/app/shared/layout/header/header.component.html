@@ -1,33 +1,31 @@
-<ng-container *ngIf="routerState$ | async">
-  <header class="header" [ngClass]="{ 'header--not-transparent': !isTransparent }" *ngIf="!isHidden">
-    <div class="header__wrapper">
-      <!-- Mobile Menu Btn -->
-      <button class="header__wrapper-hamburger" (click)="mobileMenu.toggle()">
-        <ng-icon name="heroBars3"></ng-icon>
-      </button>
+<header class="header" [ngClass]="{ 'header--not-transparent': !isTransparent }">
+  <div class="header__wrapper">
+    <!-- Mobile Menu Btn -->
+    <button class="header__wrapper-hamburger" (click)="mobileMenu.toggle()">
+      <ng-icon name="heroBars3"></ng-icon>
+    </button>
 
-      <!-- Logo -->
-      <div class="header__wrapper-logo" routerLink="/"></div>
+    <!-- Logo -->
+    <div class="header__wrapper-logo" routerLink="/"></div>
 
-      <!-- Menu -->
-      <div class="header__wrapper-menu">
-        <nav>
-          <ul>
-            <li routerLink="/">who we are?</li>
-            <li routerLink="shop">shop</li>
-            <li routerLink="subscription">subscribe</li>
-          </ul>
-        </nav>
-      </div>
-
-      <!-- Cart -->
-      <div class="header__wrapper-cart" (click)="toggleCart(); showCart = !showCart">
-        <span class="header__wrapper-cart-num" *ngIf="cartNumProducts$ | async as numProducts">{{ numProducts }}</span>
-        <ng-icon class="header__wrapper-cart-btn" name="heroShoppingCart"></ng-icon>
-      </div>
+    <!-- Menu -->
+    <div class="header__wrapper-menu">
+      <nav>
+        <ul>
+          <li routerLink="/">who we are?</li>
+          <li routerLink="shop">shop</li>
+          <li routerLink="subscription">subscribe</li>
+        </ul>
+      </nav>
     </div>
-  </header>
 
-  <!-- Mobile Menu -->
-  <cof-mobile-menu #mobileMenu></cof-mobile-menu
-></ng-container>
+    <!-- Cart -->
+    <div class="header__wrapper-cart" (click)="toggleCart(); showCart = !showCart">
+      <span class="header__wrapper-cart-num" *ngIf="cartNumProducts$ | async as numProducts">{{ numProducts }}</span>
+      <ng-icon class="header__wrapper-cart-btn" name="heroShoppingCart"></ng-icon>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Menu -->
+<cof-mobile-menu #mobileMenu></cof-mobile-menu>

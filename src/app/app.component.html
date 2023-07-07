@@ -1,5 +1,5 @@
 <!-- Header -->
-<cof-header></cof-header>
+<cof-header *ngIf="!(hideHeaderFooter$ | async)"></cof-header>
 
 <!-- Cart -->
 <cof-cart></cof-cart>
@@ -10,4 +10,4 @@
 </main>
 
 <!-- Footer -->
-<cof-footer></cof-footer>
+<cof-footer *ngIf="!(hideHeaderFooter$ | async)"></cof-footer>
