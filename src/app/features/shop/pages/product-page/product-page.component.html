@@ -13,7 +13,11 @@
           <p>
             {{ state.product.desc }}
           </p>
-          <cof-quantity [qty]="+state.qty" (onUpdateQty)="addToCart($event, state.inCart)"></cof-quantity>
+          <cof-quantity
+            [qty]="+state.qty"
+            [disableIncrement]="state.product.type === 'subscription'"
+            (onUpdateQty)="addToCart($event, state.inCart)"
+          ></cof-quantity>
           <button type="button" (click)="addToCart()" [ngClass]="{ 'btn--incart': state.inCart === 'true' }">
             {{ state.inCart === 'true' ? 'Added to Cart' : 'Add to Cart' }}
           </button>

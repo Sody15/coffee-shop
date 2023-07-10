@@ -8,5 +8,12 @@
     <li class="p-filter__list-item" [ngClass]="{ active: filter === 'card' }" (click)="onSelect.emit('card')">
       Gift Cards
     </li>
+    <li
+      class="p-filter__list-item"
+      [ngClass]="{ active: filter === 'subscription' }"
+      (click)="onSelect.emit('subscription')"
+    >
+      Subscriptions
+    </li>
   </ul>
 </div>
