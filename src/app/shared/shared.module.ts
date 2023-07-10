@@ -5,6 +5,12 @@ import { RouterModule } from '@angular/router';
 
 import { NgIconsModule } from '@ng-icons/core';
 import { heroArrowLeft, heroArrowRight, heroBars3, heroShoppingCart, heroXMark } from '@ng-icons/heroicons/outline';
+import {
+  aspectsSocialInstagram,
+  aspectsSocialFacebook,
+  aspectsSocialTwitter,
+  aspectsSocialYoutube,
+} from '@ng-icons/ux-aspects';
 
 import { ButtonComponent } from './components/button/button.component';
 import { CartComponent } from './components/cart/cart.component';
@@ -19,7 +25,17 @@ import { AccordionComponent } from './components/accordion/accordion.component';
 import { AccordionContent } from './components/accordion/directives/accordion-content.directive';
 import { AccordionItem } from './components/accordion/directives/accordion-item.directive';
 
-const ngIcons = { heroArrowLeft, heroArrowRight, heroBars3, heroShoppingCart, heroXMark };
+const ngIcons = {
+  heroArrowLeft,
+  heroArrowRight,
+  heroBars3,
+  heroShoppingCart,
+  heroXMark,
+  aspectsSocialInstagram,
+  aspectsSocialFacebook,
+  aspectsSocialTwitter,
+  aspectsSocialYoutube,
+};
 
 @NgModule({
   declarations: [

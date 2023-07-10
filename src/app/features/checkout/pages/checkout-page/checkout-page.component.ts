@@ -51,7 +51,6 @@ export class CheckoutPageComponent {
   }
 
   applyPromo(promoCode: string) {
-    console.log(promoCode);
     this.store.dispatch(CheckoutActions.applyPromoCode({ promoCode }));
   }
 }

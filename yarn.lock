@@ -1552,6 +1552,13 @@
   dependencies:
     tslib "^2.2.0"
 
+"@ng-icons/ux-aspects@^25.1.0":
+  version "25.1.0"
+  resolved "https://registry.yarnpkg.com/@ng-icons/ux-aspects/-/ux-aspects-25.1.0.tgz#c729017ff77a220c3167f751fcf7723e93d53a73"
+  integrity sha512-k0I1hZNc5ODdGavrB57ORFXymYkKlDUTuJ+HBXVBWyPNuO/bgSS9Qu5HgLRMdG336NprNI6+GknQYg8kf3kNng==
+  dependencies:
+    tslib "^2.2.0"
+
 "@ngrx/router-store@^16.0.1":
   version "16.0.1"
   resolved "https://registry.yarnpkg.com/@ngrx/router-store/-/router-store-16.0.1.tgz#0267ab24389a2078e3e894a2ba275c5b2696ba65"

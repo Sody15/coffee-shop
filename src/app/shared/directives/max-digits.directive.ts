@@ -6,9 +6,7 @@ import { Directive, ElementRef, HostListener, Input } from '@angular/core';
 export class MaxDigitsDirective {
   @Input() maxDigits: number = 2;
 
-  constructor(private elementRef: ElementRef<HTMLInputElement>) {
-    console.log('called');
-  }
+  constructor(private elementRef: ElementRef<HTMLInputElement>) {}
 
   @HostListener('input', ['$event.target.value'])
   onInput(value: string) {

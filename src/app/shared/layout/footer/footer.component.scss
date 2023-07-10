@@ -71,15 +71,14 @@
     background-color: white;
     padding: 2rem;
     &-inner {
+      font-size: 1.2rem;
       margin: auto;
       max-width: 60rem;
       display: flex;
       justify-content: space-between;
+      align-items: center;
       > div {
         padding: 1rem;
-      }
-      :not(:last-child) {
-        border-right: 1px solid black;
       }
     }
   }
@@ -87,5 +86,14 @@
     background: url('/assets/images/brand-black.svg') center/contain no-repeat;
     width: 197px;
     height: 38px;
+  }
+  &__follow {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+    &-social {
+      display: flex;
+      gap: 0.5rem;
+    }
   }
 }
