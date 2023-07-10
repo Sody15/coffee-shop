@@ -52,7 +52,10 @@
       <div class="checkout__right-cart scrollbar">
         <div class="checkout__right-cart-product" *ngFor="let cartProduct of state.cart.items">
           <img [src]="'assets/images/' + cartProduct.imgSrc" alt="" />
-          <span class="checkout__right-cart-product-name">{{ cartProduct.name }}</span>
+          <div class="checkout__right-cart-product-name-qty">
+            <span class="checkout__right-cart-product-name">{{ cartProduct.name }}</span>
+            <span class="checkout__right-cart-product-qty">x{{ cartProduct.quantity }}</span>
+          </div>
           <span class="checkout__right-cart-product-price">{{ cartProduct.price | currency }}</span>
         </div>
       </div>

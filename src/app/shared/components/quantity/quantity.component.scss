@@ -37,6 +37,10 @@
     &-add {
       right: -1rem;
       top: 0.2rem;
+      &:disabled {
+        opacity: 0.2;
+        cursor: default;
+      }
     }
   }
 }

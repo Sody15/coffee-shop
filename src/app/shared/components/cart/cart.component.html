@@ -14,7 +14,11 @@
             <div class="product__details">
               <div class="product__details-name">{{ product.name }}</div>
               <div class="product__details-price">{{ product.price | currency }}</div>
-              <cof-quantity [qty]="product.quantity" (onUpdateQty)="updateQty($event, product)"></cof-quantity>
+              <cof-quantity
+                [qty]="product.quantity"
+                [disableIncrement]="product.type === 'subscription'"
+                (onUpdateQty)="updateQty($event, product)"
+              ></cof-quantity>
             </div>
           </div>
         </ng-container>

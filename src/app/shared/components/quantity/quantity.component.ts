@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { ProductType } from '@app-core/models/product';
 
 @Component({
   selector: 'cof-quantity',
@@ -7,6 +8,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class QuantityComponent {
   @Input() qty: number = 1;
+  @Input() disableIncrement: boolean = false;
 
   @Output() onUpdateQty = new EventEmitter<number>();
 

@@ -10,6 +10,6 @@
       [(ngModel)]="qty"
       (ngModelChange)="qty ? onUpdateQty.emit(qty) : null"
     />
-    <button class="qty__clicker-add" type="button" (click)="increment()">+</button>
+    <button [disabled]="disableIncrement" class="qty__clicker-add" type="button" (click)="increment()">+</button>
   </div>
 </div>

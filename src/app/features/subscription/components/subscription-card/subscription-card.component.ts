@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Product } from '@app-core/models/product';
 
 @Component({
@@ -8,4 +8,5 @@ import { Product } from '@app-core/models/product';
 })
 export class SubscriptionCardComponent {
   @Input() product!: Product;
+  @Output() onAdd = new EventEmitter();
 }

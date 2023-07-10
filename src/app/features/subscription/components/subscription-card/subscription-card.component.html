@@ -6,6 +6,6 @@
   <p>{{ product.desc }}</p>
   <div class="sub-card__bottom">
     <span>{{ product.price | currency }}</span>
-    <button class="btn" type="button">Subscribe</button>
+    <button class="btn" type="button" (click)="onAdd.emit(product)">Subscribe</button>
   </div>
 </div>
