@@ -20,6 +20,8 @@
     gap: 0.1rem;
     list-style: none;
     flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 
     @include mixins.respond-to('md') {
       gap: 2rem;
