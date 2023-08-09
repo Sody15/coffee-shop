@@ -77,6 +77,9 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
       > div {
         padding: 1rem;
       }
